@@ -4,6 +4,9 @@ title: "테스트"
 subtitle: "테스트"
 date: 2017-10-31 10:45:13 -0400
 background: '/img/posts/06.jpg'
+sitemap :
+changefreq : daily
+priority : 1.0
 ---
 
 이것은 헤더

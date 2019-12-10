@@ -1,4 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-12-10T16:40:45+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Tech</title><subtitle>알아가는걸 좋아하는 주니어 개발자</subtitle><author><name>jokerLdg</name></author><entry><title type="html">테스트</title><link href="http://localhost:4000/2017/10/31/man-must-explore.html" rel="alternate" type="text/html" title="테스트" /><published>2017-10-31T23:45:13+09:00</published><updated>2017-10-31T23:45:13+09:00</updated><id>http://localhost:4000/2017/10/31/man-must-explore</id><content type="html" xml:base="http://localhost:4000/2017/10/31/man-must-explore.html">&lt;h1 id=&quot;이것은-헤더&quot;&gt;이것은 헤더&lt;/h1&gt;
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tech</title>
+    <description>알아가는걸 좋아하는 주니어 개발자</description>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Tue, 10 Dec 2019 17:21:02 +0900</pubDate>
+    <lastBuildDate>Tue, 10 Dec 2019 17:21:02 +0900</lastBuildDate>
+    <generator>Jekyll v3.8.6</generator>
+    
+      <item>
+        <title>테스트</title>
+        <description>&lt;h1 id=&quot;이것은-헤더&quot;&gt;이것은 헤더&lt;/h1&gt;
 
 &lt;h2 id=&quot;이것은-서브-헤더&quot;&gt;이것은 서브 헤더&lt;/h2&gt;
 
@@ -26,4 +39,14 @@
 &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
 	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>jokerLdg</name></author><summary type="html">이것은 헤더</summary></entry></feed>
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</description>
+        <pubDate>Tue, 31 Oct 2017 23:45:13 +0900</pubDate>
+        <link>http://localhost:4000/2017/10/31/man-must-explore.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/10/31/man-must-explore.html</guid>
+        
+        
+      </item>
+    
+  </channel>
+</rss>
