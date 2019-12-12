@@ -1,2 +1,13 @@
-#navbarResponsive li ul { background: rgb(120,120,120); display:none; height:auto; padding:0px; margin:0px; border:0px; position:absolute; width:200px; z-index:200; }
+#navbarResponsive li ul { background: rgb(255,255,255); display:none; height:auto; padding:0px; margin:0px; border:0px; position:absolute; width:200px; z-index:200; }
 #navbarResponsive li:hover ul { display:block; }
+.btn-primary { background-color:#5A5A5A !important; border-color:#5A5A5A !important; }
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active { background-color:#717171 !important; border-color:#717171 !important;  }
+#mainNav {background-color: #fff}
+#mainNav .navbar-brand {color: #000;}
+#mainNav .navbar-nav > li.nav-item > a {color: #000;}
+#mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {color:#0085A1;}
+#mainNav .navbar-nav > li.nav-item > a:focus, #mainNav .navbar-nav > li.nav-item > a:hover { color:#0085A1; }
+.category-link:focus, .category-link:hover { background: #94CCD7; }
+.category-link.active { background: #94CCD7; color:#0085A1 !important;}
+pre {padding : 8px 12px; over}
+h3.post-subtitle {font-size: 1.2rem;}
