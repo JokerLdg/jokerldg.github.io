@@ -5,46 +5,97 @@
     <description>알아가는걸 좋아하는 주니어 개발자</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 10 Dec 2019 17:31:34 +0900</pubDate>
-    <lastBuildDate>Tue, 10 Dec 2019 17:31:34 +0900</lastBuildDate>
+    <pubDate>Thu, 12 Dec 2019 15:50:44 +0900</pubDate>
+    <lastBuildDate>Thu, 12 Dec 2019 15:50:44 +0900</lastBuildDate>
     <generator>Jekyll v3.8.6</generator>
     
       <item>
-        <title>테스트</title>
-        <description>&lt;h1 id=&quot;이것은-헤더&quot;&gt;이것은 헤더&lt;/h1&gt;
-
-&lt;h2 id=&quot;이것은-서브-헤더&quot;&gt;이것은 서브 헤더&lt;/h2&gt;
-
-&lt;p&gt;본문…&lt;/p&gt;
-
-&lt;p&gt;test&lt;/p&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;syntaxHighlight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-   &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;haroo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;press&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-   &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;haroo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;language-c++ highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;iostream&amp;gt;
-&lt;/span&gt;
-&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+        <title>별 찍는 알고리즘6</title>
+        <description>
 </description>
-        <pubDate>Tue, 31 Oct 2017 23:45:13 +0900</pubDate>
-        <link>http://localhost:4000/2017/10/31/man-must-explore.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2017/10/31/man-must-explore.html</guid>
+        <pubDate>Thu, 12 Dec 2019 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/algorithm/2019/12/12/algo6.html</link>
+        <guid isPermaLink="true">http://localhost:4000/algorithm/2019/12/12/algo6.html</guid>
         
+        <category>Algorithm</category>
+        
+        
+        <category>Algorithm</category>
+        
+      </item>
+    
+      <item>
+        <title>별 찍는 알고리즘5</title>
+        <description>
+</description>
+        <pubDate>Thu, 12 Dec 2019 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/algorithm/2019/12/12/algo5.html</link>
+        <guid isPermaLink="true">http://localhost:4000/algorithm/2019/12/12/algo5.html</guid>
+        
+        <category>Algorithm</category>
+        
+        
+        <category>Algorithm</category>
+        
+      </item>
+    
+      <item>
+        <title>별 찍는 알고리즘4</title>
+        <description>
+</description>
+        <pubDate>Thu, 12 Dec 2019 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/algorithm/2019/12/12/algo4.html</link>
+        <guid isPermaLink="true">http://localhost:4000/algorithm/2019/12/12/algo4.html</guid>
+        
+        <category>Algorithm</category>
+        
+        
+        <category>Algorithm</category>
+        
+      </item>
+    
+      <item>
+        <title>별 찍는 알고리즘3</title>
+        <description>
+</description>
+        <pubDate>Thu, 12 Dec 2019 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/algorithm/2019/12/12/algo3.html</link>
+        <guid isPermaLink="true">http://localhost:4000/algorithm/2019/12/12/algo3.html</guid>
+        
+        <category>Algorithm</category>
+        
+        
+        <category>Algorithm</category>
+        
+      </item>
+    
+      <item>
+        <title>별 찍는 알고리즘2</title>
+        <description>
+</description>
+        <pubDate>Thu, 12 Dec 2019 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/algorithm/2019/12/12/algo2.html</link>
+        <guid isPermaLink="true">http://localhost:4000/algorithm/2019/12/12/algo2.html</guid>
+        
+        <category>Algorithm</category>
+        
+        
+        <category>Algorithm</category>
+        
+      </item>
+    
+      <item>
+        <title>별 찍는 알고리즘</title>
+        <description>
+</description>
+        <pubDate>Thu, 12 Dec 2019 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/algorithm/2019/12/12/algo1.html</link>
+        <guid isPermaLink="true">http://localhost:4000/algorithm/2019/12/12/algo1.html</guid>
+        
+        <category>Algorithm</category>
+        
+        
+        <category>Algorithm</category>
         
       </item>
     

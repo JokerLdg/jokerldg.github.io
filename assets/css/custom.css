@@ -1,0 +1,2 @@
+#navbarResponsive li ul { background: rgb(120,120,120); display:none; height:auto; padding:0px; margin:0px; border:0px; position:absolute; width:200px; z-index:200; }
+#navbarResponsive li:hover ul { display:block; }

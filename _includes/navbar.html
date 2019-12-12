@@ -14,9 +14,20 @@
         <li class="nav-item">
           <a class="nav-link" href="{{"/about" | relative_url }}">About</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{ "/posts" | relative_url }}">Posts</a>
-        </li>
+		<li class="nav-item"><a class="nav-link">Category</a>
+			<ul class="navbar-nav ml-auto">
+			{% assign pages_list = site.pages %}
+			{% for node in pages_list %}
+			  {% if node.title != null %}
+				{% if node.layout == "category" %}				
+					<li class="nav-item">
+						<a class="nav-link category-link {% if page.url == node.url %} active{% endif %}" href="{{ site.baseurl }}{{ node.url }}">{{ node.title }}</a>
+					</li>
+				{% endif %}
+			  {% endif %}
+			{% endfor %}
+			</ul>
+		</li>
       </ul>
     </div>
   </div>
