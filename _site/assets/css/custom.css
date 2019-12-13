@@ -2,7 +2,7 @@
 #navbarResponsive li:hover ul { display:block; }
 .btn-primary { background-color:#5A5A5A !important; border-color:#5A5A5A !important; }
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active { background-color:#717171 !important; border-color:#717171 !important;  }
-#mainNav {background-color: #fff}
+#mainNav {background-color: #fff; position:fixed; border-bottom: 1px solid #eeeeee;}
 #mainNav .navbar-brand {color: #000;}
 #mainNav .navbar-nav > li.nav-item > a {color: #000;}
 #mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {color:#0085A1;}
@@ -10,4 +10,6 @@
 .category-link:focus, .category-link:hover { background: #94CCD7; }
 .category-link.active { background: #94CCD7; color:#0085A1 !important;}
 pre {padding : 8px 12px; over}
-h3.post-subtitle {font-size: 1.2rem;}
+h3.post-subtitle { font-size: 1.2rem; }
+#mainNav.is-visible { -webkit-transform:none; -moz-transform:none; -ms-transform:none; -o-transform:none; transform:none; }
+#mainNav.is-fixed { border-bottom: 1px solid #eeeeee; top: 0px; -webkit-transition:none; -moz-transition:none; -ms-transition:none; -o-transition:none; transition:none; background-color:#fff; }
