@@ -13,3 +13,5 @@ pre {padding : 8px 12px; over}
 h3.post-subtitle { font-size: 1.2rem; }
 #mainNav.is-visible { -webkit-transform:none; -moz-transform:none; -ms-transform:none; -o-transform:none; transform:none; }
 #mainNav.is-fixed { border-bottom: 1px solid #eeeeee; top: 0px; -webkit-transition:none; -moz-transition:none; -ms-transition:none; -o-transition:none; transition:none; background-color:#fff; }
+#div_container_about { font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;}
+
