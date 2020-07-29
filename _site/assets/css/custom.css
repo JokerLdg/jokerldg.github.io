@@ -9,9 +9,11 @@
 #mainNav .navbar-nav > li.nav-item > a:focus, #mainNav .navbar-nav > li.nav-item > a:hover { color:#0085A1; }
 .category-link:focus, .category-link:hover { background: #94CCD7; }
 .category-link.active { background: #94CCD7; color:#0085A1 !important;}
-pre {padding : 8px 12px; over}
+pre {padding : 8px 12px; }
+pre > code { -moz-tab-size: 4; -o-tab-size: 4; -webkit-tab-size: 4; tab-size: 4; }
 h3.post-subtitle { font-size: 1.2rem; }
 #mainNav.is-visible { -webkit-transform:none; -moz-transform:none; -ms-transform:none; -o-transform:none; transform:none; }
 #mainNav.is-fixed { border-bottom: 1px solid #eeeeee; top: 0px; -webkit-transition:none; -moz-transition:none; -ms-transition:none; -o-transition:none; transition:none; background-color:#fff; }
-#div_container_about { font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;}
-
+#div_container_about, #div_container_post{ font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;}
+#div_container_post h2{border-bottom: 1px solid rgb(234, 236, 239);}
+blockquote {color:#666; border-left: 4px solid #b3b3b3; padding-left: 15px;}

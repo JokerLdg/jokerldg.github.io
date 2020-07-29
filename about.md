@@ -7,4 +7,3 @@ title: About
 <hr>
 ## Contact
 * E-mail : dg600123@gmail.com
-
