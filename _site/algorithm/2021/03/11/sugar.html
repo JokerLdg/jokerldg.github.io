@@ -8,11 +8,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <title>
-    블랙잭 알고리즘 - Tech
+    백준 2839번 설탕 배달 Python - Tech
     
   </title>
 
-  <meta name="description" content="```c++ #include using namespace std;">
+  <meta name="description" content="문제 상근이는 요즘 설탕공장에서 설탕을 배달하고 있다. 상근이는 지금 사탕가게에 설탕을 정확하게 N킬로그램을 배달해야 한다. 설탕공장에서 만드는 설탕은 봉지에 담겨져 있다. 봉지는 3킬로그램 봉지와 5킬로그램 봉지가 있다.">
   <!-- google 웹마스터 -->
   <meta name="google-site-verification" content="1M5pUHiID88fUVGyUOZvd5xyyGEcU37L6sdv7fkh8xg" />
   <!-- //google 웹마스터 -->
@@ -25,7 +25,7 @@
   <link rel="stylesheet" href="/assets/vendor/fontawesome-free/css/all.min.css">
 
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="canonical" href="http://localhost:4000/algorithm/2020/02/12/blackjack.html">
+  <link rel="canonical" href="http://localhost:4000/algorithm/2021/03/11/sugar.html">
   <link rel="alternate" type="application/rss+xml" title="Tech" href="/feed.xml">
   <link rel="stylesheet" href="/assets/css/syntax.css">
   <link rel="stylesheet" href="/assets/css/custom.css">
@@ -120,11 +120,11 @@
     <div class="overlay" style="background-color:#fff !important"></div>
     <div class="container">
       <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="col-lg-10 col-md-10 mx-auto">
           <div class="post-heading" style="padding:80px 0; color:#000 !important;">
-            <h1 style="font-size:40px !important;">블랙잭 알고리즘</h1>
+            <h1 style="font-size:40px !important;">백준 2839번 설탕 배달 Python</h1>
             <h2 class="subheading" style="font-size:22px !important; color:#868e96 !important;">
-				February 12, 2020
+				March 11, 2021
 			</h2>
           </div>
         </div>
@@ -134,18 +134,49 @@
 
   <div id="div_container_post" class="container">
     <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
+      <div class="col-lg-10 col-md-10 mx-auto">
 
-        <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;iostream&gt; 
-</span> 
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+        <h3 id="문제">문제</h3>
+<p>상근이는 요즘 설탕공장에서 설탕을 배달하고 있다. 상근이는 지금 사탕가게에 설탕을 정확하게 N킬로그램을 배달해야 한다. 설탕공장에서 만드는 설탕은 봉지에 담겨져 있다. <strong><u>봉지는 3킬로그램 봉지와 5킬로그램 봉지가 있다.</u></strong></p>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-	<span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
-	<span class="kt">int</span> <span class="n">b</span><span class="p">;</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span> 
-<span class="p">}</span>
+<p>상근이는 귀찮기 때문에, 최대한 적은 봉지를 들고 가려고 한다. 예를 들어, 18킬로그램 설탕을 배달해야 할 때, 3킬로그램 봉지 6개를 가져가도 되지만, 5킬로그램 3개와 3킬로그램 1개를 배달하면, 더 적은 개수의 봉지를 배달할 수 있다.</p>
 
+<p><strong><u>상근이가 설탕을 정확하게 N킬로그램 배달해야 할 때, 봉지 몇 개를 가져가면 되는지 그 수를 구하는 프로그램을 작성하시오.</u></strong></p>
+
+<h3 id="입력">입력</h3>
+<p>첫째 줄에 N이 주어진다. <em>(3 ≤ N ≤ 5000)</em></p>
+
+<h3 id="출력">출력</h3>
+<p><strong><u>상근이가 배달하는 봉지의 최소 개수를 출력한다. 만약, 정확하게 N킬로그램을 만들 수 없다면 -1을 출력한다.</u></strong></p>
+
+<h3 id="문제풀이">문제풀이</h3>
+<p>이 문제는 설탕을 정확하게 N킬로그램을 배달해야 할 때, 최소 봉지 개수를 구하는 문제이다.</p>
+<ul>
+  <li>방법은 다음과 같다.
+    <ul>
+      <li>설탕 무게를 5로 나눴을때 나머지가 0인경우 count에 설탕 무게 / 5의 몫을 더해준뒤 종료된다.</li>
+      <li>나머지가 0이 아닌경우 설탕의 무게에서 3을 뺀후 count를 증가시켜준다.</li>
+      <li>설탕 무게를 빼다 보면 정상적인 경우 0이 나오게 되어 종료된다.</li>
+      <li>만약 설탕 무게를 빼다가 0이 아닌 음수가 나오게 되면 정확히 나눌수 없으므로 -1을 출력한다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="코드">코드</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sugar</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">sugar</span> <span class="o">%</span> <span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="n">count</span> <span class="o">+</span> <span class="p">(</span><span class="n">sugar</span><span class="o">//</span><span class="mi">5</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+        <span class="k">break</span>
+    <span class="n">sugar</span> <span class="o">=</span> <span class="n">sugar</span><span class="o">-</span><span class="mi">3</span>
+    <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">if</span> <span class="n">sugar</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"-1"</span><span class="p">)</span>
+        <span class="k">break</span>
 </code></pre></div></div>
 
 
@@ -211,7 +242,7 @@
           </li>
           
         </ul>
-        <p class="copyright text-muted">Copyright &copy; jokerLdg 2020</p>
+        <p class="copyright text-muted">Copyright &copy; jokerLdg 2021</p>
       </div>
     </div>
   </div>
