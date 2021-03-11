@@ -17,3 +17,5 @@ h3.post-subtitle { font-size: 1.2rem; }
 #div_container_about, #div_container_post{ font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;}
 #div_container_post h2{border-bottom: 1px solid rgb(234, 236, 239);}
 blockquote {color:#666; border-left: 4px solid #b3b3b3; padding-left: 15px;}
+h3 {margin-top: 60px;}
+.row li a {text-decoration:underline; font-weight: 600; color:mediumslateblue;}
