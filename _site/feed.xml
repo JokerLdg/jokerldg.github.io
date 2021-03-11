@@ -5,12 +5,12 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 11 Mar 2021 22:38:25 +0900</pubDate>
-    <lastBuildDate>Thu, 11 Mar 2021 22:38:25 +0900</lastBuildDate>
+    <pubDate>Thu, 11 Mar 2021 23:19:16 +0900</pubDate>
+    <lastBuildDate>Thu, 11 Mar 2021 23:19:16 +0900</lastBuildDate>
     <generator>Jekyll v3.8.7</generator>
     
       <item>
-        <title>백준 2839번 설탕 배달 Python</title>
+        <title>백준 2839번 설탕 배달 (python 파이썬)</title>
         <description>&lt;p&gt;백준 2839번 설탕 배달 문제를 Python으로 해결하였다.&lt;/p&gt;
 
 &lt;ul&gt;
@@ -68,7 +68,71 @@
       </item>
     
       <item>
-        <title>백준 11047번 동전 0 Python</title>
+        <title>백준 1931번 회의실 배정 (python 파이썬)</title>
+        <description>&lt;p&gt;백준 1931번 회의실 배정 문제를 Python으로 해결한 문제이다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/1931&quot; target=&quot;_blank&quot;&gt;백준 1931번 회의실 배정 문제 링크&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;문제&quot;&gt;문제&lt;/h3&gt;
+&lt;p&gt;한 개의 회의실이 있는데 이를 사용하고자 하는 N개의 회의에 대하여 회의실 사용표를 만들려고 한다. &lt;strong&gt;&lt;u&gt;각 회의 I에 대해 시작시간과 끝나는 시간이 주어져 있고, 각 회의가 겹치지 않게 하면서 회의실을 사용할 수 있는 회의의 최대 개수를 찾아보자.&lt;/u&gt;&lt;/strong&gt; 단, 회의는 한번 시작하면 중간에 중단될 수 없으며 한 회의가 끝나는 것과 동시에 다음 회의가 시작될 수 있다. 회의의 시작시간과 끝나는 시간이 같을 수도 있다. 이 경우에는 시작하자마자 끝나는 것으로 생각하면 된다.&lt;/p&gt;
+
+&lt;h3 id=&quot;입력&quot;&gt;입력&lt;/h3&gt;
+&lt;p&gt;첫째 줄에 회의의 수 N(1 ≤ N ≤ 100,000)이 주어진다.&lt;br /&gt;
+둘째 줄부터 N+1 줄까지 각 회의의 정보가 주어지는데 이것은 공백을 사이에 두고 회의의 시작시간과 끝나는 시간이 주어진다.&lt;br /&gt;
+시작 시간과 끝나는 시간은 231-1보다 작거나 같은 자연수 또는 0이다.&lt;/p&gt;
+
+&lt;h3 id=&quot;출력&quot;&gt;출력&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;&lt;u&gt;첫째 줄에 최대 사용할 수 있는 회의의 최대 개수를 출력한다.&lt;/u&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;문제풀이&quot;&gt;문제풀이&lt;/h3&gt;
+&lt;p&gt;이 문제는 각 회의가 겹치지 않게 하면서 회의실을 사용할 수 있는 회의의 최대 개수를 출력하는 문제이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;u&gt;접근방법&lt;/u&gt;&lt;/strong&gt;&lt;br /&gt;
+주어진 시작시간과 끝나는 시간들을 이용해서 가장 많은 회의의 수를 알기 위해서는 빨리 끝나는 회의 순서대로 정렬을 해야 한다. 이유는 빨리 끝날수록 뒤에서 고려해볼 회의가 많기 때문이다. 빨리 시작하는 순서대로 정렬을 우선시 한다면, 오히려 늦게 끝날 수 있기 때문이다.&lt;/p&gt;
+
+&lt;p&gt;그래서 &lt;strong&gt;&lt;u&gt;먼저 시작시간을 오름차순으로 정렬한 뒤, 끝나는 시간을 기준으로 한번 더 정렬을 해야 한다.&lt;/u&gt;&lt;/strong&gt;&lt;br /&gt;
+이미 시작시간이 오름차순으로 정렬된 상태이기 때문에 끝나는 시간으로 오름차순을 해주어도 자연히 끝나는 시간이 같을 때에는 시작시간의 오름차순으로 정렬이 되어있다.&lt;/p&gt;
+
+&lt;p&gt;정렬된 이후에 시작시간과 끝나는시간을 비교한다.&lt;br /&gt;
+마지막 회의 시간을 저장할 변수 last와 회의의 수 count를 선언한후, 시작시간과 last를 비교하여 &lt;strong&gt;&lt;u&gt;시작시간이 last보다 크거나 같으면 count를 1 증가시키고 last변수에 회의 마지막 시간을 대입한다.&lt;/u&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;코드&quot;&gt;코드&lt;/h3&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;N&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;time&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;end&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;time&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sorted&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 시작 시간을 기준으로 오름차순
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;time&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sorted&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 끝나는 시간을 기준으로 다시 오름차순
+&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;last&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 회의의 마지막 시간을 저장할 변수
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;conut&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 회의 개수를 저장할 변수
+&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;last&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 시작시간이 회의의 마지막 시간보다 크거나 같을경우
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;conut&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;last&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;conut&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</description>
+        <pubDate>Thu, 11 Mar 2021 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/algorithm/2021/03/11/meeting_room.html</link>
+        <guid isPermaLink="true">http://localhost:4000/algorithm/2021/03/11/meeting_room.html</guid>
+        
+        <category>Algorithm</category>
+        
+        
+        <category>Algorithm</category>
+        
+      </item>
+    
+      <item>
+        <title>백준 11047번 동전 0 (python 파이썬)</title>
         <description>&lt;p&gt;백준 11047번 동전 0 문제를 Python으로 해결한 문제이다.&lt;/p&gt;
 
 &lt;ul&gt;
@@ -92,7 +156,6 @@
 &lt;p&gt;이 문제는 필요한 동전 개수의 최솟값을 출력하는 문제이다.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;&lt;u&gt;접근방법&lt;/u&gt;&lt;/strong&gt;&lt;br /&gt;
-이 문제는 이전에 푼 설탕 문제랑 비슷한 문제이다.&lt;br /&gt;
 문제 해결 방법은 &lt;strong&gt;&lt;u&gt;K가 0이 될때까지 count에 K를 Ai[i]번째를 나눈 몫을 저장하고 K에 Ai[i]로 나눈 나머지를 저장하는 방법이다.&lt;/u&gt;&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;예를 들면 4200원을 계산 해봤을때 1000원짜리가 몇장이 필요하고 얼마가 남는가를 구해봤을때 1000원짜리 4장을 쓰고 200원이 남는다. 즉, 필요한 동전은 4개(count=4), 나머지는 200(K=200)이라는 것이다. 그래서 이를 빼기연산을 할 필요 없이 나누기를 이용해서 개수를 구한후에 K는 %연산자를 이용해서 값이 0이 될때까지 갱신해 주면 되는 것이다.&lt;/p&gt;
@@ -133,7 +196,59 @@
       </item>
     
       <item>
-        <title>백준 11399번 ATM Python</title>
+        <title>백준 5585번 거스름돈 (python 파이썬)</title>
+        <description>&lt;p&gt;백준 5585번 거스름돈 문제를 Python으로 해결한 문제이다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/5585&quot; target=&quot;_blank&quot;&gt;백준 5585번 거스름돈 문제 링크&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;문제&quot;&gt;문제&lt;/h3&gt;
+&lt;p&gt;타로는 자주 JOI잡화점에서 물건을 산다. JOI잡화점에는 잔돈으로 500엔, 100엔, 50엔, 10엔, 5엔, 1엔이 충분히 있고, 언제나 거스름돈 개수가 가장 적게 잔돈을 준다. 타로가 JOI잡화점에서 물건을 사고 카운터에서 &lt;strong&gt;&lt;u&gt;1000엔 지폐를 한장 냈을 때, 받을 잔돈에 포함된 잔돈의 개수&lt;/u&gt;&lt;/strong&gt;를 구하는 프로그램을 작성하시오.&lt;/p&gt;
+
+&lt;p&gt;예를 들어 입력된 값이 380일 경우에는 4개를 출력해야 한다.&lt;/p&gt;
+
+&lt;h3 id=&quot;입력&quot;&gt;입력&lt;/h3&gt;
+&lt;p&gt;입력은 한줄로 이루어져있고, 타로가 지불할 돈(1 이상 1000미만의 정수) 1개가 쓰여져있다.&lt;/p&gt;
+
+&lt;h3 id=&quot;출력&quot;&gt;출력&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;&lt;u&gt;제출할 출력 파일은 1행으로만 되어 있다. 잔돈에 포함된 매수를 출력하시오.&lt;/u&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;문제풀이&quot;&gt;문제풀이&lt;/h3&gt;
+&lt;p&gt;이 문제는 1000엔 지폐를 한장 냈을 때, 받을 잔돈에 포함된 잔돈의 개수를 출력하는 문제이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;u&gt;접근방법&lt;/u&gt;&lt;/strong&gt;&lt;br /&gt;
+이 문제는 &lt;a href=&quot;https://jokerldg.github.io/algorithm/2021/03/11/coin0.html&quot; target=&quot;_blank&quot;&gt;백준 11047번 동전 0 문제&lt;/a&gt;와 상당히 유사한 문제이다.&lt;br /&gt;
+문제 해결 방법은 &lt;strong&gt;&lt;u&gt;n이 0이 될때까지 count에 n를 currency[i]번째를 나눈 몫을 저장하고 n에 currency[i]로 나눈 나머지를 저장하는 방법&lt;/u&gt;&lt;/strong&gt;이다.&lt;/p&gt;
+
+&lt;h3 id=&quot;코드&quot;&gt;코드&lt;/h3&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;currency&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;500&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 동전의 가치 저장할 리스트 선언
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 동전의 개수를 저장할 변수
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 동전의 가치 리스트의 인덱스 변수
+&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;count&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;currency&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 동전의 개수를 저장
+&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;currency&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 동전의 가치로 나눈 나머지를 저장
+&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 인덱스를 증가시킨다.
+&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</description>
+        <pubDate>Thu, 11 Mar 2021 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/algorithm/2021/03/11/change.html</link>
+        <guid isPermaLink="true">http://localhost:4000/algorithm/2021/03/11/change.html</guid>
+        
+        <category>Algorithm</category>
+        
+        
+        <category>Algorithm</category>
+        
+      </item>
+    
+      <item>
+        <title>백준 11399번 ATM (python 파이썬)</title>
         <description>&lt;p&gt;백준 11399번 ATM 문제를 Python으로 해결한 문제이다.&lt;/p&gt;
 
 &lt;ul&gt;
