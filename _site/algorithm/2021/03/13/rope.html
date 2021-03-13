@@ -8,11 +8,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <title>
-    백준 1541번 잃어버린 괄호 (python 파이썬) - Tech
+    백준 2217번 로프 (python 파이썬) - Tech
     
   </title>
 
-  <meta name="description" content="백준 1541번 잃어버린 괄호 문제를 Python으로 해결한 문제이다.">
+  <meta name="description" content="백준 2217번 로프 문제를 Python으로 해결한 문제이다.">
   <!-- google 웹마스터 -->
   <meta name="google-site-verification" content="1M5pUHiID88fUVGyUOZvd5xyyGEcU37L6sdv7fkh8xg" />
   <!-- //google 웹마스터 -->
@@ -25,7 +25,7 @@
   <link rel="stylesheet" href="/assets/vendor/fontawesome-free/css/all.min.css">
 
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="canonical" href="http://localhost:4000/algorithm/2021/03/12/lost-parenthesis.html">
+  <link rel="canonical" href="http://localhost:4000/algorithm/2021/03/13/rope.html">
   <link rel="alternate" type="application/rss+xml" title="Tech" href="/feed.xml">
   <link rel="stylesheet" href="/assets/css/syntax.css">
   <link rel="stylesheet" href="/assets/css/custom.css">
@@ -122,9 +122,9 @@
       <div class="row">
         <div class="col-lg-10 col-md-10 mx-auto">
           <div class="post-heading" style="padding:80px 0; color:#000 !important;">
-            <h1 style="font-size:40px !important;">백준 1541번 잃어버린 괄호 (python 파이썬)</h1>
+            <h1 style="font-size:40px !important;">백준 2217번 로프 (python 파이썬)</h1>
             <h2 class="subheading" style="font-size:22px !important; color:#868e96 !important;">
-				March 12, 2021
+				March 13, 2021
 			</h2>
           </div>
         </div>
@@ -136,60 +136,61 @@
     <div class="row">
       <div class="col-lg-10 col-md-10 mx-auto">
 
-        <p>백준 1541번 잃어버린 괄호 문제를 Python으로 해결한 문제이다.</p>
+        <p>백준 2217번 로프 문제를 Python으로 해결한 문제이다.</p>
 
 <ul>
-  <li><a href="https://www.acmicpc.net/problem/1541" target="_blank">백준 1541번 잃어버린 괄호 문제 링크</a></li>
+  <li><a href="https://www.acmicpc.net/problem/2217" target="_blank">백준 2217번 로프 문제 링크</a></li>
 </ul>
 
 <h3 id="문제">문제</h3>
-<p>세준이는 양수와 +, -, 그리고 괄호를 가지고 식을 만들었다. 그리고 나서 세준이는 괄호를 모두 지웠다.</p>
+<p>N(1 ≤ N ≤ 100,000)개의 로프가 있다. 이 로프를 이용하여 이런 저런 물체를 들어올릴 수 있다. 각각의 로프는 그 굵기나 길이가 다르기 때문에 들 수 있는 물체의 중량이 서로 다를 수도 있다.</p>
 
-<p>그리고 나서 세준이는 괄호를 적절히 쳐서 이 식의 값을 최소로 만들려고 한다.</p>
+<p>하지만 여러 개의 로프를 병렬로 연결하면 각각의 로프에 걸리는 중량을 나눌 수 있다. k개의 로프를 사용하여 중량이 w인 물체를 들어올릴 때, 각각의 로프에는 모두 고르게 w/k 만큼의 중량이 걸리게 된다.</p>
 
-<p><strong><u>괄호를 적절히 쳐서 이 식의 값을 최소로 만드는 프로그램을 작성하시오.</u></strong></p>
+<p><strong><u>각 로프들에 대한 정보가 주어졌을 때, 이 로프들을 이용하여 들어올릴 수 있는 물체의 최대 중량을 구해내는 프로그램을 작성하시오.</u></strong> 모든 로프를 사용해야 할 필요는 없으며, 임의로 몇 개의 로프를 골라서 사용해도 된다.</p>
 
 <h3 id="입력">입력</h3>
-<p>첫째 줄에 식이 주어진다. 식은 ‘0’~‘9’, ‘+’, 그리고 ‘-’만으로 이루어져 있고, 가장 처음과 마지막 문자는 숫자이다. 그리고 연속해서 두 개 이상의 연산자가 나타나지 않고, 5자리보다 많이 연속되는 숫자는 없다. 수는 0으로 시작할 수 있다. 입력으로 주어지는 식의 길이는 50보다 작거나 같다.</p>
+<p>첫째 줄에 정수 N이 주어진다. 다음 N개의 줄에는 각 로프가 버틸 수 있는 최대 중량이 주어진다. 이 값은 10,000을 넘지 않는 자연수이다.</p>
 
 <h3 id="출력">출력</h3>
 <p><strong><u>첫째 줄에 정답을 출력한다.</u></strong></p>
 
 <h3 id="문제풀이">문제풀이</h3>
-<p>이 문제는 각 주어진 식에 적절히 괄호를 쳐서 최솟값을 출력하는 문제이다.</p>
+<p>이 문제는 이 로프들을 이용하여 들어올릴 수 있는 물체의 최대 중량을 구해 출력하는 문제이다.</p>
 
 <p><strong><u>접근방법</u></strong><br />
-최솟값을 만들기 위해서는 <strong><u>- 기준으로 괄호를 치면 된다.</u></strong><br />
-예를 들어<br />
-55 - 50 + 40 - 30 + 20<br />
-위와 같이 입력 했을때, - 기준으로 <strong>55 - (50 + 40) - (30 + 20)</strong> 이렇게 괄호를 쳤을때 최솟값이 된다.<br />
-그래서 입력을 받을때 - 기준으로 입력을 받아준다.<br />
-위와 같이 입력을 받았을때 <strong>[‘55’, ‘50 + 40’, ‘30 + 20’]</strong> 이렇게 입력을 받게 되는데 각 원소에 있는 숫자들을 계산해주고 맨 처음의 원소는 더해주고 나머지는 빼준다.</p>
+로프를 병렬로 연결하면 각 로프에는 w/k만큼의 동일한 중량이 걸린다.<br />
+즉, <strong><u>가장 작은 무게를 들 수 있는 로프가 들 수 있는 질량 * 병렬 연결 로프 갯수 = 최종 무게</u></strong>이다.<br />
+먼저 가장 무거운 무게를 들 수 있는 로프 부터 내림차순으로 정렬을 한다.<br />
+예를들면, 30, 50, 60, 80, 100일 경우 내림차순으로 정렬하게 되면 [100, 80, 60, 50, 30]이 된다.<br />
+그 이후에 1부터 N까지 가장 큰 수부터 곱해준다.<br />
+<strong><u>[100x1, 80x2, 60x3, 50x4, 30x5]으로 계산</u></strong> 해준뒤, 여기서 가장 큰 값이 답이므로 <strong><u>50x4인 200이 답</u></strong>이다.</p>
 
 <h3 id="코드">코드</h3>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">(</span><span class="s">'-'</span><span class="p">)</span>
-<span class="n">num</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">a</span><span class="p">:</span>
-    <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">s</span> <span class="o">=</span> <span class="n">i</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="s">'+'</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
-        <span class="n">cnt</span> <span class="o">+=</span> <span class="nb">int</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
-    <span class="n">num</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">cnt</span><span class="p">)</span>
-<span class="n">n</span> <span class="o">=</span> <span class="n">num</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">num</span><span class="p">)):</span>
-    <span class="n">n</span> <span class="o">-=</span> <span class="n">num</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">solution</span><span class="p">():</span>
+    <span class="n">arr</span><span class="p">.</span><span class="n">sort</span><span class="p">(</span><span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span> <span class="c1"># 내림차순으로 정렬
+</span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span> <span class="c1"># 1부터 N까지 곱하는 식
+</span>        <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="c1"># 계산한 값 중 가장 큰 값을 리턴해준다. 
+</span> 
+<span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">arr</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">()))</span>
+ 
+<span class="k">print</span><span class="p">(</span><span class="n">solution</span><span class="p">())</span>
 </code></pre></div></div>
 
 
         <hr>
         <div class="clearfix">
           
-          <a class="btn btn-primary float-left" href="/algorithm/2021/03/11/sugar.html" data-toggle="tooltip" data-placement="top" title="백준 2839번 설탕 배달 (python 파이썬)">&larr; 이전<span class="d-none d-md-inline">
+          <a class="btn btn-primary float-left" href="/algorithm/2021/03/13/new-recruit.html" data-toggle="tooltip" data-placement="top" title="백준 1946번 신입 사원 (python 파이썬)">&larr; 이전<span class="d-none d-md-inline">
               게시물</span></a>
           
           
-          <a class="btn btn-primary float-right" href="/algorithm/2021/03/13/new-recruit.html" data-toggle="tooltip" data-placement="top" title="백준 1946번 신입 사원 (python 파이썬)">다음<span class="d-none d-md-inline">
+          <a class="btn btn-primary float-right" href="/algorithm/2021/03/13/word-math.html" data-toggle="tooltip" data-placement="top" title="백준 1339번 단어 수학 (python 파이썬)">다음<span class="d-none d-md-inline">
               게시물</span> &rarr;</a>
           
         </div>
