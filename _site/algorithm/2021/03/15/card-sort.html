@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>
+    백준 1715번 카드 정렬하기 (python 파이썬) - Tech
+    
+  </title>
+
+  <meta name="description" content="백준 1715번 카드 정렬하기 문제를 Python으로 해결한 문제이다.">
+  <!-- google 웹마스터 -->
+  <meta name="google-site-verification" content="1M5pUHiID88fUVGyUOZvd5xyyGEcU37L6sdv7fkh8xg" />
+  <!-- //google 웹마스터 -->
+
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="/assets/vendor/fontawesome-free/css/all.min.css">
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="http://localhost:4000/algorithm/2021/03/15/card-sort.html">
+  <link rel="alternate" type="application/rss+xml" title="Tech" href="/feed.xml">
+  <link rel="stylesheet" href="/assets/css/syntax.css">
+  <link rel="stylesheet" href="/assets/css/custom.css">
+
+</head>
+
+
+<body>
+
+  <!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="/">Tech</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      Menu
+      <i class="fa fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+		<li class="nav-item"><a class="nav-link">Category</a>
+			<ul class="navbar-nav ml-auto">
+			
+			
+			  
+								
+					<li class="nav-item">
+						<a class="nav-link category-link " href="/algorithm">Algorithm</a>
+					</li>
+				
+			  
+			
+			  
+								
+					<li class="nav-item">
+						<a class="nav-link category-link " href="/architecture">Architecture</a>
+					</li>
+				
+			  
+			
+			  
+								
+					<li class="nav-item">
+						<a class="nav-link category-link " href="/cpp">C/C++</a>
+					</li>
+				
+			  
+			
+			  
+								
+					<li class="nav-item">
+						<a class="nav-link category-link " href="/english">English</a>
+					</li>
+				
+			  
+			
+			  
+								
+					<li class="nav-item">
+						<a class="nav-link category-link " href="/java">Java</a>
+					</li>
+				
+			  
+			
+			  
+				
+			  
+			
+			  
+			
+			  
+			
+			  
+			
+			  
+			
+			</ul>
+		</li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+  <!-- Page Header -->
+  <header class="masthead" style="height:200px; margin-bottom:30px; background-color:#fff !important">
+    <div class="overlay" style="background-color:#fff !important"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 col-md-10 mx-auto">
+          <div class="post-heading" style="padding:80px 0; color:#000 !important;">
+            <h1 style="font-size:40px !important;">백준 1715번 카드 정렬하기 (python 파이썬)</h1>
+            <h2 class="subheading" style="font-size:22px !important; color:#868e96 !important;">
+				March 15, 2021
+			</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div id="div_container_post" class="container">
+    <div class="row">
+      <div class="col-lg-10 col-md-10 mx-auto">
+
+        <p>백준 1715번 카드 정렬하기 문제를 Python으로 해결한 문제이다.</p>
+
+<ul>
+  <li><a href="https://www.acmicpc.net/problem/1715" target="_blank">백준 1715번 카드 정렬하기 문제 링크</a></li>
+</ul>
+
+<h3 id="문제">문제</h3>
+<p>정렬된 두 묶음의 숫자 카드가 있다고 하자. 각 묶음의 카드의 수를 A, B라 하면 보통 두 묶음을 합쳐서 하나로 만드는 데에는 A+B 번의 비교를 해야 한다. 이를테면, 20장의 숫자 카드 묶음과 30장의 숫자 카드 묶음을 합치려면 50번의 비교가 필요하다.</p>
+
+<p>매우 많은 숫자 카드 묶음이 책상 위에 놓여 있다. 이들을 두 묶음씩 골라 서로 합쳐나간다면, 고르는 순서에 따라서 비교 횟수가 매우 달라진다. 예를 들어 10장, 20장, 40장의 묶음이 있다면 10장과 20장을 합친 뒤, 합친 30장 묶음과 40장을 합친다면 (10 + 20) + (30 + 40) = 100번의 비교가 필요하다. 그러나 10장과 40장을 합친 뒤, 합친 50장 묶음과 20장을 합친다면 (10 + 40) + (50 + 20) = 120 번의 비교가 필요하므로 덜 효율적인 방법이다.</p>
+
+<p><strong><u>N개의 숫자 카드 묶음의 각각의 크기가 주어질 때, 최소한 몇 번의 비교가 필요한지를 구하는 프로그램을 작성하시오.</u></strong></p>
+
+<h3 id="입력">입력</h3>
+<p>첫째 줄에 N이 주어진다. (1 ≤ N ≤ 100,000) 이어서 N개의 줄에 걸쳐 숫자 카드 묶음의 각각의 크기가 주어진다. 숫자 카드 묶음의 크기는 1,000보다 작거나 같은 양의 정수이다.</p>
+
+<h3 id="출력">출력</h3>
+<p><strong><u>첫째 줄에 최소 비교 횟수를 출력한다.</u></strong></p>
+
+<h3 id="문제풀이">문제풀이</h3>
+<p>이 문제는 N개의 숫자 카드 묶음의 각각의 크기가 주어질 때, 최소한 몇 번의 비교가 필요한지를 출력하는 문제이다.</p>
+
+<p><strong><u>접근방법</u></strong><br />
+해당 문제는 파이썬의 우선순위 큐(heapq)를 이용하면 된다.</p>
+
+<p><strong>우선순위 큐(Priority Queue)는 들어간 순서에 상관없이 우선순위가 높은 데이터가 먼저 나오는 것을 말한다.</strong></p>
+
+<ul>
+  <li><strong>수식</strong><br />
+<strong>최솟값 += 이전 값 + 현재 값</strong></li>
+</ul>
+
+<ol>
+  <li>우선순위 큐를 이용하여 입력 받은 후 배열에 집어넣는다.</li>
+  <li>위의 수식을 이용하여 반복하고 우선순위 큐에 이전 값 + 현재 값을 다시 push한다.</li>
+  <li>반복문이 끝나고 최솟값을 출력한다.</li>
+</ol>
+
+<h3 id="코드">코드</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">heapq</span> <span class="c1"># 우선순위 큐를 쓰기 위해 선언
+</span>
+<span class="nb">input</span> <span class="o">=</span> <span class="n">sys</span><span class="p">.</span><span class="n">stdin</span><span class="p">.</span><span class="n">readline</span>
+
+<span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">card</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">if</span> <span class="n">N</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span> <span class="c1"># N이 1이면 비교할 필요가 없으므로 0
+</span>  <span class="k">print</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+  <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">heapq</span><span class="p">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">card</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">()))</span> <span class="c1"># 우선순위 큐에 입력
+</span>
+  <span class="nb">min</span> <span class="o">=</span> <span class="mi">0</span>
+
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span> <span class="c1"># 2개씩 꺼내기 떄문에 -1을 해야한다.
+</span>    <span class="n">previous_val</span> <span class="o">=</span> <span class="n">heapq</span><span class="p">.</span><span class="n">heappop</span><span class="p">(</span><span class="n">card</span><span class="p">)</span> <span class="c1"># 이전 값을 큐에서 꺼낸다.
+</span>    <span class="n">current_val</span> <span class="o">=</span> <span class="n">heapq</span><span class="p">.</span><span class="n">heappop</span><span class="p">(</span><span class="n">card</span><span class="p">)</span> <span class="c1"># 현재 값을 큐에서 꺼낸다.
+</span>    
+    <span class="nb">min</span> <span class="o">+=</span> <span class="n">previous_val</span> <span class="o">+</span> <span class="n">current_val</span> <span class="c1"># 이전값 + 현재값을 최솟값에 넣는다.
+</span>    <span class="c1"># 이전값 + 현재값을 다시 우선순위 큐에 넣는다.
+</span>    <span class="n">heapq</span><span class="p">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">card</span><span class="p">,</span> <span class="n">previous_val</span> <span class="o">+</span> <span class="n">current_val</span><span class="p">)</span> 
+    
+  <span class="k">print</span><span class="p">(</span><span class="nb">min</span><span class="p">)</span>
+</code></pre></div></div>
+
+
+        <hr>
+        <div class="clearfix">
+          
+          <a class="btn btn-primary float-left" href="/algorithm/2021/03/14/matrix.html" data-toggle="tooltip" data-placement="top" title="백준 1080번 행렬 (python 파이썬)">&larr; 이전<span class="d-none d-md-inline">
+              게시물</span></a>
+          
+          
+          <a class="btn btn-primary float-right" href="/algorithm/2021/03/15/number-tie.html" data-toggle="tooltip" data-placement="top" title="백준 1744번 수 묶기 (python 파이썬)">다음<span class="d-none d-md-inline">
+              게시물</span> &rarr;</a>
+          
+        </div>
+		
+		<br><br>
+		<div id="disqus_thread"></div>
+		  <script>
+		  /**
+		  *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+		  *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+		  /*
+		  var disqus_config = function () {
+		  this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+		  this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+		  };
+		  */
+		  (function() { // DON'T EDIT BELOW THIS LINE
+		  var d = document, s = d.createElement('script');
+		  s.src = 'https://jokerldg.disqus.com/embed.js';
+		  s.setAttribute('data-timestamp', +new Date());
+		  (d.head || d.body).appendChild(s);
+		  })();
+		  </script>
+		  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+		</div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Footer -->
+
+<hr>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <ul class="list-inline text-center">
+          
+          
+          
+          
+          <li class="list-inline-item">
+            <a href="https://github.com/jokerLdg">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="copyright text-muted">Copyright &copy; jokerLdg 2021</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <script src="/assets/vendor/jquery/jquery.min.js"></script>
+<script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/vendor/startbootstrap-clean-blog/js/clean-blog.min.js"></script>
+
+<script src="/assets/scripts.js"></script>
+
+
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '');
+</script>
+
+
+
+</body>
+
+</html>
