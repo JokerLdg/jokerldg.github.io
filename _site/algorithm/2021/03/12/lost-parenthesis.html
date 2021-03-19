@@ -8,11 +8,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <title>
-    백준 4796번 캠핑 (python 파이썬) - Tech
+    백준 1541번 잃어버린 괄호 (python 파이썬) - Tech
     
   </title>
 
-  <meta name="description" content="백준 4796번 캠핑 문제를 Python으로 해결한 문제이다.">
+  <meta name="description" content="백준 1541번 잃어버린 괄호 문제를 Python으로 해결한 문제이다.">
   <!-- google 웹마스터 -->
   <meta name="google-site-verification" content="1M5pUHiID88fUVGyUOZvd5xyyGEcU37L6sdv7fkh8xg" />
   <!-- //google 웹마스터 -->
@@ -25,7 +25,7 @@
   <link rel="stylesheet" href="/assets/vendor/fontawesome-free/css/all.min.css">
 
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="canonical" href="http://localhost:4000/algorithm/2021/03/13/camping.html">
+  <link rel="canonical" href="http://localhost:4000/algorithm/2021/03/12/lost-parenthesis.html">
   <link rel="alternate" type="application/rss+xml" title="Tech" href="/feed.xml">
   <link rel="stylesheet" href="/assets/css/syntax.css">
   <link rel="stylesheet" href="/assets/css/custom.css">
@@ -122,9 +122,9 @@
       <div class="row">
         <div class="col-lg-10 col-md-10 mx-auto">
           <div class="post-heading" style="padding:80px 0; color:#000 !important;">
-            <h1 style="font-size:40px !important;">백준 4796번 캠핑 (python 파이썬)</h1>
+            <h1 style="font-size:40px !important;">백준 1541번 잃어버린 괄호 (python 파이썬)</h1>
             <h2 class="subheading" style="font-size:22px !important; color:#868e96 !important;">
-				March 13, 2021
+				March 12, 2021
 			</h2>
           </div>
         </div>
@@ -136,78 +136,57 @@
     <div class="row">
       <div class="col-lg-10 col-md-10 mx-auto">
 
-        <p>백준 4796번 캠핑 문제를 Python으로 해결한 문제이다.</p>
+        <p>백준 1541번 잃어버린 괄호 문제를 Python으로 해결한 문제이다.</p>
 
 <ul>
-  <li><a href="https://www.acmicpc.net/problem/4796" target="_blank">백준 4796번 캠핑 문제 링크</a></li>
+  <li><a href="https://www.acmicpc.net/problem/1541" target="_blank">백준 1541번 잃어버린 괄호 문제 링크</a></li>
 </ul>
 
 <h3 id="문제">문제</h3>
-<p>등산가 김강산은 가족들과 함께 캠핑을 떠났다. 하지만, 캠핑장에는 다음과 같은 경고문이 쓰여 있었다.</p>
+<p>세준이는 양수와 +, -, 그리고 괄호를 가지고 식을 만들었다. 그리고 나서 세준이는 괄호를 모두 지웠다.</p>
 
-<p>캠핑장은 연속하는 20일 중 10일동안만 사용할 수 있습니다.</p>
+<p>그리고 나서 세준이는 괄호를 적절히 쳐서 이 식의 값을 최소로 만들려고 한다.</p>
 
-<p>강산이는 이제 막 28일 휴가를 시작했다. 이번 휴가 기간 동안 강산이는 캠핑장을 며칠동안 사용할 수 있을까?</p>
-
-<p>강산이는 조금 더 일반화해서 문제를 풀려고 한다.</p>
-
-<p>캠핑장을 연속하는 P일 중, L일동안만 사용할 수 있다. 강산이는 이제 막 V일짜리 휴가를 시작했다.<br />
-<strong><u>강산이가 캠핑장을 최대 며칠동안 사용할 수 있을까? (1 &lt; L &lt; P &lt; V)</u></strong></p>
+<p><strong><u>괄호를 적절히 쳐서 이 식의 값을 최소로 만드는 프로그램을 작성하시오.</u></strong></p>
 
 <h3 id="입력">입력</h3>
-<p>입력은 여러 개의 테스트 케이스로 이루어져 있다. 각 테스트 케이스는 한 줄로 이루어져 있고, L, P, V를 순서대로 포함하고 있다. 모든 입력 정수는 int범위이다. 마지막 줄에는 0이 3개 주어진다.</p>
+<p>첫째 줄에 식이 주어진다. 식은 ‘0’~‘9’, ‘+’, 그리고 ‘-’만으로 이루어져 있고, 가장 처음과 마지막 문자는 숫자이다. 그리고 연속해서 두 개 이상의 연산자가 나타나지 않고, 5자리보다 많이 연속되는 숫자는 없다. 수는 0으로 시작할 수 있다. 입력으로 주어지는 식의 길이는 50보다 작거나 같다.</p>
 
 <h3 id="출력">출력</h3>
-<p><strong><u>각 테스트 케이스에 대해서, 강산이가 캠핑장을 최대 며칠동안 사용할 수 있는지 출력한다.</u></strong></p>
+<p><strong><u>첫째 줄에 정답을 출력한다.</u></strong></p>
 
 <h3 id="문제풀이">문제풀이</h3>
-<p>입력을 여러개 받아야 하므로 while문으로 L,P,V를 입력 받는다.</p>
-<ul>
-  <li>수식
-    <ul>
-      <li><strong><u>((V//P) * L) + min((V%P), L)</u></strong></li>
-    </ul>
-  </li>
-</ul>
-
-<p>수식에 대해서 설명하자면, V=20, P=8, L=5 일경우를 예제로 설명한다.</p>
-
-<p><strong><u>((V//P) * L)</u></strong>에 대한 설명이다.<br />
-총 휴가일수 <strong>V일중에 P일에 L일만큼 사용</strong>할 수 있다. 즉, <strong><u>1주에 L일만큼 사용가능</u></strong>하다.<br />
-<strong><u>20//8일 경우 2이므로 1주당 5일만큼 2주를 사용할 수있기 때문에 10일</u></strong>이 나온다.</p>
-
-<p>다음으로 <strong><u>min((V%P),L)</u></strong>에 대한 설명이다.<br />
-<strong><u>20%8일 경우 나머지가 4이므로 4와 연속가능일수 5중에 4를 선택하여 더한다.</u></strong></p>
-
-<p>최솟값을 선택하는 이유는 나머지가 5가 넘을 수 있기 때문이다.</p>
+<p>최솟값을 만들기 위해서는 <strong><u>- 기준으로 괄호를 치면 된다.</u></strong><br />
+예를 들어<br />
+55 - 50 + 40 - 30 + 20<br />
+위와 같이 입력 했을때, - 기준으로 <strong>55 - (50 + 40) - (30 + 20)</strong> 이렇게 괄호를 쳤을때 최솟값이 된다.<br />
+그래서 입력을 받을때 - 기준으로 입력을 받아준다.<br />
+위와 같이 입력을 받았을때 <strong>[‘55’, ‘50 + 40’, ‘30 + 20’]</strong> 이렇게 입력을 받게 되는데 각 원소에 있는 숫자들을 계산해주고 맨 처음의 원소는 더해주고 나머지는 빼준다.</p>
 
 <h3 id="코드">코드</h3>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 케이스 순서 저장 변수
-</span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
-
-<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
-  <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span>
-  <span class="n">L</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">())</span>
-  
-  <span class="c1"># L+P+V가 0일경우 종료
-</span>  <span class="k">if</span> <span class="n">L</span> <span class="o">+</span> <span class="n">P</span> <span class="o">+</span> <span class="n">V</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-    <span class="k">break</span>
-  
-  <span class="c1"># 위의 설명한 수식으로 계산하기
-</span>  <span class="n">result</span> <span class="o">=</span> <span class="p">((</span><span class="n">V</span><span class="o">//</span><span class="n">P</span><span class="p">)</span> <span class="o">*</span> <span class="n">L</span><span class="p">)</span> <span class="o">+</span> <span class="nb">min</span><span class="p">((</span><span class="n">V</span><span class="o">%</span><span class="n">P</span><span class="p">),</span> <span class="n">L</span><span class="p">)</span>
-  <span class="k">print</span><span class="p">(</span><span class="s">"Case {}: {}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">result</span><span class="p">))</span>
-  <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">(</span><span class="s">'-'</span><span class="p">)</span>
+<span class="n">num</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">a</span><span class="p">:</span>
+    <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">i</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="s">'+'</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
+        <span class="n">cnt</span> <span class="o">+=</span> <span class="nb">int</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+    <span class="n">num</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">cnt</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">num</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">num</span><span class="p">)):</span>
+    <span class="n">n</span> <span class="o">-=</span> <span class="n">num</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
 </code></pre></div></div>
 
 
         <hr>
         <div class="clearfix">
           
-          <a class="btn btn-primary float-left" href="/algorithm/2021/03/12/lost-parenthesis.html" data-toggle="tooltip" data-placement="top" title="백준 1541번 잃어버린 괄호 (python 파이썬)">&larr; 이전<span class="d-none d-md-inline">
+          <a class="btn btn-primary float-left" href="/algorithm/2021/03/11/sugar.html" data-toggle="tooltip" data-placement="top" title="백준 2839번 설탕 배달 (python 파이썬)">&larr; 이전<span class="d-none d-md-inline">
               게시물</span></a>
           
           
-          <a class="btn btn-primary float-right" href="/algorithm/2021/03/13/new-recruit.html" data-toggle="tooltip" data-placement="top" title="백준 1946번 신입 사원 (python 파이썬)">다음<span class="d-none d-md-inline">
+          <a class="btn btn-primary float-right" href="/algorithm/2021/03/13/camping.html" data-toggle="tooltip" data-placement="top" title="백준 4796번 캠핑 (python 파이썬)">다음<span class="d-none d-md-inline">
               게시물</span> &rarr;</a>
           
         </div>

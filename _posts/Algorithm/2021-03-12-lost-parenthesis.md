@@ -1,3 +1,7 @@
+---
+layout: post
+title: 백준 1541번 잃어버린 괄호 (python 파이썬)
+subtitle: 백준 1541번 문제 잃어버린 괄호
 comments: true
 categories: [Algorithm]
 tags: [Algorithm]
