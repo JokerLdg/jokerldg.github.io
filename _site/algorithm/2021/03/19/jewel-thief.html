@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>
+    백준 1202번 보석 도둑 (python 파이썬) - Tech
+    
+  </title>
+
+  <meta name="description" content="백준 1202번 보석 도둑 문제를 Python으로 해결한 문제이다.">
+  <!-- google 웹마스터 -->
+  <meta name="google-site-verification" content="1M5pUHiID88fUVGyUOZvd5xyyGEcU37L6sdv7fkh8xg" />
+  <!-- //google 웹마스터 -->
+
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="/assets/vendor/fontawesome-free/css/all.min.css">
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="http://localhost:4000/algorithm/2021/03/19/jewel-thief.html">
+  <link rel="alternate" type="application/rss+xml" title="Tech" href="/feed.xml">
+  <link rel="stylesheet" href="/assets/css/syntax.css">
+  <link rel="stylesheet" href="/assets/css/custom.css">
+
+</head>
+
+
+<body>
+
+  <!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="/">Tech</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      Menu
+      <i class="fa fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+		<li class="nav-item"><a class="nav-link">Category</a>
+			<ul class="navbar-nav ml-auto">
+			
+			
+			  
+								
+					<li class="nav-item">
+						<a class="nav-link category-link " href="/algorithm">Algorithm</a>
+					</li>
+				
+			  
+			
+			  
+								
+					<li class="nav-item">
+						<a class="nav-link category-link " href="/architecture">Architecture</a>
+					</li>
+				
+			  
+			
+			  
+								
+					<li class="nav-item">
+						<a class="nav-link category-link " href="/cpp">C/C++</a>
+					</li>
+				
+			  
+			
+			  
+								
+					<li class="nav-item">
+						<a class="nav-link category-link " href="/english">English</a>
+					</li>
+				
+			  
+			
+			  
+								
+					<li class="nav-item">
+						<a class="nav-link category-link " href="/java">Java</a>
+					</li>
+				
+			  
+			
+			  
+				
+			  
+			
+			  
+			
+			  
+			
+			  
+			
+			  
+			
+			</ul>
+		</li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+  <!-- Page Header -->
+  <header class="masthead" style="height:200px; margin-bottom:30px; background-color:#fff !important">
+    <div class="overlay" style="background-color:#fff !important"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 col-md-10 mx-auto">
+          <div class="post-heading" style="padding:80px 0; color:#000 !important;">
+            <h1 style="font-size:40px !important;">백준 1202번 보석 도둑 (python 파이썬)</h1>
+            <h2 class="subheading" style="font-size:22px !important; color:#868e96 !important;">
+				March 19, 2021
+			</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div id="div_container_post" class="container">
+    <div class="row">
+      <div class="col-lg-10 col-md-10 mx-auto">
+
+        <p>백준 1202번 보석 도둑 문제를 Python으로 해결한 문제이다.</p>
+
+<ul>
+  <li><a href="https://www.acmicpc.net/problem/1202" target="_blank">백준 1202번 보석 도둑 문제 링크</a></li>
+</ul>
+
+<h3 id="문제">문제</h3>
+<p>세계적인 도둑 상덕이는 보석점을 털기로 결심했다.</p>
+
+<p>상덕이가 털 보석점에는 보석이 총 N개 있다. 각 보석은 무게 Mi와 가격 Vi를 가지고 있다. 상덕이는 가방을 K개 가지고 있고, 각 가방에 담을 수 있는 최대 무게는 Ci이다. 가방에는 최대 한 개의 보석만 넣을 수 있다.</p>
+
+<p><strong><u>상덕이가 훔칠 수 있는 보석의 최대 가격을 구하는 프로그램을 작성하시오.</u></strong></p>
+
+<h3 id="입력">입력</h3>
+<p>첫째 줄에 N과 K가 주어진다. (1 ≤ N, K ≤ 300,000)</p>
+
+<p>다음 N개 줄에는 각 보석의 정보 Mi와 Vi가 주어진다. (0 ≤ Mi, Vi ≤ 1,000,000)</p>
+
+<p>다음 K개 줄에는 가방에 담을 수 있는 최대 무게 Ci가 주어진다. (1 ≤ Ci ≤ 100,000,000)</p>
+
+<p>모든 숫자는 양의 정수이다.</p>
+
+<h3 id="출력">출력</h3>
+<p><strong><u>첫째 줄에 상덕이가 훔칠 수 있는 보석 가격의 합의 최댓값을 출력한다.</u></strong></p>
+
+<h3 id="문제풀이">문제풀이</h3>
+<p>이 문제는 보석의 정보와 무게와 가방의 개수가 주어졌을때 보석의 최대 가격을 출력하는 문제이다.</p>
+
+<p><strong><u>접근방법</u></strong><br />
+해당 문제는 우선순위 큐를 이용하여 풀 수 있다.</p>
+
+<p><strong>가장 작은 무게를 수용할 수 있는 가방(=capacity) 이하의 모든 보석(capable_gem) 중 가장 값이 큰 것을 뽑아내고 이를 가방이 끝날 때 까지 반복하는 것이 포인트다.</strong></p>
+
+<ol>
+  <li>weights의 우선순위 큐에서 최솟값을 뺀다.</li>
+  <li><strong>수용량 이하 무게의 모든 보석 gem을 capable_gem에 무게를 제외한 값을 -로 넣어준다. -를 붙이는 이유는 최소 힙형태로 만들어서 맨앞에서부터 빼내려고 하는 이유이다.</strong></li>
+  <li>capacity 이하의 모든 무게의 보석을 꺼냈으면 capable_gem(최대 힙)중 가장 큰 값을 꺼낸 뒤 sum 값에서 빼준다.</li>
+  <li>1~3를 반복한 뒤 weights에 더 이상 없거나, gem과 capable_gem 모두 비었으면 while문을 끝낸다.</li>
+</ol>
+
+<h3 id="코드">코드</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">heapq</span>
+<span class="nb">input</span> <span class="o">=</span> <span class="n">sys</span><span class="p">.</span><span class="n">stdin</span><span class="p">.</span><span class="n">readline</span>
+
+<span class="n">N</span><span class="p">,</span> <span class="n">K</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">())</span>
+
+<span class="n">gem</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">weights</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+  <span class="n">M</span><span class="p">,</span><span class="n">V</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">())</span>
+  <span class="n">heapq</span><span class="p">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">gem</span><span class="p">,</span> <span class="p">[</span><span class="n">M</span><span class="p">,</span><span class="n">V</span><span class="p">])</span>
+
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">K</span><span class="p">):</span>
+  <span class="n">heapq</span><span class="p">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">()))</span>
+
+<span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">capable_gem</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">K</span><span class="p">):</span>
+  <span class="n">capacity</span> <span class="o">=</span> <span class="n">heapq</span><span class="p">.</span><span class="n">heappop</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span>
+  
+  <span class="k">while</span> <span class="n">gem</span> <span class="ow">and</span> <span class="n">capacity</span> <span class="o">&gt;=</span> <span class="n">gem</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]:</span>
+    <span class="p">[</span><span class="n">weight</span><span class="p">,</span> <span class="n">price</span><span class="p">]</span> <span class="o">=</span> <span class="n">heapq</span><span class="p">.</span><span class="n">heappop</span><span class="p">(</span><span class="n">gem</span><span class="p">)</span>
+    <span class="n">heapq</span><span class="p">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">capable_gem</span><span class="p">,</span> <span class="o">-</span><span class="n">price</span><span class="p">)</span>
+  
+  <span class="k">if</span> <span class="n">capable_gem</span><span class="p">:</span>
+    <span class="nb">sum</span> <span class="o">-=</span> <span class="n">heapq</span><span class="p">.</span><span class="n">heappop</span><span class="p">(</span><span class="n">capable_gem</span><span class="p">)</span>
+  <span class="k">elif</span> <span class="ow">not</span> <span class="n">gem</span><span class="p">:</span>
+    <span class="k">break</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">)</span>
+</code></pre></div></div>
+
+
+        <hr>
+        <div class="clearfix">
+          
+          <a class="btn btn-primary float-left" href="/algorithm/2021/03/18/hansu.html" data-toggle="tooltip" data-placement="top" title="백준 1065번 한수 (python 파이썬)">&larr; 이전<span class="d-none d-md-inline">
+              게시물</span></a>
+          
+          
+          <a class="btn btn-primary float-right" href="/algorithm/2021/03/19/sick-knight.html" data-toggle="tooltip" data-placement="top" title="백준 1783번 병든 나이트 (python 파이썬)">다음<span class="d-none d-md-inline">
+              게시물</span> &rarr;</a>
+          
+        </div>
+		
+		<br><br>
+		<div id="disqus_thread"></div>
+		  <script>
+		  /**
+		  *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+		  *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+		  /*
+		  var disqus_config = function () {
+		  this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+		  this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+		  };
+		  */
+		  (function() { // DON'T EDIT BELOW THIS LINE
+		  var d = document, s = d.createElement('script');
+		  s.src = 'https://jokerldg.disqus.com/embed.js';
+		  s.setAttribute('data-timestamp', +new Date());
+		  (d.head || d.body).appendChild(s);
+		  })();
+		  </script>
+		  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+		</div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Footer -->
+
+<hr>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <ul class="list-inline text-center">
+          
+          
+          
+          
+          <li class="list-inline-item">
+            <a href="https://github.com/jokerLdg">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="copyright text-muted">Copyright &copy; jokerLdg 2021</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <script src="/assets/vendor/jquery/jquery.min.js"></script>
+<script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/vendor/startbootstrap-clean-blog/js/clean-blog.min.js"></script>
+
+<script src="/assets/scripts.js"></script>
+
+
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '');
+</script>
+
+
+
+</body>
+
+</html>
