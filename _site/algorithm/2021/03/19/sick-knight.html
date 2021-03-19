@@ -8,11 +8,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <title>
-    백준 1065번 한수 (python 파이썬) - Tech
+    백준 1783번 병든 나이트 (python 파이썬) - Tech
     
   </title>
 
-  <meta name="description" content="백준 1065번 한수 문제를 Python으로 해결한 문제이다.">
+  <meta name="description" content="백준 1783번 병든 나이트 문제를 Python으로 해결한 문제이다.">
   <!-- google 웹마스터 -->
   <meta name="google-site-verification" content="1M5pUHiID88fUVGyUOZvd5xyyGEcU37L6sdv7fkh8xg" />
   <!-- //google 웹마스터 -->
@@ -25,7 +25,7 @@
   <link rel="stylesheet" href="/assets/vendor/fontawesome-free/css/all.min.css">
 
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="canonical" href="http://localhost:4000/algorithm/2021/03/18/hansu.html">
+  <link rel="canonical" href="http://localhost:4000/algorithm/2021/03/19/sick-knight.html">
   <link rel="alternate" type="application/rss+xml" title="Tech" href="/feed.xml">
   <link rel="stylesheet" href="/assets/css/syntax.css">
   <link rel="stylesheet" href="/assets/css/custom.css">
@@ -122,9 +122,9 @@
       <div class="row">
         <div class="col-lg-10 col-md-10 mx-auto">
           <div class="post-heading" style="padding:80px 0; color:#000 !important;">
-            <h1 style="font-size:40px !important;">백준 1065번 한수 (python 파이썬)</h1>
+            <h1 style="font-size:40px !important;">백준 1783번 병든 나이트 (python 파이썬)</h1>
             <h2 class="subheading" style="font-size:22px !important; color:#868e96 !important;">
-				March 18, 2021
+				March 19, 2021
 			</h2>
           </div>
         </div>
@@ -136,79 +136,99 @@
     <div class="row">
       <div class="col-lg-10 col-md-10 mx-auto">
 
-        <p>백준 1065번 한수 문제를 Python으로 해결한 문제이다.</p>
+        <p>백준 1783번 병든 나이트 문제를 Python으로 해결한 문제이다.</p>
 
 <ul>
-  <li><a href="https://www.acmicpc.net/problem/1065" target="_blank">백준 1065번 한수 문제 링크</a></li>
+  <li><a href="https://www.acmicpc.net/problem/1783" target="_blank">백준 1783번 병든 나이트 문제 링크</a></li>
 </ul>
 
 <h3 id="문제">문제</h3>
-<p>어떤 양의 정수 X의 각 자리가 등차수열을 이룬다면, 그 수를 한수라고 한다. 등차수열은 연속된 두 개의 수의 차이가 일정한 수열을 말한다. <strong><u>N이 주어졌을 때, 1보다 크거나 같고, N보다 작거나 같은 한수의 개수를 출력하는 프로그램을 작성하시오.</u></strong></p>
+<p>병든 나이트가 N × M 크기 체스판의 가장 왼쪽아래 칸에 위치해 있다. 병든 나이트는 건강한 보통 체스의 나이트와 다르게 4가지로만 움직일 수 있다.</p>
+
+<ol>
+  <li>2칸 위로, 1칸 오른쪽</li>
+  <li>1칸 위로, 2칸 오른쪽</li>
+  <li>1칸 아래로, 2칸 오른쪽</li>
+  <li>2칸 아래로, 1칸 오른쪽</li>
+</ol>
+
+<p>병든 나이트는 여행을 시작하려고 하고, 여행을 하면서 방문한 칸의 수를 최대로 하려고 한다. 병든 나이트의 이동 횟수가 4번보다 적지 않다면, 이동 방법을 모두 한 번씩 사용해야 한다. 이동 횟수가 4번보다 적은 경우(방문한 칸이 5개 미만)에는 이동 방법에 대한 제약이 없다.</p>
+
+<p><strong><u>체스판의 크기가 주어졌을 때, 병든 나이트가 여행에서 방문할 수 있는 칸의 최대 개수를 구해보자.</u></strong></p>
 
 <h3 id="입력">입력</h3>
-<p>첫째 줄에 1,000보다 작거나 같은 자연수 N이 주어진다.</p>
+<p>첫째 줄에 체스판의 세로 길이 N와 가로 길이 M이 주어진다. N과 M은 2,000,000,000보다 작거나 같은 자연수이다.</p>
 
 <h3 id="출력">출력</h3>
-<p><strong><u>첫째 줄에 1보다 크거나 같고, N보다 작거나 같은 한수의 개수를 출력한다.</u></strong></p>
+<p><strong><u>병든 나이트가 여행에서 방문할 수 있는 칸의 개수중 최댓값을 출력한다.</u></strong></p>
 
 <h3 id="문제풀이">문제풀이</h3>
-<p>이 문제는 1000보다 작거나 같은 자연수가 주어졌을 때, 한수의 개수를 출력하는 문제이다.</p>
+<p>이 문제는 1000보다 작거나 같은 자연수가 주어졌을 때, 병든 나이트의 개수를 출력하는 문제이다.</p>
 
 <p><strong><u>접근방법</u></strong><br />
-이 문제는 자기가 가지고 있는 리스트에서 1부터 시작해서 어디까지 차례대로 만들 수 있는지를 물어보는 문제다.</p>
+이 문제는 병든 나이트가 여행에서 방문할 수 있는 칸의 개수중 최댓값을 출력하는 문제다.</p>
 
-<p>해당 문제는 코드는 간단하지만 문제를 이해하는게 쉽지가 않다.</p>
+<p>병든 나이트의 이동에 대해 생각을 해보면, <strong>반드시 오른쪽으로만 이동한다</strong>는 특징을 가지고 있다. 또한 <strong>방문한 칸이 5개 미만인 경우에는 이동 방법에 대한 제약이 없다</strong>는 특징을 가지고 있다.</p>
 
-<p><strong><u>어떤 양의 정수 X의 각 자리가 등차수열을 이룬다면, 그 수를 한수라고 한다.</u></strong></p>
+<p>위의 특징을 가지고 경우의 수를 나누어 본다면 다음과 같다.</p>
 
-<p>이 정수 X의 각 자리가 등차수열을 이룬다면 이라는 말을 해석하자면,<br />
-예를 들어서, 숫자가 123이 있다고 하자면 자릿수대로 이 숫자들을 분리한다.<br />
-그럼 <strong>1, 2, 3이란 숫자가 나오게 된다. 등차수열은 연속된 두 개의 수의 차이가 일정한 수열을 말하므로 <u>1, 1, 1</u>로 동일하므로 한수가 된다.</strong></p>
+<p><strong>1. N = 1</strong><br />
+방문할 수 있는 칸 : 1<br />
+위로 이동을 하지 못하기 때문에 이동할 수 있는 방법은 처음 시작되는 칸 밖에 없다.</p>
 
-<p><strong><u>단, 주의할 점은 99이하는 전부 한수이다.</u></strong></p>
+<p><strong>2. N = 2</strong></p>
+<ul>
+  <li>M = 1, 2 (방문할 수 있는 칸 : 1)</li>
+  <li>M = 3, 4 (방문할 수 있는 칸 : 2)</li>
+  <li>M = 5, 6 (방문할 수 있는 칸 : 3)</li>
+  <li>M = 7, 8 (방문할 수 있는 칸 : 4)</li>
+</ul>
+
+<p>여기서 규칙을 찾을 수 있는데, M+1 // 2 라는 규칙을 찾을 수 있다.<br />
+단, 이동 횟수가 4번이 넘어간다면 이동 방법을 모두 한번 씩 사용해야 하므로,<br />
+<strong><u>M+1 // 2 값과 4중에 최솟값을 선택</u></strong>한다.</p>
+
+<p><strong>3. N = 3</strong></p>
+<ul>
+  <li>M = 1 (방문할 수 있는 칸 : 1)</li>
+  <li>M = 2 (방문할 수 있는 칸 : 2)</li>
+  <li>M = 3 (방문할 수 있는 칸 : 3)</li>
+  <li>M = 4 (방문할 수 있는 칸 : 4)</li>
+  <li>M = 5 (방문할 수 있는 칸 : 4)</li>
+  <li>M = 6 (방문할 수 있는 칸 : 4)</li>
+  <li>M = 7 (방문할 수 있는 칸 : 5)</li>
+  <li>M = 8 (방문할 수 있는 칸 : 6)</li>
+  <li>M = 9 (방문할 수 있는 칸 : 7)</li>
+  <li>M = 10 (방문할 수 있는 칸 : 8)</li>
+</ul>
+
+<p><strong><u>M이 6보다 작거나 같으면 4와 M중 하나를 고르면 되고,</u></strong><br />
+<strong><u>M이 7이상이면 M-2라는 규칙을 찾을 수 있다.</u></strong></p>
 
 <h3 id="코드">코드</h3>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">sys</span>
 <span class="nb">input</span> <span class="o">=</span> <span class="n">sys</span><span class="p">.</span><span class="n">stdin</span><span class="p">.</span><span class="n">readline</span>
 
-<span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
-<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">one_digit</span><span class="p">,</span> <span class="n">ten_digit</span><span class="p">,</span> <span class="n">hundred_digit</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span>
+<span class="n">N</span><span class="p">,</span> <span class="n">M</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">())</span>
 
-<span class="k">if</span> <span class="n">N</span> <span class="o">&lt;=</span> <span class="mi">99</span><span class="p">:</span> <span class="c1"># 99 이하이므로 한수
-</span>	<span class="n">count</span> <span class="o">=</span> <span class="n">N</span>
+<span class="k">if</span> <span class="n">N</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span> 
+    <span class="k">print</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">N</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span> 
+    <span class="k">print</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="p">(</span><span class="n">M</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span><span class="p">))</span>
 <span class="k">else</span><span class="p">:</span>
-	<span class="n">count</span> <span class="o">=</span> <span class="mi">99</span>
-
-	<span class="s">"""
-	1의 자리는 100으로 나눈 몫을 구한다.
-	10의 자리는 10으로 나눈 몫을 다시 10으로 나눈 나머지를 구한다.
-	100의 자리는 10으로 나눈 나머지를 구한다.
-
-	그리고 1의자리와 10의자리 뺀 값과 10의자리와 100의자리를 뺀 값이
-	동일한 경우 한수이므로 count를 증가시켜준다.
-	"""</span>
-	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
-	  <span class="n">one_digit</span> <span class="o">=</span> <span class="n">i</span> <span class="o">//</span> <span class="mi">100</span> 
-	  <span class="n">ten_digit</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span><span class="o">//</span><span class="mi">10</span><span class="p">)</span> <span class="o">%</span> <span class="mi">10</span>
-	  <span class="n">hundred_digit</span> <span class="o">=</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">10</span>
-
-	  <span class="k">if</span> <span class="n">one_digit</span> <span class="o">-</span> <span class="n">ten_digit</span> <span class="o">==</span> <span class="n">ten_digit</span> <span class="o">-</span> <span class="n">hundred_digit</span><span class="p">:</span>
-	  	<span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">M</span> <span class="o">&lt;=</span> <span class="mi">6</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">M</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">M</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
 </code></pre></div></div>
 
 
         <hr>
         <div class="clearfix">
           
-          <a class="btn btn-primary float-left" href="/algorithm/2021/03/17/scale.html" data-toggle="tooltip" data-placement="top" title="백준 2437번 저울 (python 파이썬)">&larr; 이전<span class="d-none d-md-inline">
+          <a class="btn btn-primary float-left" href="/algorithm/2021/03/18/hansu.html" data-toggle="tooltip" data-placement="top" title="백준 1065번 한수 (python 파이썬)">&larr; 이전<span class="d-none d-md-inline">
               게시물</span></a>
           
-          
-          <a class="btn btn-primary float-right" href="/algorithm/2021/03/19/sick-knight.html" data-toggle="tooltip" data-placement="top" title="백준 1783번 병든 나이트 (python 파이썬)">다음<span class="d-none d-md-inline">
-              게시물</span> &rarr;</a>
           
         </div>
 		
