@@ -5,9 +5,137 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 03 Apr 2021 17:34:44 +0900</pubDate>
-    <lastBuildDate>Sat, 03 Apr 2021 17:34:44 +0900</lastBuildDate>
+    <pubDate>Sat, 03 Apr 2021 17:46:34 +0900</pubDate>
+    <lastBuildDate>Sat, 03 Apr 2021 17:46:34 +0900</lastBuildDate>
     <generator>Jekyll v3.8.7</generator>
+    
+      <item>
+        <title>프로그래머스 3진법 뒤집기 (python 파이썬)</title>
+        <description>&lt;p&gt;프로그래머스 3진법 뒤집기 문제를 Python으로 해결한 문제이다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/68935&quot; target=&quot;_blank&quot;&gt;프로그래머스 3진법 뒤집기 문제 링크&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;문제&quot;&gt;문제&lt;/h3&gt;
+&lt;p&gt;자연수 n이 매개변수로 주어집니다. n을 3진법 상에서 앞뒤로 뒤집은 후, 이를 다시 10진법으로 표현한 수를 return 하도록 solution 함수를 완성해주세요.&lt;/p&gt;
+
+&lt;h3 id=&quot;제한사항&quot;&gt;제한사항&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;n은 1 이상 100,000,000 이하인 자연수입니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;입출력-예&quot;&gt;입출력 예&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;n&lt;/th&gt;
+      &lt;th&gt;lost&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;45&lt;/td&gt;
+      &lt;td&gt;7&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;125&lt;/td&gt;
+      &lt;td&gt;229&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;입출력-예-설명&quot;&gt;입출력 예 설명&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;예제 #1&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;답을 도출하는 과정은 다음과 같습니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;n (10 진법)&lt;/th&gt;
+      &lt;th&gt;n (3진법)&lt;/th&gt;
+      &lt;th&gt;앞뒤 반전(3진법)&lt;/th&gt;
+      &lt;th&gt;10진법으로 표현&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;45&lt;/td&gt;
+      &lt;td&gt;1200&lt;/td&gt;
+      &lt;td&gt;0021&lt;/td&gt;
+      &lt;td&gt;7&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;따라서 7을 return 해야 합니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;예제 #2&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;답을 도출하는 과정은 다음과 같습니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;n (10 진법)&lt;/th&gt;
+      &lt;th&gt;n (3진법)&lt;/th&gt;
+      &lt;th&gt;앞뒤 반전(3진법)&lt;/th&gt;
+      &lt;th&gt;10진법으로 표현&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;125&lt;/td&gt;
+      &lt;td&gt;11122&lt;/td&gt;
+      &lt;td&gt;22111&lt;/td&gt;
+      &lt;td&gt;229&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;따라서 229을 return 해야 합니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;문제풀이&quot;&gt;문제풀이&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;삼진법을 먼저 거꾸로 만들기 위해 n을 3으로 나눈 나머지 값을 저장해준다.&lt;/li&gt;
+  &lt;li&gt;배열의 맨 뒤에서부터 제곱근 계산을 해주어 값을 더해준다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;코드&quot;&gt;코드&lt;/h3&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;math&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;three&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;three&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;//=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;three&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;three&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;pow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;three&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</description>
+        <pubDate>Sat, 03 Apr 2021 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/algorithm/2021/04/03/ternary-reverse.html</link>
+        <guid isPermaLink="true">http://localhost:4000/algorithm/2021/04/03/ternary-reverse.html</guid>
+        
+        <category>Algorithm</category>
+        
+        
+        <category>Algorithm</category>
+        
+      </item>
     
       <item>
         <title>프로그래머스 체육복 (python 파이썬)</title>
@@ -68,7 +196,7 @@
 &lt;p&gt;&lt;strong&gt;예제 #1&lt;/strong&gt;&lt;br /&gt;
 1번 학생이 2번 학생에게 체육복을 빌려주고, 3번 학생이나 5번 학생이 4번 학생에게 체육복을 빌려주면 학생 5명이 체육수업을 들을 수 있습니다.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;예제 #2&lt;/strong&gt;
+&lt;p&gt;&lt;strong&gt;예제 #2&lt;/strong&gt;&lt;br /&gt;
 3번 학생이 2번 학생이나 4번 학생에게 체육복을 빌려주면 학생 4명이 체육수업을 들을 수 있습니다.&lt;/p&gt;
 
 &lt;h3 id=&quot;문제풀이&quot;&gt;문제풀이&lt;/h3&gt;
@@ -95,6 +223,77 @@
         <pubDate>Sat, 03 Apr 2021 00:00:00 +0900</pubDate>
         <link>http://localhost:4000/algorithm/2021/04/03/gym-suit.html</link>
         <guid isPermaLink="true">http://localhost:4000/algorithm/2021/04/03/gym-suit.html</guid>
+        
+        <category>Algorithm</category>
+        
+        
+        <category>Algorithm</category>
+        
+      </item>
+    
+      <item>
+        <title>프로그래머스 2016년 (python 파이썬)</title>
+        <description>&lt;p&gt;프로그래머스 2016년 문제를 Python으로 해결한 문제이다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/12901&quot; target=&quot;_blank&quot;&gt;프로그래머스 2016년 문제 링크&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;문제&quot;&gt;문제&lt;/h3&gt;
+&lt;p&gt;2016년 1월 1일은 금요일입니다. 2016년 a월 b일은 무슨 요일일까요? 두 수 a ,b를 입력받아 2016년 a월 b일이 무슨 요일인지 리턴하는 함수, solution을 완성하세요. 요일의 이름은 일요일부터 토요일까지 각각 SUN,MON,TUE,WED,THU,FRI,SAT&lt;/p&gt;
+
+&lt;p&gt;입니다. 예를 들어 a=5, b=24라면 5월 24일은 화요일이므로 문자열 “TUE”를 반환하세요.&lt;/p&gt;
+
+&lt;h3 id=&quot;제한사항&quot;&gt;제한사항&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;2016년은 윤년입니다.&lt;/li&gt;
+  &lt;li&gt;2016년 a월 b일은 실제로 있는 날입니다. (13월 26일이나 2월 45일같은 날짜는 주어지지 않습니다)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;입출력-예&quot;&gt;입출력 예&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;a&lt;/th&gt;
+      &lt;th&gt;b&lt;/th&gt;
+      &lt;th&gt;result&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;5&lt;/td&gt;
+      &lt;td&gt;24&lt;/td&gt;
+      &lt;td&gt;“TUE”&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;문제풀이&quot;&gt;문제풀이&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;1월1일이 금요일부터 시작이므로 days에 금요일부터 차례대로 넣어준다.&lt;/li&gt;
+  &lt;li&gt;1월부터 12월의 총 일수를 다 넣어준다.&lt;/li&gt;
+  &lt;li&gt;그리고 지난 일수를 다 더한뒤 7로 나눈 나머지를 days에서 출력해주면 된다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;코드&quot;&gt;코드&lt;/h3&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;days&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'FRI'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'SAT'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'SUN'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'MON'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'TUE'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'WED'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'THU'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;months&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;31&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;29&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;31&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;31&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;31&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;31&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;31&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;31&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+    
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;months&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+    
+    &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;
+    
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;days&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</description>
+        <pubDate>Sat, 03 Apr 2021 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/algorithm/2021/04/03/2016.html</link>
+        <guid isPermaLink="true">http://localhost:4000/algorithm/2021/04/03/2016.html</guid>
         
         <category>Algorithm</category>
         
@@ -2426,137 +2625,6 @@ sys.stdin.readline &amp;gt; raw_input() &amp;gt; input() 와 같이
         <pubDate>Sat, 13 Mar 2021 00:00:00 +0900</pubDate>
         <link>http://localhost:4000/algorithm/2021/03/13/new-recruit.html</link>
         <guid isPermaLink="true">http://localhost:4000/algorithm/2021/03/13/new-recruit.html</guid>
-        
-        <category>Algorithm</category>
-        
-        
-        <category>Algorithm</category>
-        
-      </item>
-    
-      <item>
-        <title>백준 4796번 캠핑 (python 파이썬)</title>
-        <description>&lt;p&gt;백준 4796번 캠핑 문제를 Python으로 해결한 문제이다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/4796&quot; target=&quot;_blank&quot;&gt;백준 4796번 캠핑 문제 링크&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;문제&quot;&gt;문제&lt;/h3&gt;
-&lt;p&gt;등산가 김강산은 가족들과 함께 캠핑을 떠났다. 하지만, 캠핑장에는 다음과 같은 경고문이 쓰여 있었다.&lt;/p&gt;
-
-&lt;p&gt;캠핑장은 연속하는 20일 중 10일동안만 사용할 수 있습니다.&lt;/p&gt;
-
-&lt;p&gt;강산이는 이제 막 28일 휴가를 시작했다. 이번 휴가 기간 동안 강산이는 캠핑장을 며칠동안 사용할 수 있을까?&lt;/p&gt;
-
-&lt;p&gt;강산이는 조금 더 일반화해서 문제를 풀려고 한다.&lt;/p&gt;
-
-&lt;p&gt;캠핑장을 연속하는 P일 중, L일동안만 사용할 수 있다. 강산이는 이제 막 V일짜리 휴가를 시작했다.&lt;br /&gt;
-&lt;strong&gt;&lt;u&gt;강산이가 캠핑장을 최대 며칠동안 사용할 수 있을까? (1 &amp;lt; L &amp;lt; P &amp;lt; V)&lt;/u&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;입력&quot;&gt;입력&lt;/h3&gt;
-&lt;p&gt;입력은 여러 개의 테스트 케이스로 이루어져 있다. 각 테스트 케이스는 한 줄로 이루어져 있고, L, P, V를 순서대로 포함하고 있다. 모든 입력 정수는 int범위이다. 마지막 줄에는 0이 3개 주어진다.&lt;/p&gt;
-
-&lt;h3 id=&quot;출력&quot;&gt;출력&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;&lt;u&gt;각 테스트 케이스에 대해서, 강산이가 캠핑장을 최대 며칠동안 사용할 수 있는지 출력한다.&lt;/u&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;문제풀이&quot;&gt;문제풀이&lt;/h3&gt;
-&lt;p&gt;입력을 여러개 받아야 하므로 while문으로 L,P,V를 입력 받는다.&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;수식
-    &lt;ul&gt;
-      &lt;li&gt;&lt;strong&gt;&lt;u&gt;((V//P) * L) + min((V%P), L)&lt;/u&gt;&lt;/strong&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;수식에 대해서 설명하자면, V=20, P=8, L=5 일경우를 예제로 설명한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;u&gt;((V//P) * L)&lt;/u&gt;&lt;/strong&gt;에 대한 설명이다.&lt;br /&gt;
-총 휴가일수 &lt;strong&gt;V일중에 P일에 L일만큼 사용&lt;/strong&gt;할 수 있다. 즉, &lt;strong&gt;&lt;u&gt;1주에 L일만큼 사용가능&lt;/u&gt;&lt;/strong&gt;하다.&lt;br /&gt;
-&lt;strong&gt;&lt;u&gt;20//8일 경우 2이므로 1주당 5일만큼 2주를 사용할 수있기 때문에 10일&lt;/u&gt;&lt;/strong&gt;이 나온다.&lt;/p&gt;
-
-&lt;p&gt;다음으로 &lt;strong&gt;&lt;u&gt;min((V%P),L)&lt;/u&gt;&lt;/strong&gt;에 대한 설명이다.&lt;br /&gt;
-&lt;strong&gt;&lt;u&gt;20%8일 경우 나머지가 4이므로 4와 연속가능일수 5중에 4를 선택하여 더한다.&lt;/u&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;최솟값을 선택하는 이유는 나머지가 5가 넘을 수 있기 때문이다.&lt;/p&gt;
-
-&lt;h3 id=&quot;코드&quot;&gt;코드&lt;/h3&gt;
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# 케이스 순서 저장 변수
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;P&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;V&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
-  
-  &lt;span class=&quot;c1&quot;&gt;# L+P+V가 0일경우 종료
-&lt;/span&gt;  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;L&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;P&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;V&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;
-  
-  &lt;span class=&quot;c1&quot;&gt;# 위의 설명한 수식으로 계산하기
-&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;V&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;P&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;min&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;V&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;P&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Case {}: {}&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-</description>
-        <pubDate>Sat, 13 Mar 2021 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/algorithm/2021/03/13/camping.html</link>
-        <guid isPermaLink="true">http://localhost:4000/algorithm/2021/03/13/camping.html</guid>
-        
-        <category>Algorithm</category>
-        
-        
-        <category>Algorithm</category>
-        
-      </item>
-    
-      <item>
-        <title>백준 1541번 잃어버린 괄호 (python 파이썬)</title>
-        <description>&lt;p&gt;백준 1541번 잃어버린 괄호 문제를 Python으로 해결한 문제이다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/1541&quot; target=&quot;_blank&quot;&gt;백준 1541번 잃어버린 괄호 문제 링크&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;문제&quot;&gt;문제&lt;/h3&gt;
-&lt;p&gt;세준이는 양수와 +, -, 그리고 괄호를 가지고 식을 만들었다. 그리고 나서 세준이는 괄호를 모두 지웠다.&lt;/p&gt;
-
-&lt;p&gt;그리고 나서 세준이는 괄호를 적절히 쳐서 이 식의 값을 최소로 만들려고 한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;u&gt;괄호를 적절히 쳐서 이 식의 값을 최소로 만드는 프로그램을 작성하시오.&lt;/u&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;입력&quot;&gt;입력&lt;/h3&gt;
-&lt;p&gt;첫째 줄에 식이 주어진다. 식은 ‘0’~‘9’, ‘+’, 그리고 ‘-’만으로 이루어져 있고, 가장 처음과 마지막 문자는 숫자이다. 그리고 연속해서 두 개 이상의 연산자가 나타나지 않고, 5자리보다 많이 연속되는 숫자는 없다. 수는 0으로 시작할 수 있다. 입력으로 주어지는 식의 길이는 50보다 작거나 같다.&lt;/p&gt;
-
-&lt;h3 id=&quot;출력&quot;&gt;출력&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;&lt;u&gt;첫째 줄에 정답을 출력한다.&lt;/u&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;문제풀이&quot;&gt;문제풀이&lt;/h3&gt;
-&lt;p&gt;최솟값을 만들기 위해서는 &lt;strong&gt;&lt;u&gt;- 기준으로 괄호를 치면 된다.&lt;/u&gt;&lt;/strong&gt;&lt;br /&gt;
-예를 들어&lt;br /&gt;
-55 - 50 + 40 - 30 + 20&lt;br /&gt;
-위와 같이 입력 했을때, - 기준으로 &lt;strong&gt;55 - (50 + 40) - (30 + 20)&lt;/strong&gt; 이렇게 괄호를 쳤을때 최솟값이 된다.&lt;br /&gt;
-그래서 입력을 받을때 - 기준으로 입력을 받아준다.&lt;br /&gt;
-위와 같이 입력을 받았을때 &lt;strong&gt;[‘55’, ‘50 + 40’, ‘30 + 20’]&lt;/strong&gt; 이렇게 입력을 받게 되는데 각 원소에 있는 숫자들을 계산해주고 맨 처음의 원소는 더해주고 나머지는 빼준다.&lt;/p&gt;
-
-&lt;h3 id=&quot;코드&quot;&gt;코드&lt;/h3&gt;
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'-'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;cnt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'+'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;cnt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cnt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)):&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-</description>
-        <pubDate>Fri, 12 Mar 2021 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/algorithm/2021/03/12/lost-parenthesis.html</link>
-        <guid isPermaLink="true">http://localhost:4000/algorithm/2021/03/12/lost-parenthesis.html</guid>
         
         <category>Algorithm</category>
         
