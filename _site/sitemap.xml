@@ -18,6 +18,38 @@
     </url>
   
     <url>
+      <loc>http://localhost:4000/algorithm/2021/04/03/no-same-number.html</loc>
+      
+        <lastmod>2021-04-03T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>http://localhost:4000/algorithm/2021/04/03/middle-word.html</loc>
+      
+        <lastmod>2021-04-03T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
       <loc>http://localhost:4000/algorithm/2021/04/03/gym-suit.html</loc>
       
         <lastmod>2021-04-03T00:00:00+09:00</lastmod>
