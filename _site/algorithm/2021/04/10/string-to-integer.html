@@ -8,11 +8,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <title>
-    프로그래머스 소수 찾기 (python 파이썬) - Tech
+    프로그래머스 문자열을 정수로 바꾸기 (python 파이썬) - Tech
     
   </title>
 
-  <meta name="description" content="프로그래머스 소수 찾기 문제를 Python으로 해결한 문제이다.">
+  <meta name="description" content="프로그래머스 문자열을 정수로 바꾸기 문제를 Python으로 해결한 문제이다.">
   <!-- google 웹마스터 -->
   <meta name="google-site-verification" content="1M5pUHiID88fUVGyUOZvd5xyyGEcU37L6sdv7fkh8xg" />
   <!-- //google 웹마스터 -->
@@ -25,7 +25,7 @@
   <link rel="stylesheet" href="/assets/vendor/fontawesome-free/css/all.min.css">
 
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="canonical" href="http://localhost:4000/algorithm/2021/04/09/prime-number.html">
+  <link rel="canonical" href="http://localhost:4000/algorithm/2021/04/10/string-to-integer.html">
   <link rel="alternate" type="application/rss+xml" title="Tech" href="/feed.xml">
   <link rel="stylesheet" href="/assets/css/syntax.css">
   <link rel="stylesheet" href="/assets/css/custom.css">
@@ -122,9 +122,9 @@
       <div class="row">
         <div class="col-lg-10 col-md-10 mx-auto">
           <div class="post-heading" style="padding:80px 0; color:#000 !important;">
-            <h1 style="font-size:40px !important;">프로그래머스 소수 찾기 (python 파이썬)</h1>
+            <h1 style="font-size:40px !important;">프로그래머스 문자열을 정수로 바꾸기 (python 파이썬)</h1>
             <h2 class="subheading" style="font-size:22px !important; color:#868e96 !important;">
-				April 09, 2021
+				April 10, 2021
 			</h2>
           </div>
         </div>
@@ -136,86 +136,80 @@
     <div class="row">
       <div class="col-lg-10 col-md-10 mx-auto">
 
-        <p>프로그래머스 소수 찾기 문제를 Python으로 해결한 문제이다.</p>
+        <p>프로그래머스 문자열을 정수로 바꾸기 문제를 Python으로 해결한 문제이다.</p>
 
 <ul>
-  <li><a href="https://programmers.co.kr/learn/courses/30/lessons/12921" target="_blank">프로그래머스 소수 찾기 문제 링크</a></li>
+  <li><a href="https://programmers.co.kr/learn/courses/30/lessons/12925" target="_blank">프로그래머스 문자열을 정수로 바꾸기 문제 링크</a></li>
 </ul>
 
 <h3 id="문제">문제</h3>
-<p>1부터 입력받은 숫자 n 사이에 있는 소수의 개수를 반환하는 함수, solution을 만들어 보세요.</p>
-
-<p>소수는 1과 자기 자신으로만 나누어지는 수를 의미합니다.
-(1은 소수가 아닙니다.)</p>
+<p>문자열 s를 숫자로 변환한 결과를 반환하는 함수, solution을 완성하세요.</p>
 
 <h3 id="제한사항">제한사항</h3>
 <ul>
-  <li>n은 2이상 1000000이하의 자연수입니다.</li>
+  <li>s의 길이는 1 이상 5이하입니다.</li>
+  <li>s의 맨앞에는 부호(+, -)가 올 수 있습니다.</li>
+  <li>s는 부호와 숫자로만 이루어져있습니다.</li>
+  <li>s는 “0”으로 시작하지 않습니다.</li>
 </ul>
 
 <h3 id="입출력-예">입출력 예</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>n</th>
-      <th>result</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>10</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <td>5</td>
-      <td>3</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="입출력-예-설명">입출력 예 설명</h3>
-<p><strong>예제 #1</strong><br />
-1부터 10 사이의 소수는 [2,3,5,7] 4개가 존재하므로 4를 반환</p>
-
-<p><strong>예제 #2</strong><br />
-1부터 5 사이의 소수는 [2,3,5] 3개가 존재하므로 3를 반환</p>
+<p>예를들어 str이 “1234”이면 1234를 반환하고, “-1234”이면 -1234를 반환하면 됩니다.<br />
+str은 부호(+,-)와 숫자로만 구성되어 있고, 잘못된 값이 입력되는 경우는 없습니다.</p>
 
 <h3 id="문제풀이">문제풀이</h3>
 <ul>
-  <li>에라토스테네스의 체를 이용하여 소수를 찾는다.</li>
-  <li>에라토스테네스의 체
-    <ol>
-      <li>2부터 n까지의 숫자를 배열로 만든다.</li>
-      <li>2를 제외하고 2의배수를 만든 배열에서 제거한다.</li>
-      <li>1씩 커지면서 그숫자의 배수를 제거한다.</li>
-    </ol>
+  <li>문제를 2가지 방식으로 풀어보았다.</li>
+  <li>1번 풀이
+    <ul>
+      <li>파이썬의 int함수를 이용하여 그냥 정수형으로 바꿔서 리턴하는방법이다.</li>
+    </ul>
+  </li>
+  <li>2번 풀이
+    <ul>
+      <li>s[::-1]은 주어진 스트링을 거꾸로 만든다.</li>
+      <li>enumerate 함수를 이용하여 한 글자당 인덱스를 배정해서 각 자리에 10의 지수만큼 곱해서 더해준다.</li>
+      <li>예를들면 -1234는 s[::-1]에 의해 “4321-“가 되고
+        <ol>
+          <li>4 * (10 ** 0) : 4</li>
+          <li>3 * (10 ** 1) : 30</li>
+          <li>2 * (10 ** 2) : 200</li>
+          <li>1 * (10 ** 3) : 1000</li>
+          <li>”-“ : result * -1</li>
+          <li>1~5까지 항목을 하면 1000+200+30+4 = 1234 * -1 이므로 -1234의 결과값이 나온다.</li>
+        </ol>
+      </li>
+    </ul>
   </li>
 </ul>
 
-<h3 id="코드">코드</h3>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-	<span class="c1"># 2부터 n까지의 숫자 배열 만들기
-</span>    <span class="n">num_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+<h3 id="코드1">코드1</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</code></pre></div></div>
 
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">num_set</span><span class="p">:</span> <span class="c1"># 배수 제거
-</span>            <span class="n">num_set</span> <span class="o">-=</span> <span class="nb">set</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">))</span>
+<h3 id="코드2">코드2</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span>
 
-    <span class="n">answer</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">num_set</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">s</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]):</span>
+        <span class="k">if</span> <span class="n">number</span> <span class="o">==</span> <span class="s">'-'</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">+=</span> <span class="nb">int</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">10</span> <span class="o">**</span> <span class="n">idx</span><span class="p">)</span>
 
-    <span class="k">return</span> <span class="n">answer</span>
+    <span class="k">return</span> <span class="n">result</span>
 </code></pre></div></div>
 
 
         <hr>
         <div class="clearfix">
           
-          <a class="btn btn-primary float-left" href="/algorithm/2021/04/08/string-handling.html" data-toggle="tooltip" data-placement="top" title="프로그래머스 문자열 다루기 기본 (python 파이썬)">&larr; 이전<span class="d-none d-md-inline">
+          <a class="btn btn-primary float-left" href="/algorithm/2021/04/10/dot-product.html" data-toggle="tooltip" data-placement="top" title="프로그래머스 내적 (python 파이썬)">&larr; 이전<span class="d-none d-md-inline">
               게시물</span></a>
           
           
-          <a class="btn btn-primary float-right" href="/algorithm/2021/04/10/caesar-cipher.html" data-toggle="tooltip" data-placement="top" title="프로그래머스 시저 암호 (python 파이썬)">다음<span class="d-none d-md-inline">
+          <a class="btn btn-primary float-right" href="/algorithm/2021/04/10/water-melon.html" data-toggle="tooltip" data-placement="top" title="프로그래머스 수박수박수박수박수박수? (python 파이썬)">다음<span class="d-none d-md-inline">
               게시물</span> &rarr;</a>
           
         </div>
