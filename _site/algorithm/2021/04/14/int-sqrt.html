@@ -8,11 +8,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <title>
-    프로그래머스 자릿수 더하기 (python 파이썬) - Tech
+    프로그래머스 정수 제곱근 판별 (python 파이썬) - Tech
     
   </title>
 
-  <meta name="description" content="프로그래머스 자릿수 더하기 문제를 Python으로 해결한 문제이다.">
+  <meta name="description" content="프로그래머스 정수 제곱근 판별 문제를 Python으로 해결한 문제이다.">
   <!-- google 웹마스터 -->
   <meta name="google-site-verification" content="1M5pUHiID88fUVGyUOZvd5xyyGEcU37L6sdv7fkh8xg" />
   <!-- //google 웹마스터 -->
@@ -25,7 +25,7 @@
   <link rel="stylesheet" href="/assets/vendor/fontawesome-free/css/all.min.css">
 
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="canonical" href="http://localhost:4000/algorithm/2021/04/13/add-number-of-digits.html">
+  <link rel="canonical" href="http://localhost:4000/algorithm/2021/04/14/int-sqrt.html">
   <link rel="alternate" type="application/rss+xml" title="Tech" href="/feed.xml">
   <link rel="stylesheet" href="/assets/css/syntax.css">
   <link rel="stylesheet" href="/assets/css/custom.css">
@@ -122,9 +122,9 @@
       <div class="row">
         <div class="col-lg-10 col-md-10 mx-auto">
           <div class="post-heading" style="padding:80px 0; color:#000 !important;">
-            <h1 style="font-size:40px !important;">프로그래머스 자릿수 더하기 (python 파이썬)</h1>
+            <h1 style="font-size:40px !important;">프로그래머스 정수 제곱근 판별 (python 파이썬)</h1>
             <h2 class="subheading" style="font-size:22px !important; color:#868e96 !important;">
-				April 13, 2021
+				April 14, 2021
 			</h2>
           </div>
         </div>
@@ -136,19 +136,19 @@
     <div class="row">
       <div class="col-lg-10 col-md-10 mx-auto">
 
-        <p>프로그래머스 자릿수 더하기 문제를 Python으로 해결한 문제이다.</p>
+        <p>프로그래머스 정수 제곱근 판별 문제를 Python으로 해결한 문제이다.</p>
 
 <ul>
-  <li><a href="https://programmers.co.kr/learn/courses/30/lessons/12931" target="_blank">프로그래머스 자릿수 더하기 문제 링크</a></li>
+  <li><a href="https://programmers.co.kr/learn/courses/30/lessons/12934" target="_blank">프로그래머스 정수 제곱근 판별 문제 링크</a></li>
 </ul>
 
 <h3 id="문제">문제</h3>
-<p>자연수 N이 주어지면, N의 각 자릿수의 합을 구해서 return 하는 solution 함수를 만들어 주세요.
-예를들어 N = 123이면 1 + 2 + 3 = 6을 return 하면 됩니다.</p>
+<p>임의의 양의 정수 n에 대해, n이 어떤 양의 정수 x의 제곱인지 아닌지 판단하려 합니다.
+n이 양의 정수 x의 제곱이라면 x+1의 제곱을 리턴하고, n이 양의 정수 x의 제곱이 아니라면 -1을 리턴하는 함수를 완성하세요.</p>
 
 <h3 id="제한사항">제한사항</h3>
 <ul>
-  <li>N의 범위 : 100,000,000 이하의 자연수</li>
+  <li>n은 1이상, 50000000000000 이하인 양의 정수입니다.</li>
 </ul>
 
 <h3 id="입출력-예">입출력 예</h3>
@@ -156,40 +156,43 @@
 <table>
   <thead>
     <tr>
-      <th>N</th>
-      <th>answer</th>
+      <th>n</th>
+      <th>return</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>123</td>
-      <td>6</td>
+      <td>121</td>
+      <td>144</td>
     </tr>
     <tr>
-      <td>987</td>
-      <td>24</td>
+      <td>3</td>
+      <td>-1</td>
     </tr>
   </tbody>
 </table>
 
 <h3 id="입출력-예-설명">입출력 예 설명</h3>
 <p><strong>예제 #1</strong><br />
-문제의 예시와 같습니다.</p>
+121은 양의 정수 11의 제곱이므로, (11+1)를 제곱한 144를 리턴합니다.</p>
 
 <p><strong>예제 #2</strong><br />
-9 + 8 + 7 = 24이므로 24를 return 하면 됩니다.</p>
+3은 양의 정수의 제곱이 아니므로, -1을 리턴합니다.</p>
 
 <h3 id="문제풀이">문제풀이</h3>
 <ul>
-  <li>파이썬의 str을 이용하여 각 자릿수별로 더하면 된다.</li>
+  <li>n에 0.5제곱을 하여 정수형이 나오면 제곱근이므로 제곱해준다.</li>
 </ul>
 
 <h3 id="코드">코드</h3>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="n">n</span> <span class="o">**</span> <span class="mf">0.5</span>
 
-    <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-        <span class="n">answer</span> <span class="o">+=</span> <span class="nb">int</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">num</span> <span class="o">==</span> <span class="nb">int</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+        <span class="n">answer</span> <span class="o">=</span> <span class="p">(</span><span class="n">num</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">answer</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
 
     <span class="k">return</span> <span class="n">answer</span>
 </code></pre></div></div>
@@ -198,12 +201,9 @@
         <hr>
         <div class="clearfix">
           
-          <a class="btn btn-primary float-left" href="/algorithm/2021/04/12/strange-character.html" data-toggle="tooltip" data-placement="top" title="프로그래머스 이상한 문자 만들기 (python 파이썬)">&larr; 이전<span class="d-none d-md-inline">
+          <a class="btn btn-primary float-left" href="/algorithm/2021/04/13/add-number-of-digits.html" data-toggle="tooltip" data-placement="top" title="프로그래머스 자릿수 더하기 (python 파이썬)">&larr; 이전<span class="d-none d-md-inline">
               게시물</span></a>
           
-          
-          <a class="btn btn-primary float-right" href="/algorithm/2021/04/14/int-sqrt.html" data-toggle="tooltip" data-placement="top" title="프로그래머스 정수 제곱근 판별 (python 파이썬)">다음<span class="d-none d-md-inline">
-              게시물</span> &rarr;</a>
           
         </div>
 		
