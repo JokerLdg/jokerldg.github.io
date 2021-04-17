@@ -8,11 +8,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <title>
-    프로그래머스 짝수와 홀수 (python 파이썬) - Tech
+    프로그래머스 콜라츠 추측 (python 파이썬) - Tech
     
   </title>
 
-  <meta name="description" content="프로그래머스 짝수와 홀수 문제를 Python으로 해결한 문제이다.">
+  <meta name="description" content="프로그래머스 콜라츠 추측 문제를 Python으로 해결한 문제이다.">
   <!-- google 웹마스터 -->
   <meta name="google-site-verification" content="1M5pUHiID88fUVGyUOZvd5xyyGEcU37L6sdv7fkh8xg" />
   <!-- //google 웹마스터 -->
@@ -25,7 +25,7 @@
   <link rel="stylesheet" href="/assets/vendor/fontawesome-free/css/all.min.css">
 
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="canonical" href="http://localhost:4000/algorithm/2021/04/16/even-odd-number.html">
+  <link rel="canonical" href="http://localhost:4000/algorithm/2021/04/17/collatz-guess.html">
   <link rel="alternate" type="application/rss+xml" title="Tech" href="/feed.xml">
   <link rel="stylesheet" href="/assets/css/syntax.css">
   <link rel="stylesheet" href="/assets/css/custom.css">
@@ -122,9 +122,9 @@
       <div class="row">
         <div class="col-lg-10 col-md-10 mx-auto">
           <div class="post-heading" style="padding:80px 0; color:#000 !important;">
-            <h1 style="font-size:40px !important;">프로그래머스 짝수와 홀수 (python 파이썬)</h1>
+            <h1 style="font-size:40px !important;">프로그래머스 콜라츠 추측 (python 파이썬)</h1>
             <h2 class="subheading" style="font-size:22px !important; color:#868e96 !important;">
-				April 16, 2021
+				April 17, 2021
 			</h2>
           </div>
         </div>
@@ -136,19 +136,24 @@
     <div class="row">
       <div class="col-lg-10 col-md-10 mx-auto">
 
-        <p>프로그래머스 짝수와 홀수 문제를 Python으로 해결한 문제이다.</p>
+        <p>프로그래머스 콜라츠 추측 문제를 Python으로 해결한 문제이다.</p>
 
 <ul>
-  <li><a href="https://programmers.co.kr/learn/courses/30/lessons/12937" target="_blank">프로그래머스 짝수와 홀수 문제 링크</a></li>
+  <li><a href="https://programmers.co.kr/learn/courses/30/lessons/12943" target="_blank">프로그래머스 콜라츠 추측 문제 링크</a></li>
 </ul>
 
 <h3 id="문제">문제</h3>
-<p>정수 num이 짝수일 경우 “Even”을 반환하고 홀수인 경우 “Odd”를 반환하는 함수, solution을 완성해주세요.</p>
+<p>1937년 Collatz란 사람에 의해 제기된 이 추측은, 주어진 수가 1이 될때까지 다음 작업을 반복하면, 모든 수를 1로 만들 수 있다는 추측입니다. 작업은 다음과 같습니다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1-1. 입력된 수가 짝수라면 2로 나눕니다. 
+1-2. 입력된 수가 홀수라면 3을 곱하고 1을 더합니다.
+2. 결과로 나온 수에 같은 작업을 1이 될 때까지 반복합니다.
+</code></pre></div></div>
+<p>예를 들어, 입력된 수가 6이라면 6→3→10→5→16→8→4→2→1 이 되어 총 8번 만에 1이 됩니다. 위 작업을 몇 번이나 반복해야하는지 반환하는 함수, solution을 완성해 주세요. 단, 작업을 500번을 반복해도 1이 되지 않는다면 –1을 반환해 주세요.</p>
 
 <h3 id="제한사항">제한사항</h3>
 <ul>
-  <li>num은 int 범위의 정수입니다.</li>
-  <li>0은 짝수입니다.</li>
+  <li>입력된 수, <code class="highlighter-rouge">num</code>은 1 이상 8000000 미만인 정수입니다.</li>
 </ul>
 
 <h3 id="입출력-예">입출력 예</h3>
@@ -156,36 +161,60 @@
 <table>
   <thead>
     <tr>
-      <th>num</th>
-      <th>return</th>
+      <th>n</th>
+      <th>result</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>3</td>
-      <td>“Odd”</td>
+      <td>6</td>
+      <td>8</td>
     </tr>
     <tr>
+      <td>16</td>
       <td>4</td>
-      <td>“Even”</td>
+    </tr>
+    <tr>
+      <td>626331</td>
+      <td>-1</td>
     </tr>
   </tbody>
 </table>
 
+<h3 id="입출력-예-설명">입출력 예 설명</h3>
+<p><strong>예제 #1</strong><br />
+문제의 설명과 같습니다.</p>
+
+<p><strong>예제 #2</strong><br />
+16 -&gt; 8 -&gt; 4 -&gt; 2 -&gt; 1 이되어 총 4번만에 1이 됩니다.</p>
+
+<p><strong>예제 #3</strong><br />
+626331은 500번을 시도해도 1이 되지 못하므로 -1을 리턴해야합니다.</p>
+
 <h3 id="문제풀이">문제풀이</h3>
 <ul>
-  <li>2로 나눈 나머지가 0이면 Even, 아니면 Odd를 출력해준다.</li>
+  <li>값이 1이 아닐때까지 반복을 한다.</li>
+  <li>문제에 맞게 짝수라면 2로 나누고, 홀수라면 3을 곱하고 1을 더해준다.</li>
+  <li>나누는 반복을 세어 500번이 넘어가면 -1을 리턴하고 종료한다.</li>
 </ul>
 
 <h3 id="코드">코드</h3>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
-    <span class="n">answer</span> <span class="o">=</span> <span class="s">''</span>
-    
-    <span class="k">if</span> <span class="p">(</span><span class="n">num</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">answer</span> <span class="o">=</span> <span class="s">"Even"</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">answer</span> <span class="o">=</span> <span class="s">"Odd"</span>
-    
+    <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">while</span> <span class="n">num</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">count</span> <span class="o">&gt;=</span> <span class="mi">500</span><span class="p">:</span>
+            <span class="n">count</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="k">break</span>
+        <span class="k">if</span> <span class="n">num</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">num</span> <span class="o">=</span> <span class="n">num</span> <span class="o">//</span> <span class="mi">2</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">num</span> <span class="o">=</span> <span class="p">(</span><span class="n">num</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="n">answer</span> <span class="o">=</span> <span class="n">count</span>
+
     <span class="k">return</span> <span class="n">answer</span>
 </code></pre></div></div>
 
@@ -193,11 +222,11 @@
         <hr>
         <div class="clearfix">
           
-          <a class="btn btn-primary float-left" href="/algorithm/2021/04/15/remove-min-number.html" data-toggle="tooltip" data-placement="top" title="프로그래머스 제일 작은 수 제거하기 (python 파이썬)">&larr; 이전<span class="d-none d-md-inline">
+          <a class="btn btn-primary float-left" href="/algorithm/2021/04/16/even-odd-number.html" data-toggle="tooltip" data-placement="top" title="프로그래머스 짝수와 홀수 (python 파이썬)">&larr; 이전<span class="d-none d-md-inline">
               게시물</span></a>
           
           
-          <a class="btn btn-primary float-right" href="/algorithm/2021/04/17/collatz-guess.html" data-toggle="tooltip" data-placement="top" title="프로그래머스 콜라츠 추측 (python 파이썬)">다음<span class="d-none d-md-inline">
+          <a class="btn btn-primary float-right" href="/algorithm/2021/04/17/gcd-lcm.html" data-toggle="tooltip" data-placement="top" title="프로그래머스 최대공약수와 최소공배수 (python 파이썬)">다음<span class="d-none d-md-inline">
               게시물</span> &rarr;</a>
           
         </div>
