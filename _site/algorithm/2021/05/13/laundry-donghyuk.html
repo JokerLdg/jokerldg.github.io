@@ -8,11 +8,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <title>
-    프로그래머스 멀쩡한 사각형 (python 파이썬) - Tech
+    백준 2720번 세탁소 사장 동혁 (python 파이썬) - Tech
     
   </title>
 
-  <meta name="description" content="프로그래머스 멀쩡한 사각형 문제를 Python으로 해결한 문제이다.">
+  <meta name="description" content="백준 2720번 세탁소 사장 동혁 문제를 Python으로 해결한 문제이다.">
   <!-- google 웹마스터 -->
   <meta name="google-site-verification" content="1M5pUHiID88fUVGyUOZvd5xyyGEcU37L6sdv7fkh8xg" />
   <!-- //google 웹마스터 -->
@@ -25,7 +25,7 @@
   <link rel="stylesheet" href="/assets/vendor/fontawesome-free/css/all.min.css">
 
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="canonical" href="http://localhost:4000/algorithm/2021/05/12/rectangle.html">
+  <link rel="canonical" href="http://localhost:4000/algorithm/2021/05/13/laundry-donghyuk.html">
   <link rel="alternate" type="application/rss+xml" title="Tech" href="/feed.xml">
   <link rel="stylesheet" href="/assets/css/syntax.css">
   <link rel="stylesheet" href="/assets/css/custom.css">
@@ -122,9 +122,9 @@
       <div class="row">
         <div class="col-lg-10 col-md-10 mx-auto">
           <div class="post-heading" style="padding:80px 0; color:#000 !important;">
-            <h1 style="font-size:40px !important;">프로그래머스 멀쩡한 사각형 (python 파이썬)</h1>
+            <h1 style="font-size:40px !important;">백준 2720번 세탁소 사장 동혁 (python 파이썬)</h1>
             <h2 class="subheading" style="font-size:22px !important; color:#868e96 !important;">
-				May 12, 2021
+				May 13, 2021
 			</h2>
           </div>
         </div>
@@ -136,70 +136,56 @@
     <div class="row">
       <div class="col-lg-10 col-md-10 mx-auto">
 
-        <p>프로그래머스 멀쩡한 사각형 문제를 Python으로 해결한 문제이다.</p>
+        <p>백준 2720번 세탁소 사장 동혁 문제를 Python으로 해결한 문제이다.</p>
 
 <ul>
-  <li><a href="https://programmers.co.kr/learn/courses/30/lessons/62048" target="_blank">프로그래머스 멀쩡한 사각형 문제 링크</a></li>
+  <li><a href="https://www.acmicpc.net/problem/2720" target="_blank">백준 2720번 세탁소 사장 동혁 문제 링크</a></li>
 </ul>
 
-<h3 id="문제-설명">문제 설명</h3>
-<p>가로 길이가 Wcm, 세로 길이가 Hcm인 직사각형 종이가 있습니다. 종이에는 가로, 세로 방향과 평행하게 격자 형태로 선이 그어져 있으며, 모든 격자칸은 1cm x 1cm 크기입니다. 이 종이를 격자 선을 따라 1cm × 1cm의 정사각형으로 잘라 사용할 예정이었는데, 누군가가 이 종이를 대각선 꼭지점 2개를 잇는 방향으로 잘라 놓았습니다. 그러므로 현재 직사각형 종이는 크기가 같은 직각삼각형 2개로 나누어진 상태입니다. 새로운 종이를 구할 수 없는 상태이기 때문에, 이 종이에서 원래 종이의 가로, 세로 방향과 평행하게 1cm × 1cm로 잘라 사용할 수 있는 만큼만 사용하기로 하였습니다.<br />
-가로의 길이 W와 세로의 길이 H가 주어질 때, 사용할 수 있는 정사각형의 개수를 구하는 solution 함수를 완성해 주세요.</p>
+<h3 id="문제">문제</h3>
+<p>미국으로 유학간 동혁이는 세탁소를 운영하고 있다. 동혁이는 최근에 아르바이트로 고등학생 리암을 채용했다.</p>
 
-<h3 id="제한사항">제한사항</h3>
-<ul>
-  <li>W, H : 1억 이하의 자연수</li>
-</ul>
+<p>동혁이는 리암에게 실망했다.</p>
 
-<h3 id="입출력-예">입출력 예</h3>
+<p>리암은 거스름돈을 주는 것을 자꾸 실수한다.</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>W</th>
-      <th>H</th>
-      <th>result</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>8</td>
-      <td>12</td>
-      <td>80</td>
-    </tr>
-  </tbody>
-</table>
+<p>심지어 $0.5달러를 줘야하는 경우에 거스름돈으로 $5달러를 주는것이다!</p>
 
-<h3 id="입출력-예-설명">입출력 예 설명</h3>
-<p><strong>예제 #1</strong>
-가로가 8, 세로가 12인 직사각형을 대각선 방향으로 자르면 총 16개 정사각형을 사용할 수 없게 됩니다. 원래 직사각형에서는 96개의 정사각형을 만들 수 있었으므로, 96 - 16 = 80 을 반환합니다.</p>
+<p>어쩔수 없이 뛰어난 코딩 실력을 발휘해 리암을 도와주는 프로그램을 작성하려고 하지만, 디아블로를 하느라 코딩할 시간이 없어서 이 문제를 읽고 있는 여러분이 대신 해주어야 한다.</p>
 
-<p><img src="/img/algorithm/rectangle.PNG" alt="설명 그림" /></p>
+<p>거스름돈의 액수가 주어지면 리암이 줘야할 쿼터(Quarter, $0.25)의 개수, 다임(Dime, $0.10)의 개수, 니켈(Nickel, $0.05)의 개수, 페니(Penny, $0.01)의 개수를 구하는 프로그램을 작성하시오. 거스름돈은 항상 $5.00 이하이고, 손님이 받는 동전의 개수를 최소로 하려고 한다. 예를 들어, $1.24를 거슬러 주어야 한다면, 손님은 4쿼터, 2다임, 0니켈, 4페니를 받게 된다.</p>
+
+<h3 id="입력">입력</h3>
+<p>첫째 줄에 테스트 케이스의 개수 T가 주어진다. 각 테스트 케이스는 거스름돈 C를 나타내는 정수 하나로 이루어져 있다. C의 단위는 센트이다. (1달러 = 100센트) (1&lt;=C&lt;=500)</p>
+
+<h3 id="출력">출력</h3>
+<p><strong><u>각 테스트케이스에 대해 필요한 쿼터의 개수, 다임의 개수, 니켈의 개수, 페니의 개수를 공백으로 구분하여 출력한다.</u></strong></p>
 
 <h3 id="문제풀이">문제풀이</h3>
-<ol>
-  <li>W와 H를 곱한다.</li>
-  <li>W와 H를 더하고 W와H의 최대공약수의 값을 구하여 빼준다.</li>
-  <li>1번값과 2번값을 빼준다.</li>
-</ol>
+<p>거스름돈을 쿼터 / 다임 / 니켈 / 페니를 순서대로 나눈후에 나머지를 거스름돈에 넣어준다.</p>
 
 <h3 id="코드">코드</h3>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">math</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">T</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">moneys</span> <span class="o">=</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">count</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">4</span>
 
-<span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">h</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">w</span><span class="o">*</span><span class="n">h</span> <span class="o">-</span> <span class="p">(</span><span class="n">w</span><span class="o">+</span><span class="n">h</span><span class="o">-</span><span class="n">math</span><span class="p">.</span><span class="n">gcd</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">h</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">moneys</span><span class="p">)):</span>
+        <span class="n">count</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">C</span> <span class="o">//</span> <span class="n">moneys</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+        <span class="n">C</span> <span class="o">=</span> <span class="n">C</span> <span class="o">%</span> <span class="n">moneys</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="s">' '</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">count</span><span class="p">)))</span>
 </code></pre></div></div>
 
 
         <hr>
         <div class="clearfix">
           
-          <a class="btn btn-primary float-left" href="/algorithm/2021/05/11/target-number.html" data-toggle="tooltip" data-placement="top" title="프로그래머스 타겟 넘버 (python 파이썬)">&larr; 이전<span class="d-none d-md-inline">
+          <a class="btn btn-primary float-left" href="/algorithm/2021/05/12/rectangle.html" data-toggle="tooltip" data-placement="top" title="프로그래머스 멀쩡한 사각형 (python 파이썬)">&larr; 이전<span class="d-none d-md-inline">
               게시물</span></a>
           
-          
-          <a class="btn btn-primary float-right" href="/algorithm/2021/05/13/laundry-donghyuk.html" data-toggle="tooltip" data-placement="top" title="백준 2720번 세탁소 사장 동혁 (python 파이썬)">다음<span class="d-none d-md-inline">
-              게시물</span> &rarr;</a>
           
         </div>
 		
