@@ -8,11 +8,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <title>
-    백준 2720번 세탁소 사장 동혁 (python 파이썬) - Tech
+    백준 2810번 컵홀더 (python 파이썬) - Tech
     
   </title>
 
-  <meta name="description" content="백준 2720번 세탁소 사장 동혁 문제를 Python으로 해결한 문제이다.">
+  <meta name="description" content="백준 2810번 컵홀더 문제를 Python으로 해결한 문제이다.">
   <!-- google 웹마스터 -->
   <meta name="google-site-verification" content="1M5pUHiID88fUVGyUOZvd5xyyGEcU37L6sdv7fkh8xg" />
   <!-- //google 웹마스터 -->
@@ -25,7 +25,7 @@
   <link rel="stylesheet" href="/assets/vendor/fontawesome-free/css/all.min.css">
 
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="canonical" href="http://localhost:4000/algorithm/2021/05/13/laundry-donghyuk.html">
+  <link rel="canonical" href="http://localhost:4000/algorithm/2021/05/14/cup-holder.html">
   <link rel="alternate" type="application/rss+xml" title="Tech" href="/feed.xml">
   <link rel="stylesheet" href="/assets/css/syntax.css">
   <link rel="stylesheet" href="/assets/css/custom.css">
@@ -122,9 +122,9 @@
       <div class="row">
         <div class="col-lg-10 col-md-10 mx-auto">
           <div class="post-heading" style="padding:80px 0; color:#000 !important;">
-            <h1 style="font-size:40px !important;">백준 2720번 세탁소 사장 동혁 (python 파이썬)</h1>
+            <h1 style="font-size:40px !important;">백준 2810번 컵홀더 (python 파이썬)</h1>
             <h2 class="subheading" style="font-size:22px !important; color:#868e96 !important;">
-				May 13, 2021
+				May 14, 2021
 			</h2>
           </div>
         </div>
@@ -136,59 +136,61 @@
     <div class="row">
       <div class="col-lg-10 col-md-10 mx-auto">
 
-        <p>백준 2720번 세탁소 사장 동혁 문제를 Python으로 해결한 문제이다.</p>
+        <p>백준 2810번 컵홀더 문제를 Python으로 해결한 문제이다.</p>
 
 <ul>
-  <li><a href="https://www.acmicpc.net/problem/2720" target="_blank">백준 2720번 세탁소 사장 동혁 문제 링크</a></li>
+  <li><a href="https://www.acmicpc.net/problem/2810" target="_blank">백준 2810번 컵홀더 문제 링크</a></li>
 </ul>
 
 <h3 id="문제">문제</h3>
-<p>미국으로 유학간 동혁이는 세탁소를 운영하고 있다. 동혁이는 최근에 아르바이트로 고등학생 리암을 채용했다.</p>
+<p>십년이면 강산이 변한다.</p>
 
-<p>동혁이는 리암에게 실망했다.</p>
+<p>강산이네 동네에 드디어 극장이 생겼고, 강산이는 극장에 놀러갔다. 매점에서 콜라를 산 뒤, 자리에 앉은 강산이는 큰 혼란에 빠졌다. 양쪽 컵홀더를 이미 옆 사람들이 차지했기 때문에 콜라를 꽂을 컵 홀더가 없었기 때문이다. 영화를 보는 내내 콜라를 손에 들고 있던 강산이는 극장에 다시 왔을 때는 꼭 콜라를 컵 홀더에 놓겠다는 다짐을 한 후 집에 돌아갔다.</p>
 
-<p>리암은 거스름돈을 주는 것을 자꾸 실수한다.</p>
+<p>극장의 한 줄에는 자리가 N개가 있다. 서로 인접한 좌석 사이에는 컵홀더가 하나씩 있고, 양 끝 좌석에는 컵홀더가 하나씩 더 있다. 또, 이 극장에는 커플석이 있다. 커플석 사이에는 컵홀더가 없다.</p>
 
-<p>심지어 $0.5달러를 줘야하는 경우에 거스름돈으로 $5달러를 주는것이다!</p>
+<p>극장의 한 줄의 정보가 주어진다. 이때, 이 줄에 사람들이 모두 앉았을 때, 컵홀더에 컵을 꽂을 수 있는 최대 사람의 수를 구하는 프로그램을 작성하시오. 모든 사람은 컵을 한 개만 들고 있고, 자신의 좌석의 양 옆에 있는 컵홀더에만 컵을 꽂을 수 있다.</p>
 
-<p>어쩔수 없이 뛰어난 코딩 실력을 발휘해 리암을 도와주는 프로그램을 작성하려고 하지만, 디아블로를 하느라 코딩할 시간이 없어서 이 문제를 읽고 있는 여러분이 대신 해주어야 한다.</p>
+<p>S는 일반 좌석, L은 커플석을 의미하며, L은 항상 두개씩 쌍으로 주어진다.</p>
 
-<p>거스름돈의 액수가 주어지면 리암이 줘야할 쿼터(Quarter, $0.25)의 개수, 다임(Dime, $0.10)의 개수, 니켈(Nickel, $0.05)의 개수, 페니(Penny, $0.01)의 개수를 구하는 프로그램을 작성하시오. 거스름돈은 항상 $5.00 이하이고, 손님이 받는 동전의 개수를 최소로 하려고 한다. 예를 들어, $1.24를 거슬러 주어야 한다면, 손님은 4쿼터, 2다임, 0니켈, 4페니를 받게 된다.</p>
+<p>어떤 좌석의 배치가 SLLLLSSLL일때, 컵홀더를 * 로 표시하면 아래와 같다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>*S*LL*LL*S*S*LL*
+</code></pre></div></div>
+
+<p>위의 예에서 적어도 두 명은 컵홀더를 사용할 수 없다.</p>
 
 <h3 id="입력">입력</h3>
-<p>첫째 줄에 테스트 케이스의 개수 T가 주어진다. 각 테스트 케이스는 거스름돈 C를 나타내는 정수 하나로 이루어져 있다. C의 단위는 센트이다. (1달러 = 100센트) (1&lt;=C&lt;=500)</p>
+<p>첫째 줄에 좌석의 수 N이 주어진다. (1 ≤ N ≤ 50) 둘째 줄에는 좌석의 정보가 주어진다.</p>
 
 <h3 id="출력">출력</h3>
-<p><strong><u>각 테스트케이스에 대해 필요한 쿼터의 개수, 다임의 개수, 니켈의 개수, 페니의 개수를 공백으로 구분하여 출력한다.</u></strong></p>
+<p><strong><u>컵을 컵홀더에 놓을 수 있는 최대 사람의 수를 출력한다.</u></strong></p>
 
 <h3 id="문제풀이">문제풀이</h3>
-<p>거스름돈을 쿼터 / 다임 / 니켈 / 페니를 순서대로 나눈후에 나머지를 거스름돈에 넣어준다.</p>
+<ol>
+  <li>LL의 개수를 구한다.</li>
+  <li>LL의 개수가 1이하이면 좌석수가 최대 사람의 수다.</li>
+  <li>LL의 개수가 2이상이면 <code class="highlighter-rouge">(좌석수 - LL의 개수) + 1</code> 이다.</li>
+</ol>
 
 <h3 id="코드">코드</h3>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">T</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
-<span class="n">moneys</span> <span class="o">=</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
-<span class="n">count</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">4</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">member</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+<span class="n">count</span> <span class="o">=</span> <span class="n">member</span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="s">'LL'</span><span class="p">)</span>
 
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
-    <span class="n">C</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
-
-    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">moneys</span><span class="p">)):</span>
-        <span class="n">count</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">C</span> <span class="o">//</span> <span class="n">moneys</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
-        <span class="n">C</span> <span class="o">=</span> <span class="n">C</span> <span class="o">%</span> <span class="n">moneys</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
-
-    <span class="k">print</span><span class="p">(</span><span class="s">' '</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">count</span><span class="p">)))</span>
+<span class="k">if</span> <span class="n">count</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">((</span><span class="n">N</span> <span class="o">-</span> <span class="n">count</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 </code></pre></div></div>
 
 
         <hr>
         <div class="clearfix">
           
-          <a class="btn btn-primary float-left" href="/algorithm/2021/05/12/rectangle.html" data-toggle="tooltip" data-placement="top" title="프로그래머스 멀쩡한 사각형 (python 파이썬)">&larr; 이전<span class="d-none d-md-inline">
+          <a class="btn btn-primary float-left" href="/algorithm/2021/05/13/laundry-donghyuk.html" data-toggle="tooltip" data-placement="top" title="백준 2720번 세탁소 사장 동혁 (python 파이썬)">&larr; 이전<span class="d-none d-md-inline">
               게시물</span></a>
           
-          
-          <a class="btn btn-primary float-right" href="/algorithm/2021/05/14/cup-holder.html" data-toggle="tooltip" data-placement="top" title="백준 2810번 컵홀더 (python 파이썬)">다음<span class="d-none d-md-inline">
-              게시물</span> &rarr;</a>
           
         </div>
 		
