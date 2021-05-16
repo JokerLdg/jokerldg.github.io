@@ -5,8 +5,8 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 16 May 2021 17:05:57 +0900</pubDate>
-    <lastBuildDate>Sun, 16 May 2021 17:05:57 +0900</lastBuildDate>
+    <pubDate>Sun, 16 May 2021 17:07:30 +0900</pubDate>
+    <lastBuildDate>Sun, 16 May 2021 17:07:30 +0900</lastBuildDate>
     <generator>Jekyll v3.8.7</generator>
     
       <item>
@@ -238,7 +238,7 @@
 &lt;h3 id=&quot;문제풀이&quot;&gt;문제풀이&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;먼저 user dictionary에 Enter나 Change가 오면 uid와 이름을 저장하는 반복문을 실행한다.&lt;/li&gt;
-  &lt;li&gt;저장한 uid와 이름가지고 Enter가 들어오면 들어온 메시지를, Leave가 들어오면 나간 메시지를 출력하여 배열에 집어 넣어준다.&lt;/li&gt;
+  &lt;li&gt;저장한 uid와 이름가지고 Enter가 들어오면 들어온 메시지를, Leave가 들어오면 나간 메시지를 출력하여 배열에 추가한다.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;코드&quot;&gt;코드&lt;/h3&gt;
