@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 백준 2810번 컵홀더 (python 파이썬)
-subtitle: 백준 2720번 문제 세탁소 사장 동혁
+subtitle: 백준 2810번 문제 컵홀더
 comments: true
 categories: [Algorithm]
 tags: [Algorithm]
