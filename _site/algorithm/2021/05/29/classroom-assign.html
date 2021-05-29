@@ -8,11 +8,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <title>
-    백준 10162번 전자레인지 (python 파이썬) - Tech
+    백준 11000번 강의실 배정 (python 파이썬) - Tech
     
   </title>
 
-  <meta name="description" content="백준 10162번 전자레인지 문제를 Python으로 해결한 문제이다.">
+  <meta name="description" content="백준 11000번 강의실 배정 문제를 Python으로 해결한 문제이다.">
   <!-- google 웹마스터 -->
   <meta name="google-site-verification" content="1M5pUHiID88fUVGyUOZvd5xyyGEcU37L6sdv7fkh8xg" />
   <!-- //google 웹마스터 -->
@@ -25,7 +25,7 @@
   <link rel="stylesheet" href="/assets/vendor/fontawesome-free/css/all.min.css">
 
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="canonical" href="http://localhost:4000/algorithm/2021/05/28/microwave.html">
+  <link rel="canonical" href="http://localhost:4000/algorithm/2021/05/29/classroom-assign.html">
   <link rel="alternate" type="application/rss+xml" title="Tech" href="/feed.xml">
   <link rel="stylesheet" href="/assets/css/syntax.css">
   <link rel="stylesheet" href="/assets/css/custom.css">
@@ -122,9 +122,9 @@
       <div class="row">
         <div class="col-lg-10 col-md-10 mx-auto">
           <div class="post-heading" style="padding:80px 0; color:#000 !important;">
-            <h1 style="font-size:40px !important;">백준 10162번 전자레인지 (python 파이썬)</h1>
+            <h1 style="font-size:40px !important;">백준 11000번 강의실 배정 (python 파이썬)</h1>
             <h2 class="subheading" style="font-size:22px !important; color:#868e96 !important;">
-				May 28, 2021
+				May 29, 2021
 			</h2>
           </div>
         </div>
@@ -136,66 +136,74 @@
     <div class="row">
       <div class="col-lg-10 col-md-10 mx-auto">
 
-        <p>백준 10162번 전자레인지 문제를 Python으로 해결한 문제이다.</p>
+        <p>백준 11000번 강의실 배정 문제를 Python으로 해결한 문제이다.</p>
 
 <ul>
-  <li><a href="https://www.acmicpc.net/problem/10162" target="_blank">백준 10162번 전자레인지 문제 링크</a></li>
+  <li><a href="https://www.acmicpc.net/problem/11000" target="_blank">백준 11000번 강의실 배정 문제 링크</a></li>
 </ul>
 
 <h3 id="문제">문제</h3>
-<p>3개의 시간조절용 버튼 A B C가 달린 전자레인지가 있다. 각 버튼마다 일정한 시간이 지정되어 있어 해당 버튼을 한번 누를 때마다 그 시간이 동작시간에 더해진다. 버튼 A, B, C에 지정된 시간은 각각 5분, 1분, 10초이다.</p>
+<p>수강신청의 마스터 김종혜 선생님에게 새로운 과제가 주어졌다.</p>
 
-<p>냉동음식마다 전자레인지로 요리해야할 시간 T가 초단위로 표시되어 있다. 우리는 A, B, C 3개의 버튼을 적절히 눌러서 그 시간의 합이 정확히 T초가 되도록 해야 한다. 단 버튼 A, B, C를 누른 횟수의 합은 항상 최소가 되어야 한다. 이것을 최소버튼 조작이라고 한다.</p>
+<p>김종혜 선생님한테는 Si에 시작해서 Ti에 끝나는 N개의 수업이 주어지는데, 최소의 강의실을 사용해서 모든 수업을 가능하게 해야 한다.</p>
 
-<p>만일 요리시간이 100초라고 하면(T=100) B를 1번, C는 4번 누르면 된다. 이와 다르게 C를 10번 눌러도 100초가 되지만 이 경우 10번은 최소 횟수가 아니기 때문이 답이 될 수 없다. 이 경우 B 1번, C 4번, 총 5번이 최소버튼 조작이다. 그리고 T=234와 같이 3개의 버튼으로 시간을 정확히 맞출 수 없는 경우도 있다.</p>
+<p>참고로, 수업이 끝난 직후에 다음 수업을 시작할 수 있다. (즉, Ti ≤ Sj 일 경우 i 수업과 j 수업은 같이 들을 수 있다.)</p>
 
-<p>여러분은 주어진 요리시간 T초를 맞추기 위한 최소버튼 조작 방법을 구하는 프로그램을 작성해야 한다.</p>
+<p>수강신청 대충한 게 찔리면, 선생님을 도와드리자!</p>
 
 <h3 id="입력">입력</h3>
-<p>첫 번째 줄에는 요리시간 T(초)가 정수로 주어져 있으며 그 범위는 1 ≤ T ≤ 10,000 이다.</p>
+<p>첫 번째 줄에 N이 주어진다. (1 ≤ N ≤ 200,000)</p>
+
+<p>이후 N개의 줄에 Si, Ti가 주어진다. (1 ≤ Si &lt; Ti ≤ 109)</p>
 
 <h3 id="출력">출력</h3>
-<p><strong><u>여러분은 T초를 위한 최소버튼 조작의 A B C 횟수를 첫 줄에 차례대로 출력해야 한다. 각각의 횟수 사이에는 빈 칸을 둔다. 해당 버튼을 누르지 않는 경우에는 숫자 0을 출력해야한다. 만일 제시된 3개의 버튼으로 T초를 맞출 수 없으면 음수 -1을 첫 줄에 출력해야 한다.</u></strong></p>
+<p><strong><u>강의실의 개수를 출력하라.</u></strong></p>
 
 <h3 id="문제풀이">문제풀이</h3>
+<p>heapq를 이용하여 문제를 풀어보았다.</p>
+
 <ol>
-  <li>10초로 나눠지지 않으면 -1을 출력한다.</li>
-  <li>A에 T를 5분으로 나눈 몫을 넣어준다.</li>
-  <li>B에 T를 5분으로 나눈 나머지를 1분으로 나눈 몫을 넣어준다.</li>
-  <li>마지막으로 5분과 1분으로 나눈 나머지에 10초로 나눈 몫을 넣어주면 된다.</li>
+  <li>먼저 순서대로 time_table변수에 값을 넣어준다.
+    <ul>
+      <li>이때 sys.stdin.readline()을 이용한 이유는 사용을 안하면 시간초과가 나게된다.</li>
+    </ul>
+  </li>
+  <li>time_table을 시작시간 기준으로 오름차순 정렬한다.</li>
+  <li>queue를 생성하여 첫번째 강의의 끝나는 시간을 넣어준다.</li>
+  <li>순서대로 time_table을 도는데, 큐의 첫번째 값이 강의시간의 시작값보다 작거나 같으면 queue에서 빼주고 아니면 값을 넣는다.</li>
+  <li>queue의 길이를 출력한다.</li>
 </ol>
 
 <h3 id="코드">코드</h3>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">T</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">heapq</span>
+<span class="kn">import</span> <span class="nn">sys</span>
 
-<span class="n">FIVE_MINUTES</span> <span class="o">=</span> <span class="mi">300</span>
-<span class="n">ONE_MINUTE</span> <span class="o">=</span> <span class="mi">60</span>
-<span class="n">TEN_SECONDS</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">time_table</span> <span class="o">=</span> <span class="p">[]</span>
 
-<span class="k">if</span> <span class="n">T</span> <span class="o">%</span> <span class="n">TEN_SECONDS</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">time_table</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">sys</span><span class="p">.</span><span class="n">stdin</span><span class="p">.</span><span class="n">readline</span><span class="p">().</span><span class="n">split</span><span class="p">())))</span>
 
-    <span class="n">A</span> <span class="o">=</span> <span class="n">B</span> <span class="o">=</span> <span class="n">C</span> <span class="o">=</span> <span class="mi">0</span>
-    
-    <span class="n">A</span> <span class="o">=</span> <span class="n">T</span> <span class="o">//</span> <span class="n">FIVE_MINUTES</span>
-    <span class="n">B</span> <span class="o">=</span> <span class="p">(</span><span class="n">T</span> <span class="o">%</span> <span class="n">FIVE_MINUTES</span><span class="p">)</span> <span class="o">//</span> <span class="n">ONE_MINUTE</span>
-    <span class="n">C</span> <span class="o">=</span> <span class="p">(</span><span class="n">T</span> <span class="o">%</span> <span class="n">FIVE_MINUTES</span><span class="p">)</span> <span class="o">%</span> <span class="n">ONE_MINUTE</span> <span class="o">//</span> <span class="n">TEN_SECONDS</span>
+<span class="n">time_table</span><span class="p">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 
-    <span class="k">print</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">)</span>
+<span class="n">queue</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">heapq</span><span class="p">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="n">time_table</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
 
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">queue</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">time_table</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]:</span>
+        <span class="n">heapq</span><span class="p">.</span><span class="n">heappop</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span>
+    <span class="n">heapq</span><span class="p">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="n">time_table</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">queue</span><span class="p">))</span>
 </code></pre></div></div>
 
 
         <hr>
         <div class="clearfix">
           
-          <a class="btn btn-primary float-left" href="/algorithm/2021/05/27/card-coalescence.html" data-toggle="tooltip" data-placement="top" title="백준 15903번 카드 합체 놀이 (python 파이썬)">&larr; 이전<span class="d-none d-md-inline">
+          <a class="btn btn-primary float-left" href="/algorithm/2021/05/28/microwave.html" data-toggle="tooltip" data-placement="top" title="백준 10162번 전자레인지 (python 파이썬)">&larr; 이전<span class="d-none d-md-inline">
               게시물</span></a>
           
-          
-          <a class="btn btn-primary float-right" href="/algorithm/2021/05/29/classroom-assign.html" data-toggle="tooltip" data-placement="top" title="백준 11000번 강의실 배정 (python 파이썬)">다음<span class="d-none d-md-inline">
-              게시물</span> &rarr;</a>
           
         </div>
 		
