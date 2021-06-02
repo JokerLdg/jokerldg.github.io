@@ -8,11 +8,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <title>
-    프로그래머스 H-Index (python 파이썬) - Tech
+    프로그래머스 위장 (python 파이썬) - Tech
     
   </title>
 
-  <meta name="description" content="프로그래머스 H-Index 문제를 Python으로 해결한 문제이다.">
+  <meta name="description" content="프로그래머스 위장 문제를 Python으로 해결한 문제이다.">
   <!-- google 웹마스터 -->
   <meta name="google-site-verification" content="1M5pUHiID88fUVGyUOZvd5xyyGEcU37L6sdv7fkh8xg" />
   <!-- //google 웹마스터 -->
@@ -25,7 +25,7 @@
   <link rel="stylesheet" href="/assets/vendor/fontawesome-free/css/all.min.css">
 
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="canonical" href="http://localhost:4000/algorithm/2021/06/01/h-">
+  <link rel="canonical" href="http://localhost:4000/algorithm/2021/06/02/camouflage.html">
   <link rel="alternate" type="application/rss+xml" title="Tech" href="/feed.xml">
   <link rel="stylesheet" href="/assets/css/syntax.css">
   <link rel="stylesheet" href="/assets/css/custom.css">
@@ -122,9 +122,9 @@
       <div class="row">
         <div class="col-lg-10 col-md-10 mx-auto">
           <div class="post-heading" style="padding:80px 0; color:#000 !important;">
-            <h1 style="font-size:40px !important;">프로그래머스 H-Index (python 파이썬)</h1>
+            <h1 style="font-size:40px !important;">프로그래머스 위장 (python 파이썬)</h1>
             <h2 class="subheading" style="font-size:22px !important; color:#868e96 !important;">
-				June 01, 2021
+				June 02, 2021
 			</h2>
           </div>
         </div>
@@ -136,23 +136,54 @@
     <div class="row">
       <div class="col-lg-10 col-md-10 mx-auto">
 
-        <p>프로그래머스 H-Index 문제를 Python으로 해결한 문제이다.</p>
+        <p>프로그래머스 위장 문제를 Python으로 해결한 문제이다.</p>
 
 <ul>
-  <li><a href="https://programmers.co.kr/learn/courses/30/lessons/42747" target="_blank">프로그래머스 H-Index 문제 링크</a></li>
+  <li><a href="https://programmers.co.kr/learn/courses/30/lessons/42578" target="_blank">프로그래머스 위장 문제 링크</a></li>
 </ul>
 
 <h3 id="문제-설명">문제 설명</h3>
-<p>H-Index는 과학자의 생산성과 영향력을 나타내는 지표입니다. 어느 과학자의 H-Index를 나타내는 값인 h를 구하려고 합니다. 위키백과1에 따르면, H-Index는 다음과 같이 구합니다.</p>
+<p>스파이들은 매일 다른 옷을 조합하여 입어 자신을 위장합니다.</p>
 
-<p>어떤 과학자가 발표한 논문 <code class="highlighter-rouge">n</code>편 중, <code class="highlighter-rouge">h</code>번 이상 인용된 논문이 h편 이상이고 나머지 논문이 <code class="highlighter-rouge">h</code>번 이하 인용되었다면 <code class="highlighter-rouge">h</code>의 최댓값이 이 과학자의 H-Index입니다.</p>
+<p>예를 들어 스파이가 가진 옷이 아래와 같고 오늘 스파이가 동그란 안경, 긴 코트, 파란색 티셔츠를 입었다면 다음날은 청바지를 추가로 입거나 동그란 안경 대신 검정 선글라스를 착용하거나 해야 합니다.</p>
 
-<p>어떤 과학자가 발표한 논문의 인용 횟수를 담은 배열 citations가 매개변수로 주어질 때, 이 과학자의 H-Index를 return 하도록 solution 함수를 작성해주세요.</p>
+<table>
+  <thead>
+    <tr>
+      <th>종류</th>
+      <th>이름</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>얼굴</td>
+      <td>동그란 안경, 검정 선글라스</td>
+    </tr>
+    <tr>
+      <td>상의</td>
+      <td>파란색 티셔츠</td>
+    </tr>
+    <tr>
+      <td>하의</td>
+      <td>청바지</td>
+    </tr>
+    <tr>
+      <td>겉옷</td>
+      <td>긴 코트</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>스파이가 가진 의상들이 담긴 2차원 배열 clothes가 주어질 때 서로 다른 옷의 조합의 수를 return 하도록 solution 함수를 작성해주세요.</p>
 
 <h3 id="제한-사항">제한 사항</h3>
 <ul>
-  <li>과학자가 발표한 논문의 수는 1편 이상 1,000편 이하입니다.</li>
-  <li>논문별 인용 횟수는 0회 이상 10,000회 이하입니다.</li>
+  <li>clothes의 각 행은 [의상의 이름, 의상의 종류]로 이루어져 있습니다.</li>
+  <li>스파이가 가진 의상의 수는 1개 이상 30개 이하입니다.</li>
+  <li>같은 이름을 가진 의상은 존재하지 않습니다.</li>
+  <li>clothes의 모든 원소는 문자열로 이루어져 있습니다.</li>
+  <li>모든 문자열의 길이는 1 이상 20 이하인 자연수이고 알파벳 소문자 또는 ‘_’ 로만 이루어져 있습니다.</li>
+  <li>스파이는 하루에 최소 한 개의 의상은 입습니다.</li>
 </ul>
 
 <h3 id="입출력-예">입출력 예</h3>
@@ -160,49 +191,69 @@
 <table>
   <thead>
     <tr>
-      <th>citations</th>
+      <th>clothes</th>
       <th>return</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>[3, 0, 6, 1, 5]</td>
+      <td>[[“yellowhat”, “headgear”], [“bluesunglasses”, “eyewear”], [“green_turban”, “headgear”]]</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>[[“crowmask”, “face”], [“bluesunglasses”, “face”], [“smoky_makeup”, “face”]]</td>
       <td>3</td>
     </tr>
   </tbody>
 </table>
 
 <h3 id="입출력-예-설명">입출력 예 설명</h3>
-<p>이 과학자가 발표한 논문의 수는 5편이고, 그중 3편의 논문은 3회 이상 인용되었습니다. 그리고 나머지 2편의 논문은 3회 이하 인용되었기 때문에 이 과학자의 H-Index는 3입니다.</p>
+<p><strong>예제 #1</strong><br />
+headgear에 해당하는 의상이 yellow_hat, green_turban이고 eyewear에 해당하는 의상이 blue_sunglasses이므로 아래와 같이 5개의 조합이 가능합니다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. yellow_hat
+2. blue_sunglasses
+3. green_turban
+4. yellow_hat + blue_sunglasses
+5. green_turban + blue_sunglasses
+</code></pre></div></div>
+
+<p><strong>예제 #2</strong><br />
+face에 해당하는 의상이 crow_mask, blue_sunglasses, smoky_makeup이므로 아래와 같이 3개의 조합이 가능합니다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. crow_mask
+2. blue_sunglasses
+3. smoky_makeup
+</code></pre></div></div>
 
 <h3 id="문제풀이">문제풀이</h3>
+<p>공식은 다음과 같다.</p>
 <ul>
-  <li>if citations[i] &gt;= article_count-i는 주어진 h번 이상 인용된 논문이 h편 이상이라는 조건을 그대로 풀어쓴 것이었다.</li>
-  <li>citations[i]는 i번 논문이 인용된 횟수이고 article_count-i는 인용된 논문의 개수를 최댓값부터 하나씩 줄여나간 것이다. (최댓값을 찾아야 하므로 가장 큰 값부터 시작)</li>
-  <li>그리고 리스트는 오름차순 정렬된 상태이므로 i번째 이후는 모두 i번째보다 큰 값을 가질 것이다.</li>
+  <li>((부위+1) * (부위별 옷 개수+1)) - 1</li>
 </ul>
 
-<h3 id="코드">코드</h3>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">citations</span><span class="p">):</span>
-    <span class="n">citations</span><span class="p">.</span><span class="n">sort</span><span class="p">()</span>
-    <span class="n">article_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">citations</span><span class="p">)</span>
+<ol>
+  <li>Counter를 이용하여 종류별 개수를 세준다.</li>
+  <li>reduce와 lambda를 이용하여 ((부위+1) * (부위별 옷 개수+1)) - 1 공식에 맞게 풀어준다.</li>
+</ol>
 
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">article_count</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">citations</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">article_count</span><span class="o">-</span><span class="n">i</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">article_count</span><span class="o">-</span><span class="n">i</span>
-    <span class="k">return</span> <span class="mi">0</span>
+<h3 id="코드">코드</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="nb">reduce</span>
+
+<span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">clothes</span><span class="p">):</span>
+    <span class="n">counts</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">([</span><span class="n">kind</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">kind</span> <span class="ow">in</span> <span class="n">clothes</span><span class="p">])</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="nb">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="p">(</span><span class="n">y</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n">counts</span><span class="p">.</span><span class="n">values</span><span class="p">(),</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">answer</span>
 </code></pre></div></div>
 
 
         <hr>
         <div class="clearfix">
           
-          <a class="btn btn-primary float-left" href="/algorithm/2021/05/31/rotate-bracket.html" data-toggle="tooltip" data-placement="top" title="프로그래머스 괄호 회전하기 (python 파이썬)">&larr; 이전<span class="d-none d-md-inline">
+          <a class="btn btn-primary float-left" href="/algorithm/2021/06/01/h-index.html" data-toggle="tooltip" data-placement="top" title="프로그래머스 H-Index (python 파이썬)">&larr; 이전<span class="d-none d-md-inline">
               게시물</span></a>
           
-          
-          <a class="btn btn-primary float-right" href="/algorithm/2021/06/02/camouflage.html" data-toggle="tooltip" data-placement="top" title="프로그래머스 위장 (python 파이썬)">다음<span class="d-none d-md-inline">
-              게시물</span> &rarr;</a>
           
         </div>
 		
