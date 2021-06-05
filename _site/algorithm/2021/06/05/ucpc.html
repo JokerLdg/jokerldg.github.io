@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>
+    백준 15904번 UCPC는 무엇의 약자일까? (python 파이썬) - Tech
+    
+  </title>
+
+  <meta name="description" content="백준 15904번 UCPC는 무엇의 약자일까? 문제를 Python으로 해결한 문제이다.">
+  <!-- google 웹마스터 -->
+  <meta name="google-site-verification" content="1M5pUHiID88fUVGyUOZvd5xyyGEcU37L6sdv7fkh8xg" />
+  <!-- //google 웹마스터 -->
+
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="/assets/vendor/fontawesome-free/css/all.min.css">
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="http://localhost:4000/algorithm/2021/06/05/ucpc.html">
+  <link rel="alternate" type="application/rss+xml" title="Tech" href="/feed.xml">
+  <link rel="stylesheet" href="/assets/css/syntax.css">
+  <link rel="stylesheet" href="/assets/css/custom.css">
+
+</head>
+
+
+<body>
+
+  <!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="/">Tech</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      Menu
+      <i class="fa fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+		<li class="nav-item"><a class="nav-link">Category</a>
+			<ul class="navbar-nav ml-auto">
+			
+			
+			  
+								
+					<li class="nav-item">
+						<a class="nav-link category-link " href="/algorithm">Algorithm</a>
+					</li>
+				
+			  
+			
+			  
+								
+					<li class="nav-item">
+						<a class="nav-link category-link " href="/architecture">Architecture</a>
+					</li>
+				
+			  
+			
+			  
+								
+					<li class="nav-item">
+						<a class="nav-link category-link " href="/cpp">C/C++</a>
+					</li>
+				
+			  
+			
+			  
+								
+					<li class="nav-item">
+						<a class="nav-link category-link " href="/english">English</a>
+					</li>
+				
+			  
+			
+			  
+								
+					<li class="nav-item">
+						<a class="nav-link category-link " href="/java">Java</a>
+					</li>
+				
+			  
+			
+			  
+				
+			  
+			
+			  
+			
+			  
+			
+			  
+			
+			  
+			
+			</ul>
+		</li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+  <!-- Page Header -->
+  <header class="masthead" style="height:200px; margin-bottom:30px; background-color:#fff !important">
+    <div class="overlay" style="background-color:#fff !important"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 col-md-10 mx-auto">
+          <div class="post-heading" style="padding:80px 0; color:#000 !important;">
+            <h1 style="font-size:40px !important;">백준 15904번 UCPC는 무엇의 약자일까? (python 파이썬)</h1>
+            <h2 class="subheading" style="font-size:22px !important; color:#868e96 !important;">
+				June 05, 2021
+			</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div id="div_container_post" class="container">
+    <div class="row">
+      <div class="col-lg-10 col-md-10 mx-auto">
+
+        <p>백준 15904번 UCPC는 무엇의 약자일까? 문제를 Python으로 해결한 문제이다.</p>
+
+<ul>
+  <li><a href="https://www.acmicpc.net/problem/15904" target="_blank">백준 15904번 UCPC는 무엇의 약자일까? 문제 링크</a></li>
+</ul>
+
+<h3 id="문제">문제</h3>
+<p>UCPC는 ‘전국 대학생 프로그래밍 대회 동아리 연합 여름 대회’의 줄임말로 알려져있다. 하지만 이 줄임말이 정확히 어떻게 구성되었는지는 아무도 모른다. UCPC 2018을 준비하던 ntopia는 여러 사람들에게 UCPC가 정확히 무엇의 줄임말인지 물어보았지만, 아무도 정확한 답을 제시해주지 못했다. ntopia가 들은 몇 가지 답을 아래에 적어보았다.</p>
+
+<ul>
+  <li>Union of Computer Programming Contest club contest</li>
+  <li>Union of Computer Programming contest Club contest</li>
+  <li>Union of Computer Programming contest club Contest</li>
+  <li>Union of Collegiate Programming Contest club contest</li>
+  <li>Union of Collegiate Programming contest Club contest</li>
+  <li>Union of Collegiate Programming contest club Contest</li>
+  <li>University Computer Programming Contest</li>
+  <li>University Computer Programming Club contest</li>
+  <li>University Computer Programming club Contest</li>
+  <li>University Collegiate Programming Contest</li>
+  <li>University CPC</li>
+  <li>…</li>
+</ul>
+
+<p>ntopia는 이렇게 다양한 답을 듣고는 UCPC가 무엇의 약자인지는 아무도 모른다고 결론내렸다. 적당히 슥삭해서 UCPC를 남길 수 있으면 모두 UCPC의 약자인 것이다!</p>
+
+<p>문자열이 주어지면 이 문자열을 적절히 축약해서 “UCPC”로 만들 수 있는지 확인하는 프로그램을 만들어보자.</p>
+
+<p>축약이라는 것은 문자열에서 임의의 문자들을 제거하는 행동을 뜻한다. 예를 들면, “apple”에서 a와 e를 지워 “ppl”로 만들 수 있고, “University Computer Programming Contest”에서 공백과 소문자를 모두 지워 “UCPC”로 만들 수 있다.</p>
+
+<p>문자열을 비교할 때는 대소문자를 구분해 정확히 비교한다. 예를 들어 “UCPC”와 “UCpC”는 다른 문자열이다. 따라서 “University Computer programming Contest”를 “UCPC”로 축약할 수 있는 방법은 없다.</p>
+
+<p>그나저나 UCPC는 정말 무엇의 약자였을까? 정확히 아시는 분은 제보 부탁드립니다.</p>
+
+<h3 id="입력">입력</h3>
+<p>첫 번째 줄에 알파벳 대소문자, 공백으로 구성된 문자열이 주어진다. 문자열의 길이는 최대 1,000자이다. 문자열의 맨 앞과 맨 끝에 공백이 있는 경우는 없고, 공백이 연속해서 2번 이상 주어지는 경우도 없다.</p>
+
+<h3 id="출력">출력</h3>
+<p><strong><u>첫 번째 줄에 입력으로 주어진 문자열을 적절히 축약해 "UCPC"로 만들 수 있으면 "I love UCPC"를 출력하고, 만들 수 없으면 "I hate UCPC"를 출력한다.</u></strong></p>
+
+<h3 id="문제풀이">문제풀이</h3>
+<p>처음에 문자열에 U,C,P,C를 순서대로 포함되면 찾는 방법으로 풀어 보았으나, PCU란 문자열로도 I love UCPC란 답이 나왔다.</p>
+
+<p>그래서 방법을 U,C,P,C를 순서대로 찾으나, 그 위치에서 문자열을 차례대로 슬라이싱해서 풀어보았다.</p>
+
+<ol>
+  <li>반복문을 이용하여 U,C,P,C를 순서대로 문자열에 포함되는지 찾는다.</li>
+  <li>있다면 find를 이용하여 인덱스를 얻어오고 그위치+1 만큼 슬라이싱을 한다.</li>
+  <li>없다면 반복문을 종료시키고, I hate UCPC를 출력시킨다.</li>
+  <li>반복문을 다 돌리고나서 isSuccess란 변수가 참이면 I love UCPC를 출력한다.</li>
+</ol>
+
+<h3 id="코드">코드</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">sys</span><span class="p">.</span><span class="n">stdin</span><span class="p">.</span><span class="n">readline</span><span class="p">()</span>
+<span class="n">check_list</span> <span class="o">=</span> <span class="p">[</span><span class="s">'U'</span><span class="p">,</span> <span class="s">'C'</span><span class="p">,</span> <span class="s">'P'</span><span class="p">,</span> <span class="s">'C'</span><span class="p">]</span>
+<span class="n">isSuccess</span> <span class="o">=</span> <span class="bp">True</span>
+
+<span class="k">for</span> <span class="n">check</span> <span class="ow">in</span> <span class="n">check_list</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">check</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="n">s</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">check</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">:]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">isSuccess</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="k">break</span>
+
+<span class="k">if</span> <span class="n">isSuccess</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"I love UCPC"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"I hate UCPC"</span><span class="p">)</span>
+</code></pre></div></div>
+
+
+        <hr>
+        <div class="clearfix">
+          
+          <a class="btn btn-primary float-left" href="/algorithm/2021/06/04/shortest-path.html" data-toggle="tooltip" data-placement="top" title="백준 1753번 최단경로 (python 파이썬)">&larr; 이전<span class="d-none d-md-inline">
+              게시물</span></a>
+          
+          
+        </div>
+		
+		<br><br>
+		<div id="disqus_thread"></div>
+		  <script>
+		  /**
+		  *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+		  *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+		  /*
+		  var disqus_config = function () {
+		  this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+		  this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+		  };
+		  */
+		  (function() { // DON'T EDIT BELOW THIS LINE
+		  var d = document, s = d.createElement('script');
+		  s.src = 'https://jokerldg.disqus.com/embed.js';
+		  s.setAttribute('data-timestamp', +new Date());
+		  (d.head || d.body).appendChild(s);
+		  })();
+		  </script>
+		  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+		</div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Footer -->
+
+<hr>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <ul class="list-inline text-center">
+          
+          
+          
+          
+          <li class="list-inline-item">
+            <a href="https://github.com/jokerLdg">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="copyright text-muted">Copyright &copy; jokerLdg 2021</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <script src="/assets/vendor/jquery/jquery.min.js"></script>
+<script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/vendor/startbootstrap-clean-blog/js/clean-blog.min.js"></script>
+
+<script src="/assets/scripts.js"></script>
+
+
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '');
+</script>
+
+
+
+</body>
+
+</html>
