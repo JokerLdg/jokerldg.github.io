@@ -8,11 +8,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <title>
-    백준 9576번 책 나눠주기 (python 파이썬) - Tech
+    백준 14659번 한조서열정리하고옴ㅋㅋ (python 파이썬) - Tech
     
   </title>
 
-  <meta name="description" content="백준 9576번 책 나눠주기 문제를 Python으로 해결한 문제이다.">
+  <meta name="description" content="백준 14659번 한조서열정리하고옴ㅋㅋ 문제를 Python으로 해결한 문제이다.">
   <!-- google 웹마스터 -->
   <meta name="google-site-verification" content="1M5pUHiID88fUVGyUOZvd5xyyGEcU37L6sdv7fkh8xg" />
   <!-- //google 웹마스터 -->
@@ -25,7 +25,7 @@
   <link rel="stylesheet" href="/assets/vendor/fontawesome-free/css/all.min.css">
 
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="canonical" href="http://localhost:4000/algorithm/2021/06/06/divide-books.html">
+  <link rel="canonical" href="http://localhost:4000/algorithm/2021/06/07/hanjo.html">
   <link rel="alternate" type="application/rss+xml" title="Tech" href="/feed.xml">
   <link rel="stylesheet" href="/assets/css/syntax.css">
   <link rel="stylesheet" href="/assets/css/custom.css">
@@ -122,9 +122,9 @@
       <div class="row">
         <div class="col-lg-10 col-md-10 mx-auto">
           <div class="post-heading" style="padding:80px 0; color:#000 !important;">
-            <h1 style="font-size:40px !important;">백준 9576번 책 나눠주기 (python 파이썬)</h1>
+            <h1 style="font-size:40px !important;">백준 14659번 한조서열정리하고옴ㅋㅋ (python 파이썬)</h1>
             <h2 class="subheading" style="font-size:22px !important; color:#868e96 !important;">
-				June 06, 2021
+				June 07, 2021
 			</h2>
           </div>
         </div>
@@ -136,72 +136,72 @@
     <div class="row">
       <div class="col-lg-10 col-md-10 mx-auto">
 
-        <p>백준 9576번 책 나눠주기 문제를 Python으로 해결한 문제이다.</p>
+        <p>백준 14659번 한조서열정리하고옴ㅋㅋ 문제를 Python으로 해결한 문제이다.</p>
 
 <ul>
-  <li><a href="https://www.acmicpc.net/problem/9576" target="_blank">백준 9576번 책 나눠주기 문제 링크</a></li>
+  <li><a href="https://www.acmicpc.net/problem/14659" target="_blank">백준 14659번 한조서열정리하고옴ㅋㅋ 문제 링크</a></li>
 </ul>
 
 <h3 id="문제">문제</h3>
-<p>백준이는 방 청소를 하면서 필요 없는 전공 서적을 사람들에게 나눠주려고 한다. 나눠줄 책을 모아보니 총 N권이었다. 책이 너무 많기 때문에 백준이는 책을 구분하기 위해 각각 1부터 N까지의 정수 번호를 중복되지 않게 매겨 두었다.</p>
+<p>“반갑다. 내 이름은 반고흐#31555! 조선 최고의 활잡이지. 오늘도 난 금강산 위에서 적들을 노리고 있지. 내 앞에 있는 적들이라면 누구도 놓치지 않아! 좋아, 이제 곧 월식이 시작되는군. 월식이 시작되면 용이 적들을 집어삼킬 것이다. 잘 봐두어라! 마장동 활잡이 반고흐#31555님의 실력을-!”</p>
 
-<p>조사를 해 보니 책을 원하는 서강대학교 학부생이 총 M명이었다. 백준이는 이 M명에게 신청서에 두 정수 a, b (1 ≤ a ≤ b ≤ N)를 적어 내라고 했다. 그러면 백준이는 책 번호가 a 이상 b 이하인 책 중 남아있는 책 한 권을 골라 그 학생에게 준다. 만약 a번부터 b번까지의 모든 책을 이미 다른 학생에게 주고 없다면 그 학생에게는 책을 주지 않는다.</p>
+<p>반고흐#31555는 자기 뒤쪽 봉우리에 덩기#3958이 있음을 전혀 모르고 있었다. 덩기#3958도 반고흐#31555와 마찬가지로 월식이 시작되면 용을 불러내어 눈앞에 있는 다른 활잡이들을 모두 처치할 생각이다. 사실, 반고흐#31555와 덩기#3958 뿐만 아니라 금강 산맥의 N개 봉우리에 있는 모든 활잡이들이 같은 생각을 가지고 있다.</p>
 
-<p>백준이가 책을 줄 수 있는 최대 학생 수를 구하시오.</p>
+<p>반고흐#31555가 있는 금강 산맥에는 총 N개의 봉우리가 있고, 모든 봉우리마다 한 명의 활잡이가 서서 월식이 시작되기만을 기다리고 있다. 다만, 애석하게도, 천계에 맥도날드가 생겨 용들이 살이 찐 탓에 용들은 자신보다 낮은 봉우리에 서있는 적들만 처치할 수 있게 되었다. 또한 용들은 처음 출발한 봉우리보다 높은 봉우리를 만나면 그대로 공격을 포기하고 금강산자락에 드러누워 낮잠을 청한다고 한다. 봉우리의 높이는 모두 다르고 모든 용들은 오른쪽으로만 나아가며, 중간에 방향을 틀거나, 봉우리가 무너지거나 솟아나는 경우는 없다.</p>
+
+<p>“달에 마구니가 끼었구나.”</p>
+
+<p>드디어 월식이 시작됐다! 과연 이들 활잡이 중 최고의 활잡이는 누구일까? 최고의 활잡이가 최대 몇 명의 적을 처치할 수 있는지 알아보자.</p>
 
 <h3 id="입력">입력</h3>
-<p>첫째 줄에 테스트 케이스의 수가 주어진다.</p>
-
-<p>각 케이스의 첫 줄에 정수 N(1 ≤ N ≤ 1,000)과 M(1 ≤ M ≤ 1,000)이 주어진다. 다음 줄부터 M개의 줄에는 각각 정수 ai, bi가 주어진다. (1 ≤ ai ≤ bi ≤ N)</p>
+<p>첫째 줄에 봉우리의 수 겸 활잡이의 수 N이 주어진다. (1 ≤ N ≤ 30,000) 둘째 줄에 N개 봉우리의 높이가 왼쪽 봉우리부터 순서대로 주어진다. (1 ≤ 높이 ≤ 100,000) 각각 봉우리의 높이는 중복 없이 유일하다.</p>
 
 <h3 id="출력">출력</h3>
-<p><strong><u>각 테스트 케이스마다 백준이가 책을 줄 수 있는 최대 학생 수를 한 줄에 하나씩 출력한다.</u></strong></p>
+<p><strong><u>최고의 활잡이가 처치할 수 있는 적의 최대 숫자를 출력한다.</u></strong></p>
 
 <h3 id="문제풀이">문제풀이</h3>
+<p>문제의 핵심은 높은 봉우리에 있는 활잡이가 낮은 봉우리에 있는 용을 잡을 수 있다는 것이다.</p>
+
 <ol>
-  <li>b를 기준으로 오름차순으로 정렬한다.</li>
-  <li>a,b를 리스트에서 꺼낸다.</li>
-  <li>a부터 b까지 반복을 돌리는데, books[i]번째 책을 안나눠주었으면 True로 바꾸고 cnt변수를 1증가 시키고 break한다.</li>
-  <li>1 ~ 3을 반복한다.</li>
+  <li>현재 봉우리와 가장 큰 봉우리를 비교한다.
+    <ul>
+      <li>가장 큰 봉우리일경우 max값에 현재값을 넣어주고, 카운트는 0으로 초기화한다.</li>
+      <li>아닌경우 카운트를 증가시킨다.</li>
+    </ul>
+  </li>
+  <li>현재 봉우리에서 용을 처치한 수와, 그전에 처치한 수를 비교하여 큰값을 answer에 넣어준다.</li>
 </ol>
 
 <h3 id="코드">코드</h3>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">sys</span>
 
-<span class="n">T</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
 
-<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
-    <span class="n">N</span><span class="p">,</span> <span class="n">M</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">sys</span><span class="p">.</span><span class="n">stdin</span><span class="p">.</span><span class="n">readline</span><span class="p">().</span><span class="n">split</span><span class="p">())</span>
+<span class="n">peaks</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">sys</span><span class="p">.</span><span class="n">stdin</span><span class="p">.</span><span class="n">readline</span><span class="p">().</span><span class="n">split</span><span class="p">()))</span>
 
-    <span class="n">books</span> <span class="o">=</span> <span class="p">[</span><span class="bp">False</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">req</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">max_peak</span> <span class="o">=</span> <span class="mi">0</span>
 
-    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">M</span><span class="p">):</span>
-        <span class="n">req</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">sys</span><span class="p">.</span><span class="n">stdin</span><span class="p">.</span><span class="n">readline</span><span class="p">().</span><span class="n">split</span><span class="p">())))</span>
-    <span class="n">req</span><span class="p">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">peak</span> <span class="ow">in</span> <span class="n">peaks</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">peak</span> <span class="o">&gt;</span> <span class="n">max_peak</span><span class="p">:</span>
+        <span class="n">max_peak</span> <span class="o">=</span> <span class="n">peak</span>
+        <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">cnt</span> <span class="o">+=</span> <span class="mi">1</span>
 
-    <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">answer</span><span class="p">,</span> <span class="n">cnt</span><span class="p">)</span>
 
-    <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">req</span><span class="p">:</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
-            <span class="k">if</span> <span class="ow">not</span> <span class="n">books</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
-                <span class="n">cnt</span> <span class="o">+=</span> <span class="mi">1</span>
-                <span class="n">books</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
-                <span class="k">break</span>
-
-    <span class="k">print</span><span class="p">(</span><span class="n">cnt</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
 </code></pre></div></div>
 
 
         <hr>
         <div class="clearfix">
           
-          <a class="btn btn-primary float-left" href="/algorithm/2021/06/05/ucpc.html" data-toggle="tooltip" data-placement="top" title="백준 15904번 UCPC는 무엇의 약자일까? (python 파이썬)">&larr; 이전<span class="d-none d-md-inline">
+          <a class="btn btn-primary float-left" href="/algorithm/2021/06/06/divide-books.html" data-toggle="tooltip" data-placement="top" title="백준 9576번 책 나눠주기 (python 파이썬)">&larr; 이전<span class="d-none d-md-inline">
               게시물</span></a>
           
-          
-          <a class="btn btn-primary float-right" href="/algorithm/2021/06/07/hanjo.html" data-toggle="tooltip" data-placement="top" title="백준 14659번 한조서열정리하고옴ㅋㅋ (python 파이썬)">다음<span class="d-none d-md-inline">
-              게시물</span> &rarr;</a>
           
         </div>
 		
