@@ -8,11 +8,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <title>
-    백준 13904번 과제 (python 파이썬) - Tech
+    백준 1092번 배 (python 파이썬) - Tech
     
   </title>
 
-  <meta name="description" content="백준 13904번 과제 문제를 Python으로 해결한 문제이다.">
+  <meta name="description" content="백준 1092번 배 문제를 Python으로 해결한 문제이다.">
   <!-- google 웹마스터 -->
   <meta name="google-site-verification" content="1M5pUHiID88fUVGyUOZvd5xyyGEcU37L6sdv7fkh8xg" />
   <!-- //google 웹마스터 -->
@@ -25,7 +25,7 @@
   <link rel="stylesheet" href="/assets/vendor/fontawesome-free/css/all.min.css">
 
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="canonical" href="http://localhost:4000/algorithm/2021/06/10/assignment.html">
+  <link rel="canonical" href="http://localhost:4000/algorithm/2021/06/11/ship.html">
   <link rel="alternate" type="application/rss+xml" title="Tech" href="/feed.xml">
   <link rel="stylesheet" href="/assets/css/syntax.css">
   <link rel="stylesheet" href="/assets/css/custom.css">
@@ -122,9 +122,9 @@
       <div class="row">
         <div class="col-lg-10 col-md-10 mx-auto">
           <div class="post-heading" style="padding:80px 0; color:#000 !important;">
-            <h1 style="font-size:40px !important;">백준 13904번 과제 (python 파이썬)</h1>
+            <h1 style="font-size:40px !important;">백준 1092번 배 (python 파이썬)</h1>
             <h2 class="subheading" style="font-size:22px !important; color:#868e96 !important;">
-				June 10, 2021
+				June 11, 2021
 			</h2>
           </div>
         </div>
@@ -136,70 +136,75 @@
     <div class="row">
       <div class="col-lg-10 col-md-10 mx-auto">
 
-        <p>백준 13904번 과제 문제를 Python으로 해결한 문제이다.</p>
+        <p>백준 1092번 배 문제를 Python으로 해결한 문제이다.</p>
 
 <ul>
-  <li><a href="https://www.acmicpc.net/problem/13904" target="_blank">백준 13904번 과제 문제 링크</a></li>
+  <li><a href="https://www.acmicpc.net/problem/1092" target="_blank">백준 1092번 배 문제 링크</a></li>
 </ul>
 
 <h3 id="문제">문제</h3>
-<p>웅찬이는 과제가 많다. 하루에 한 과제를 끝낼 수 있는데, 과제마다 마감일이 있으므로 모든 과제를 끝내지 못할 수도 있다. 과제마다 끝냈을 때 얻을 수 있는 점수가 있는데, 마감일이 지난 과제는 점수를 받을 수 없다.</p>
+<p>지민이는 항구에서 일한다. 그리고 화물을 배에 실어야 한다. 모든 화물은 박스에 안에 넣어져 있다. 항구에는 크레인이 N대 있고, 1분에 박스를 하나씩 배에 실을 수 있다. 모든 크레인은 동시에 움직인다.</p>
 
-<p>웅찬이는 가장 점수를 많이 받을 수 있도록 과제를 수행하고 싶다. 웅찬이를 도와 얻을 수 있는 점수의 최댓값을 구하시오.</p>
+<p>각 크레인은 무게 제한이 있다. 이 무게 제한보다 무거운 박스는 크레인으로 움직일 수 없다. 모든 박스를 배로 옮기는데 드는 시간의 최솟값을 구하는 프로그램을 작성하시오.</p>
 
 <h3 id="입력">입력</h3>
-<p>첫 줄에 정수 N (1 ≤ N ≤ 1,000)이 주어진다.</p>
-
-<p>다음 줄부터 N개의 줄에는 각각 두 정수 d (1 ≤ d ≤ 1,000)와 w (1 ≤ w ≤ 100)가 주어진다. d는 과제 마감일까지 남은 일수를 의미하며, w는 과제의 점수를 의미한다.</p>
+<p>첫째 줄에 N이 주어진다. N은 50보다 작거나 같은 자연수이다. 둘째 줄에는 각 크레인의 무게 제한이 주어진다. 이 값은 1,000,000보다 작거나 같다. 셋째 줄에는 박스의 수 M이 주어진다. M은 10,000보다 작거나 같은 자연수이다. 넷째 줄에는 각 박스의 무게가 주어진다. 이 값도 1,000,000보다 작거나 같은 자연수이다.</p>
 
 <h3 id="출력">출력</h3>
-<p><strong><u>얻을 수 있는 점수의 최댓값을 출력한다.</u></strong></p>
+<p><strong><u>첫째 줄에 모든 박스를 배로 옮기는데 드는 시간의 최솟값을 출력한다. 만약 모든 박스를 배로 옮길 수 없으면 -1을 출력한다.</u></strong></p>
 
 <h3 id="문제풀이">문제풀이</h3>
-<p>과제의 점수를 최댓값으로 만들어야 한다.</p>
+<p>언어가 python3면 시간초과가 뜬다. 언어를 PyPy3로 변경하여 풀어야한다.</p>
 
-<p>최댓값으로 만들기 위해서는 과제의 점수가 가장 큰 것부터 해결하고 최대한 많은 과제를 해결하기 위해 과제 기간의 마지막날 부터 채워 넣으면 된다.</p>
-
-<p>heapq 리스트에 [-value, day, value]를 삽입하여 과제 점수가 가장 큰 것부터 접근 할 수 있도록 한다.</p>
-
-<p>heapq 리스트가 모두 없어질 때까지 반복하며 내부 반복문에서 기간의 마지막일 부터 접근하여 sums가 0일때, 즉 그날에 과제를 하지 않았으면 그날에 과제를 수행하고 sums의 값을 더한다.</p>
-
-<p>반복문이 끝나고 sums 리스트의 총 합을 출력한다.</p>
+<ol>
+  <li>각 크레인과 박스를 무게에 맞게 내림차순 정렬시켜준다.</li>
+  <li>크레인이 들 수 있는 가장 무거운 박스를 옮긴다.</li>
+  <li>모든 크레인에 대해서 해결했다면 시간을 1 올려준다.</li>
+  <li>1 ~ 3의 과정을 반복한다.</li>
+</ol>
 
 <h3 id="코드">코드</h3>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">heapq</span>
 
-<span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
-<span class="n">reports</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">answer</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">1001</span> <span class="c1"># N 개의 최대값 +1 만큼 해준다.
-</span>
-<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
-    <span class="n">day</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">sys</span><span class="p">.</span><span class="n">stdin</span><span class="p">.</span><span class="n">readline</span><span class="p">().</span><span class="n">split</span><span class="p">())</span>
-    <span class="n">reports</span><span class="p">.</span><span class="n">append</span><span class="p">([</span><span class="o">-</span><span class="n">value</span><span class="p">,</span> <span class="n">day</span><span class="p">,</span> <span class="n">value</span><span class="p">])</span>
+<span class="n">read</span> <span class="o">=</span> <span class="n">sys</span><span class="p">.</span><span class="n">stdin</span><span class="p">.</span><span class="n">readline</span>
 
-<span class="n">heapq</span><span class="p">.</span><span class="n">heapify</span><span class="p">(</span><span class="n">reports</span><span class="p">)</span>
+<span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">read</span><span class="p">())</span>
+<span class="n">cranes</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">read</span><span class="p">().</span><span class="n">split</span><span class="p">()))</span>
 
-<span class="k">while</span> <span class="n">reports</span><span class="p">:</span>
-    <span class="n">temp</span> <span class="o">=</span> <span class="n">heapq</span><span class="p">.</span><span class="n">heappop</span><span class="p">(</span><span class="n">reports</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">temp</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">answer</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">answer</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">temp</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">M</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">read</span><span class="p">())</span>
+<span class="n">boxs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">read</span><span class="p">().</span><span class="n">split</span><span class="p">()))</span>
+
+<span class="n">cranes</span><span class="p">.</span><span class="n">sort</span><span class="p">(</span><span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">boxs</span><span class="p">.</span><span class="n">sort</span><span class="p">(</span><span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">boxs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">cranes</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+    <span class="k">print</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">sys</span><span class="p">.</span><span class="nb">exit</span><span class="p">()</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">time</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">while</span> <span class="n">boxs</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">boxs</span><span class="p">:</span>
             <span class="k">break</span>
 
-<span class="k">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">answer</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">crane</span> <span class="ow">in</span> <span class="n">cranes</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">box</span> <span class="ow">in</span> <span class="n">boxs</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">crane</span> <span class="o">&gt;=</span> <span class="n">box</span><span class="p">:</span>
+                    <span class="n">boxs</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="n">box</span><span class="p">)</span>
+                    <span class="k">break</span>
+
+        <span class="n">time</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="n">time</span><span class="p">)</span>
 </code></pre></div></div>
 
 
         <hr>
         <div class="clearfix">
           
-          <a class="btn btn-primary float-left" href="/algorithm/2021/06/09/courier-service.html" data-toggle="tooltip" data-placement="top" title="백준 8980번 택배 (python 파이썬)">&larr; 이전<span class="d-none d-md-inline">
+          <a class="btn btn-primary float-left" href="/algorithm/2021/06/10/assignment.html" data-toggle="tooltip" data-placement="top" title="백준 13904번 과제 (python 파이썬)">&larr; 이전<span class="d-none d-md-inline">
               게시물</span></a>
           
-          
-          <a class="btn btn-primary float-right" href="/algorithm/2021/06/11/ship.html" data-toggle="tooltip" data-placement="top" title="백준 1092번 배 (python 파이썬)">다음<span class="d-none d-md-inline">
-              게시물</span> &rarr;</a>
           
         </div>
 		
