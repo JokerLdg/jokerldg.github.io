@@ -8,11 +8,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <title>
-    백준 1343번 폴리오미노 (python 파이썬) - Tech
+    백준 11501번 주식 (python 파이썬) - Tech
     
   </title>
 
-  <meta name="description" content="백준 1343번 폴리오미노 문제를 Python으로 해결한 문제이다.">
+  <meta name="description" content="백준 11501번 주식 문제를 Python으로 해결한 문제이다.">
   <!-- google 웹마스터 -->
   <meta name="google-site-verification" content="1M5pUHiID88fUVGyUOZvd5xyyGEcU37L6sdv7fkh8xg" />
   <!-- //google 웹마스터 -->
@@ -25,7 +25,7 @@
   <link rel="stylesheet" href="/assets/vendor/fontawesome-free/css/all.min.css">
 
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="canonical" href="http://localhost:4000/algorithm/2021/06/17/polyomino.html">
+  <link rel="canonical" href="http://localhost:4000/algorithm/2021/06/18/stock.html">
   <link rel="alternate" type="application/rss+xml" title="Tech" href="/feed.xml">
   <link rel="stylesheet" href="/assets/css/syntax.css">
   <link rel="stylesheet" href="/assets/css/custom.css">
@@ -122,9 +122,9 @@
       <div class="row">
         <div class="col-lg-10 col-md-10 mx-auto">
           <div class="post-heading" style="padding:80px 0; color:#000 !important;">
-            <h1 style="font-size:40px !important;">백준 1343번 폴리오미노 (python 파이썬)</h1>
+            <h1 style="font-size:40px !important;">백준 11501번 주식 (python 파이썬)</h1>
             <h2 class="subheading" style="font-size:22px !important; color:#868e96 !important;">
-				June 17, 2021
+				June 18, 2021
 			</h2>
           </div>
         </div>
@@ -136,61 +136,68 @@
     <div class="row">
       <div class="col-lg-10 col-md-10 mx-auto">
 
-        <p>백준 1343번 폴리오미노 문제를 Python으로 해결한 문제이다.</p>
+        <p>백준 11501번 주식 문제를 Python으로 해결한 문제이다.</p>
 
 <ul>
-  <li><a href="https://www.acmicpc.net/problem/1343" target="_blank">백준 1343번 폴리오미노 문제 링크</a></li>
+  <li><a href="https://www.acmicpc.net/problem/11501" target="_blank">백준 11501번 주식 문제 링크</a></li>
 </ul>
 
 <h3 id="문제">문제</h3>
-<p>민식이는 다음과 같은 폴리오미노 2개를 무한개만큼 가지고 있다. AAAA와 BB</p>
+<p>홍준이는 요즘 주식에 빠져있다. 그는 미래를 내다보는 눈이 뛰어나, 날 별로 주가를 예상하고 언제나 그게 맞아떨어진다. 매일 그는 아래 세 가지 중 한 행동을 한다.</p>
 
-<p>이제 ‘.’와 ‘X’로 이루어진 보드판이 주어졌을 때, 민식이는 겹침없이 ‘X’를 모두 폴리오미노로 덮으려고 한다. 이때, ‘.’는 폴리오미노로 덮으면 안 된다.</p>
+<ol>
+  <li>주식 하나를 산다.</li>
+  <li>원하는 만큼 가지고 있는 주식을 판다.</li>
+  <li>아무것도 안한다.</li>
+</ol>
 
-<p>폴리오미노로 모두 덮은 보드판을 출력하는 프로그램을 작성하시오.</p>
+<p>홍준이는 미래를 예상하는 뛰어난 안목을 가졌지만, 어떻게 해야 자신이 최대 이익을 얻을 수 있는지 모른다. 따라서 당신에게 날 별로 주식의 가격을 알려주었을 때, 최대 이익이 얼마나 되는지 계산을 해달라고 부탁했다.</p>
+
+<p>예를 들어 날 수가 3일이고 날 별로 주가가 10, 7, 6일 때, 주가가 계속 감소하므로 최대 이익은 0이 된다. 그러나 만약 날 별로 주가가 3, 5, 9일 때는 처음 두 날에 주식을 하나씩 사고, 마지막날 다 팔아 버리면 이익이 10이 된다.</p>
 
 <h3 id="입력">입력</h3>
-<p>첫째 줄에 보드판이 주어진다. 보드판의 크기는 최대 500이다.</p>
+<p>입력의 첫 줄에는 테스트케이스 수를 나타내는 자연수 T가 주어진다. 각 테스트케이스 별로 첫 줄에는 날의 수를 나타내는 자연수 N(2 ≤ N ≤ 1,000,000)이 주어지고, 둘째 줄에는 날 별 주가를 나타내는 N개의 자연수들이 공백으로 구분되어 순서대로 주어진다. 날 별 주가는 10,000이하다.</p>
 
 <h3 id="출력">출력</h3>
-<p><strong><u>첫째 줄에 사전순으로 가장 앞서는 답을 출력한다. 만약 덮을 수 없으면 -1을 출력한다.</u></strong></p>
+<p><strong><u>각 테스트케이스 별로 최대 이익을 나타내는 정수 하나를 출력한다. 답은 부호있는 64bit 정수형으로 표현 가능하다.</u></strong></p>
 
 <h3 id="문제풀이">문제풀이</h3>
-<ol>
-  <li>POLYOMINO dictionary를 {“XXXX”: “AAAA”, “XX”: “BB”} 같이 만든다.</li>
-  <li>반복문과 dictionary를 이용하여 입력값을 replace한다.</li>
-  <li>반복문이 끝나고 입력값에 X가 포함되면 -1, 그게 아니면 입력값을 출력한다.</li>
-</ol>
+<p>주식을 사고 팔았을 때 최대 이익을 구해야한다.</p>
+
+<p>이 문제는 반복문을 뒤에서 부터 접근 했을 때 쉽게 풀 수 있다.</p>
+
+<p>만약 앞에서 부터 접근하면 반복문을 순회하면서 지나온 개수를 더하고, 다음 인덱스에서 가격이 떨어질 때 팔아야하므로 다음 인덱스와 비교를 해야 한다.</p>
+
+<p><strong>하지만 뒤에서 부터 접근한다면 단순히 현재 max값보다 현재 인덱스값이 더 작다면 그 차이만큼 이익을 더하면된다.</strong></p>
 
 <h3 id="코드">코드</h3>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">sys</span>
 
-<span class="n">POLYOMINO</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">"XXXX"</span><span class="p">:</span> <span class="s">"AAAA"</span><span class="p">,</span>
-    <span class="s">"XX"</span><span class="p">:</span> <span class="s">"BB"</span>
-<span class="p">}</span>
+<span class="n">T</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="p">.</span><span class="n">stdin</span><span class="p">.</span><span class="n">readline</span><span class="p">().</span><span class="n">rstrip</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">))</span>
 
-<span class="n">board</span> <span class="o">=</span> <span class="n">sys</span><span class="p">.</span><span class="n">stdin</span><span class="p">.</span><span class="n">readline</span><span class="p">().</span><span class="n">rstrip</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="p">.</span><span class="n">stdin</span><span class="p">.</span><span class="n">readline</span><span class="p">().</span><span class="n">rstrip</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">))</span>
+    <span class="n">cycle</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">sys</span><span class="p">.</span><span class="n">stdin</span><span class="p">.</span><span class="n">readline</span><span class="p">().</span><span class="n">rstrip</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">).</span><span class="n">split</span><span class="p">()))</span>
 
-<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">POLYOMINO</span><span class="p">.</span><span class="n">keys</span><span class="p">():</span>
-    <span class="n">board</span> <span class="o">=</span> <span class="n">board</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">POLYOMINO</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">))</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">max_value</span> <span class="o">=</span> <span class="mi">0</span>
 
-<span class="k">if</span> <span class="s">'X'</span> <span class="ow">in</span> <span class="n">board</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">board</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">cycle</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">cycle</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">max_value</span><span class="p">:</span>
+            <span class="n">max_value</span> <span class="o">=</span> <span class="n">cycle</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">answer</span> <span class="o">+=</span> <span class="n">max_value</span> <span class="o">-</span> <span class="n">cycle</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
 </code></pre></div></div>
 
 
         <hr>
         <div class="clearfix">
           
-          <a class="btn btn-primary float-left" href="/algorithm/2021/06/16/apple.html" data-toggle="tooltip" data-placement="top" title="백준 2828번 사과 담기 게임 (python 파이썬)">&larr; 이전<span class="d-none d-md-inline">
+          <a class="btn btn-primary float-left" href="/algorithm/2021/06/17/polyomino.html" data-toggle="tooltip" data-placement="top" title="백준 1343번 폴리오미노 (python 파이썬)">&larr; 이전<span class="d-none d-md-inline">
               게시물</span></a>
           
-          
-          <a class="btn btn-primary float-right" href="/algorithm/2021/06/18/stock.html" data-toggle="tooltip" data-placement="top" title="백준 11501번 주식 (python 파이썬)">다음<span class="d-none d-md-inline">
-              게시물</span> &rarr;</a>
           
         </div>
 		
