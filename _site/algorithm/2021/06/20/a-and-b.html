@@ -8,11 +8,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <title>
-    백준 9009번 피보나치 (python 파이썬) - Tech
+    백준 12904번 A와 B (python 파이썬) - Tech
     
   </title>
 
-  <meta name="description" content="백준 9009번 피보나치 문제를 Python으로 해결한 문제이다.">
+  <meta name="description" content="백준 12904번 A와 B 문제를 Python으로 해결한 문제이다.">
   <!-- google 웹마스터 -->
   <meta name="google-site-verification" content="1M5pUHiID88fUVGyUOZvd5xyyGEcU37L6sdv7fkh8xg" />
   <!-- //google 웹마스터 -->
@@ -25,7 +25,7 @@
   <link rel="stylesheet" href="/assets/vendor/fontawesome-free/css/all.min.css">
 
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="canonical" href="http://localhost:4000/algorithm/2021/06/19/fibonacci.html">
+  <link rel="canonical" href="http://localhost:4000/algorithm/2021/06/20/a-and-b.html">
   <link rel="alternate" type="application/rss+xml" title="Tech" href="/feed.xml">
   <link rel="stylesheet" href="/assets/css/syntax.css">
   <link rel="stylesheet" href="/assets/css/custom.css">
@@ -122,9 +122,9 @@
       <div class="row">
         <div class="col-lg-10 col-md-10 mx-auto">
           <div class="post-heading" style="padding:80px 0; color:#000 !important;">
-            <h1 style="font-size:40px !important;">백준 9009번 피보나치 (python 파이썬)</h1>
+            <h1 style="font-size:40px !important;">백준 12904번 A와 B (python 파이썬)</h1>
             <h2 class="subheading" style="font-size:22px !important; color:#868e96 !important;">
-				June 19, 2021
+				June 20, 2021
 			</h2>
           </div>
         </div>
@@ -136,31 +136,36 @@
     <div class="row">
       <div class="col-lg-10 col-md-10 mx-auto">
 
-        <p>백준 9009번 피보나치 문제를 Python으로 해결한 문제이다.</p>
+        <p>백준 12904번 A와 B 문제를 Python으로 해결한 문제이다.</p>
 
 <ul>
-  <li><a href="https://www.acmicpc.net/problem/9009" target="_blank">백준 9009번 피보나치 문제 링크</a></li>
+  <li><a href="https://www.acmicpc.net/problem/12904" target="_blank">백준 12904번 A와 B 문제 링크</a></li>
 </ul>
 
 <h3 id="문제">문제</h3>
-<p>피보나치 수 ƒK는 ƒK = ƒK-1 + ƒK-2로 정의되며 초기값은 ƒ0 = 0과 ƒ1 = 1 이다. 양의 정수는 하나 혹은 그 이상의 서로 다른 피보나치 수들의 합으로 나타낼 수 있다는 사실은 잘 알려져 있다.</p>
+<p>수빈이는 A와 B로만 이루어진 영어 단어가 존재한다는 사실에 놀랐다. 대표적인 예로 AB (Abdominal의 약자), BAA (양의 울음 소리), AA (용암의 종류), ABBA (스웨덴 팝 그룹)이 있다.</p>
 
-<p>하나의 양의 정수에 대한 피보나치 수들의 합은 여러 가지 형태가 있다. 예를 들어 정수 100은 ƒ4 + ƒ6 + ƒ11 = 3 + 8 + 89 또는 ƒ1 + ƒ3 + ƒ6 + ƒ11 = 1 + 2 + 8 + 89, 또는 ƒ4 + ƒ6 + ƒ9 + ƒ10 = 3 + 8 + 34 + 55 등으로 나타낼 수 있다. 이 문제는 하나의 양의 정수를 최소 개수의 서로 다른 피보나치 수들의 합으로 나타내는 것이다.</p>
+<p>이런 사실에 놀란 수빈이는 간단한 게임을 만들기로 했다. 두 문자열 S와 T가 주어졌을 때, S를 T로 바꾸는 게임이다. 문자열을 바꿀 때는 다음과 같은 두 가지 연산만 가능하다.</p>
 
-<p>하나의 양의 정수가 주어질 때, 피보나치 수들의 합이 주어진 정수와 같게 되는 최소 개수의 서로 다른 피보나치 수들을 구하라.</p>
+<ul>
+  <li>문자열의 뒤에 A를 추가한다.</li>
+  <li>문자열을 뒤집고 뒤에 B를 추가한다.</li>
+</ul>
+
+<p>주어진 조건을 이용해서 S를 T로 만들 수 있는지 없는지 알아내는 프로그램을 작성하시오.</p>
 
 <h3 id="입력">입력</h3>
-<p>입력 데이터는 표준입력을 사용한다. 입력은 T 개의 테스트 데이터로 구성된다. 입력의 첫 번째 줄에는 테스트 데이터의 수를 나타내는 정수 T 가 주어진다. 각 테스트 데이터에는 하나의 정수 n이 주어진다. 단, 1 ≤ n ≤ 1,000,000,000.</p>
+<p>첫째 줄에 S가 둘째 줄에 T가 주어진다. (1 ≤ S의 길이 ≤ 999, 2 ≤ T의 길이 ≤ 1000, S의 길이 &lt; T의 길이)</p>
 
 <h3 id="출력">출력</h3>
-<p><strong><u>출력은 표준출력을 사용한다. 하나의 테스트 데이터에 대한 해를 하나의 줄에 출력한다. 각 테스트 데이터에 대해, 피보나치 수들의 합이 주어진 정수에 대해 같게 되는 최소수의 피보나치 수들을 증가하는 순서로 출력한다. </u></strong></p>
+<p><strong><u>S를 T로 바꿀 수 있으면 1을 없으면 0을 출력한다.</u></strong></p>
 
 <h3 id="문제풀이">문제풀이</h3>
+<p>문제에 힌트가 있었는데, 이 방법을 A와 B를 추가 하지말고 반대로 pop으로 빼는 상황으로 만들어 보면 된다.</p>
+
 <ol>
-  <li>문제에 나온 최대값의 조건인 1,000,000,000의 값보다 큰수의 바로 아래까지 배열에 추가한다.</li>
-  <li>피보나치 배열을 for문으로 탐색을 하는데 큰수부터 넣어야 하기 때문에 뒤에서부터 탐색한다.</li>
-  <li>그리고 n이 피보나치의 수보다 크거나 같으면 answer에 넣어주고, n이 0이되면 종료한다.</li>
-  <li>answer 배열이 큰 값부터 들어가 있기 때문에 오름차순으로 정렬후 출력한다.</li>
+  <li>문자열의 뒤에 A를 추가한다. (문자열 맨 뒤가 A면 T를 pop한다)</li>
+  <li>문자열을 뒤집고 뒤에 B를 추가한다. (문자열 맨 뒤가 B면 T를 pop하고, T를 뒤집는다)</li>
 </ol>
 
 <h3 id="코드">코드</h3>
@@ -168,39 +173,29 @@
 
 <span class="n">read</span> <span class="o">=</span> <span class="n">sys</span><span class="p">.</span><span class="n">stdin</span><span class="p">.</span><span class="n">readline</span>
 
-<span class="n">T</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">read</span><span class="p">())</span>
+<span class="n">S</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">read</span><span class="p">().</span><span class="n">strip</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">))</span>
+<span class="n">T</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">read</span><span class="p">().</span><span class="n">strip</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">))</span>
 
-<span class="n">fibonacci</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">S</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">T</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s">'A'</span><span class="p">:</span>
+        <span class="n">T</span><span class="p">.</span><span class="n">pop</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="n">T</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s">'B'</span><span class="p">:</span>
+        <span class="n">T</span><span class="p">.</span><span class="n">pop</span><span class="p">()</span>
+        <span class="n">T</span> <span class="o">=</span> <span class="n">T</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">43</span><span class="p">):</span>
-    <span class="n">fibonacci</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">fibonacci</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">fibonacci</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-
-<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">read</span><span class="p">())</span>
-    <span class="n">answer</span> <span class="o">=</span> <span class="p">[]</span>
-
-    <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">fibonacci</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
-        <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">break</span>
-
-        <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="n">f</span><span class="p">:</span>
-            <span class="n">n</span> <span class="o">-=</span> <span class="n">f</span>
-            <span class="n">answer</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-
-    <span class="n">answer</span><span class="p">.</span><span class="n">sort</span><span class="p">()</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">' '</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">answer</span><span class="p">)))</span>
+<span class="k">if</span> <span class="n">S</span> <span class="o">==</span> <span class="n">T</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </code></pre></div></div>
 
 
         <hr>
         <div class="clearfix">
           
-          <a class="btn btn-primary float-left" href="/algorithm/2021/06/18/stock.html" data-toggle="tooltip" data-placement="top" title="백준 11501번 주식 (python 파이썬)">&larr; 이전<span class="d-none d-md-inline">
+          <a class="btn btn-primary float-left" href="/algorithm/2021/06/19/fibonacci.html" data-toggle="tooltip" data-placement="top" title="백준 9009번 피보나치 (python 파이썬)">&larr; 이전<span class="d-none d-md-inline">
               게시물</span></a>
           
-          
-          <a class="btn btn-primary float-right" href="/algorithm/2021/06/20/a-and-b.html" data-toggle="tooltip" data-placement="top" title="백준 12904번 A와 B (python 파이썬)">다음<span class="d-none d-md-inline">
-              게시물</span> &rarr;</a>
           
         </div>
 		
