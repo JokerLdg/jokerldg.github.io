@@ -8,11 +8,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <title>
-    백준 13164번 행복 유치원 (python 파이썬) - Tech
+    백준 5545번 최고의 피자 (python 파이썬) - Tech
     
   </title>
 
-  <meta name="description" content="백준 13164번 행복 유치원 문제를 Python으로 해결한 문제이다.">
+  <meta name="description" content="백준 5545번 최고의 피자 문제를 Python으로 해결한 문제이다.">
   <!-- google 웹마스터 -->
   <meta name="google-site-verification" content="1M5pUHiID88fUVGyUOZvd5xyyGEcU37L6sdv7fkh8xg" />
   <!-- //google 웹마스터 -->
@@ -25,7 +25,7 @@
   <link rel="stylesheet" href="/assets/vendor/fontawesome-free/css/all.min.css">
 
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="canonical" href="http://localhost:4000/algorithm/2021/07/07/happy-kindergarden.html">
+  <link rel="canonical" href="http://localhost:4000/algorithm/2021/07/08/best-pizza-store.html">
   <link rel="alternate" type="application/rss+xml" title="Tech" href="/feed.xml">
   <link rel="stylesheet" href="/assets/css/syntax.css">
   <link rel="stylesheet" href="/assets/css/custom.css">
@@ -122,9 +122,9 @@
       <div class="row">
         <div class="col-lg-10 col-md-10 mx-auto">
           <div class="post-heading" style="padding:80px 0; color:#000 !important;">
-            <h1 style="font-size:40px !important;">백준 13164번 행복 유치원 (python 파이썬)</h1>
+            <h1 style="font-size:40px !important;">백준 5545번 최고의 피자 (python 파이썬)</h1>
             <h2 class="subheading" style="font-size:22px !important; color:#868e96 !important;">
-				July 07, 2021
+				July 08, 2021
 			</h2>
           </div>
         </div>
@@ -136,29 +136,37 @@
     <div class="row">
       <div class="col-lg-10 col-md-10 mx-auto">
 
-        <p>백준 13164번 행복 유치원 문제를 Python으로 해결한 문제이다.</p>
+        <p>백준 5545번 최고의 피자 문제를 Python으로 해결한 문제이다.</p>
 
 <ul>
-  <li><a href="https://www.acmicpc.net/problem/13164" target="_blank">백준 13164번 행복 유치원 문제 링크</a></li>
+  <li><a href="https://www.acmicpc.net/problem/5545" target="_blank">백준 5545번 최고의 피자 문제 링크</a></li>
 </ul>
 
 <h3 id="문제">문제</h3>
-<p>행복 유치원 원장인 태양이는 어느 날 N명의 원생들을 키 순서대로 일렬로 줄 세우고, 총 K개의 조로 나누려고 한다. 각 조에는 원생이 적어도 한 명 있어야 하며, 같은 조에 속한 원생들은 서로 인접해 있어야 한다. 조별로 인원수가 같을 필요는 없다.</p>
+<p>상근이는 근처 피자 가게에서 매일 저녁으로 피자를 배달해 먹는다. 주머니 사정이 얇아진 상근이는 이번 달부터는 “최고의 피자”를 구매하려고 한다. 최고의 피자란, 피자 가게에서 주문할 수 있는 피자 중 1원당 열량이 가장 높은 피자를 말한다. 최고의 피자는 여러 종류가 있을 수도 있다.</p>
 
-<p>이렇게 나뉘어진 조들은 각자 단체 티셔츠를 맞추려고 한다. 조마다 티셔츠를 맞추는 비용은 조에서 가장 키가 큰 원생과 가장 키가 작은 원생의 키 차이만큼 든다. 최대한 비용을 아끼고 싶어 하는 태양이는 K개의 조에 대해 티셔츠 만드는 비용의 합을 최소로 하고 싶어한다. 태양이를 도와 최소의 비용을 구하자.</p>
+<p>이 피자 가게는 토핑 N개에서 여러 종류를 선택해서 주문할 수 있다. 같은 종류의 토핑을 2개 이상 선택할 수는 없다. 또, 토핑을 전혀 선택하지 않을 수도 있다.</p>
+
+<p>선택한 토핑은 도우 위에 올라간다. 도우의 가격은 A원이고, 토핑의 가격은 모두 B원이다. 피자의 가격은 도우와 토핑의 가격의 합계가 된다. 즉, 토핑을 k종류 (0 ≤ k ≤ N) 선택했다면, 피자의 가격은 A + B * k원이 된다. 피자의 열량은 도우와 토핑의 열량의 합이다.</p>
+
+<p>도우의 가격, 토핑의 가격, 그리고 도우와 각 토핑의 열량 값이 주어졌을 때, 최고의 피자의 1원 당 열량을 구하는 프로그램을 작성하시오.</p>
 
 <h3 id="입력">입력</h3>
-<p>입력의 첫 줄에는 유치원에 있는 원생의 수를 나타내는 자연수 N(1 ≤ N ≤ 300,000)과 나누려고 하는 조의 개수를 나타내는 자연수 K(1 ≤ K ≤ N)가 공백으로 구분되어 주어진다. 다음 줄에는 원생들의 키를 나타내는 N개의 자연수가 공백으로 구분되어 줄 서 있는 순서대로 주어진다. 태양이는 원생들을 키 순서대로 줄 세웠으므로, 왼쪽에 있는 원생이 오른쪽에 있는 원생보다 크지 않다. 원생의 키는 10^9를 넘지 않는 자연수이다.</p>
+<p>첫째 줄에 토핑의 종류의 수 N(1 ≤ N ≤ 100)이 주어진다. 둘째 줄에는 도우의 가격 A와 토핑의 가격 B가 주어진다. (1 ≤ A, B ≤ 1000) 셋째 줄에는 도우의 열량 C가 주어진다. (1 ≤ C ≤ 10000) 다음 줄부터 N개 줄에는 각 토핑의 열량 Di가 한 줄에 하나씩 주어진다. (1 ≤ Di ≤ 10000)</p>
 
 <h3 id="출력">출력</h3>
-<p><strong><u>티셔츠 만드는 비용이 최소가 되도록 K개의 조로 나누었을 때, 티셔츠 만드는 비용을 출력한다.</u></strong></p>
+<p><strong><u>첫째 줄에 최고의 피자의 1원 당 열량을 출력한다. 소수점 이하는 버리고 정수 값으로 출력한다.</u></strong></p>
 
 <h3 id="문제풀이">문제풀이</h3>
-<p>N명의 학생들을 K개의 그룹으로 나눈다고 했을 때 달리 말하면 N-K 개의 키 차이를 무시할 수 있다는 것이다.</p>
+<p>토핑들의 칼로리를 내림차순으로 정렬한다.</p>
 
 <ol>
-  <li>각 학생들의 차를 구해서 costs 변수에 넣어주고, 비용이 작은순으로 정렬한다.</li>
-  <li>그리고 N-K개의 키 차이를 무시 할 수 있으니, costs[:N-K]만큼 합을 구해주면 된다.</li>
+  <li>토핑들의 개수만큼 반복을 돌리는데, 칼로리에 C + sum(D[0:i]) 더해주고, 가격에는 A + (B * i)를 해준다.</li>
+  <li>칼로리 / 가격의 값이 이전에 저장한 값보다 크다면 값을 바꿔준다.
+    <ul>
+      <li>값이 만약 떨어진다면 종료시킨다. 내림차순이기 때문에 값이 떨어지면 다음부터는 볼 필요가 없다.</li>
+    </ul>
+  </li>
 </ol>
 
 <h3 id="코드">코드</h3>
@@ -166,29 +174,37 @@
 
 <span class="n">read</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">sys</span><span class="p">.</span><span class="n">stdin</span><span class="p">.</span><span class="n">readline</span><span class="p">().</span><span class="n">rstrip</span><span class="p">()</span>
 
-<span class="n">N</span><span class="p">,</span> <span class="n">K</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">read</span><span class="p">().</span><span class="n">split</span><span class="p">())</span>
-<span class="n">kindergartens</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">read</span><span class="p">().</span><span class="n">split</span><span class="p">()))</span>
+<span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">read</span><span class="p">())</span>
+<span class="n">A</span><span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">read</span><span class="p">().</span><span class="n">split</span><span class="p">())</span>
+<span class="n">C</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">read</span><span class="p">())</span>
+<span class="n">D</span> <span class="o">=</span> <span class="p">[]</span>
 
-<span class="n">costs</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">D</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">read</span><span class="p">()))</span>
 
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-    <span class="n">costs</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">kindergartens</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">kindergartens</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="n">D</span><span class="p">.</span><span class="n">sort</span><span class="p">(</span><span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 
-<span class="n">costs</span><span class="p">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="n">answer</span> <span class="o">=</span> <span class="n">C</span> <span class="o">/</span> <span class="n">A</span>
 
-<span class="k">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">costs</span><span class="p">[:</span><span class="n">N</span><span class="o">-</span><span class="n">K</span><span class="p">]))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">D</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">calorie</span> <span class="o">=</span> <span class="n">C</span> <span class="o">+</span> <span class="nb">sum</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">price</span> <span class="o">=</span> <span class="n">A</span> <span class="o">+</span> <span class="p">(</span><span class="n">B</span> <span class="o">*</span> <span class="n">i</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">calorie</span> <span class="o">/</span> <span class="n">price</span> <span class="o">&gt;</span> <span class="n">answer</span><span class="p">:</span>
+        <span class="n">answer</span> <span class="o">=</span> <span class="n">calorie</span> <span class="o">/</span> <span class="n">price</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">break</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">answer</span><span class="p">))</span>
 </code></pre></div></div>
 
 
         <hr>
         <div class="clearfix">
           
-          <a class="btn btn-primary float-left" href="/algorithm/2021/07/06/ppap.html" data-toggle="tooltip" data-placement="top" title="백준 16120번 PPAP (python 파이썬)">&larr; 이전<span class="d-none d-md-inline">
+          <a class="btn btn-primary float-left" href="/algorithm/2021/07/07/happy-kindergarden.html" data-toggle="tooltip" data-placement="top" title="백준 13164번 행복 유치원 (python 파이썬)">&larr; 이전<span class="d-none d-md-inline">
               게시물</span></a>
           
-          
-          <a class="btn btn-primary float-right" href="/algorithm/2021/07/08/best-pizza-store.html" data-toggle="tooltip" data-placement="top" title="백준 5545번 최고의 피자 (python 파이썬)">다음<span class="d-none d-md-inline">
-              게시물</span> &rarr;</a>
           
         </div>
 		
