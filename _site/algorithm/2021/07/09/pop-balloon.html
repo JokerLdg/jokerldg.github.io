@@ -8,11 +8,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <title>
-    백준 5545번 최고의 피자 (python 파이썬) - Tech
+    백준 11509번 풍선 맞추기 (python 파이썬) - Tech
     
   </title>
 
-  <meta name="description" content="백준 5545번 최고의 피자 문제를 Python으로 해결한 문제이다.">
+  <meta name="description" content="백준 11509번 풍선 맞추기 문제를 Python으로 해결한 문제이다.">
   <!-- google 웹마스터 -->
   <meta name="google-site-verification" content="1M5pUHiID88fUVGyUOZvd5xyyGEcU37L6sdv7fkh8xg" />
   <!-- //google 웹마스터 -->
@@ -25,7 +25,7 @@
   <link rel="stylesheet" href="/assets/vendor/fontawesome-free/css/all.min.css">
 
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="canonical" href="http://localhost:4000/algorithm/2021/07/08/best-pizza-store.html">
+  <link rel="canonical" href="http://localhost:4000/algorithm/2021/07/09/pop-balloon.html">
   <link rel="alternate" type="application/rss+xml" title="Tech" href="/feed.xml">
   <link rel="stylesheet" href="/assets/css/syntax.css">
   <link rel="stylesheet" href="/assets/css/custom.css">
@@ -122,9 +122,9 @@
       <div class="row">
         <div class="col-lg-10 col-md-10 mx-auto">
           <div class="post-heading" style="padding:80px 0; color:#000 !important;">
-            <h1 style="font-size:40px !important;">백준 5545번 최고의 피자 (python 파이썬)</h1>
+            <h1 style="font-size:40px !important;">백준 11509번 풍선 맞추기 (python 파이썬)</h1>
             <h2 class="subheading" style="font-size:22px !important; color:#868e96 !important;">
-				July 08, 2021
+				July 09, 2021
 			</h2>
           </div>
         </div>
@@ -136,35 +136,69 @@
     <div class="row">
       <div class="col-lg-10 col-md-10 mx-auto">
 
-        <p>백준 5545번 최고의 피자 문제를 Python으로 해결한 문제이다.</p>
+        <p>백준 11509번 풍선 맞추기 문제를 Python으로 해결한 문제이다.</p>
 
 <ul>
-  <li><a href="https://www.acmicpc.net/problem/5545" target="_blank">백준 5545번 최고의 피자 문제 링크</a></li>
+  <li><a href="https://www.acmicpc.net/problem/11509" target="_blank">백준 11509번 풍선 맞추기 문제 링크</a></li>
 </ul>
 
 <h3 id="문제">문제</h3>
-<p>상근이는 근처 피자 가게에서 매일 저녁으로 피자를 배달해 먹는다. 주머니 사정이 얇아진 상근이는 이번 달부터는 “최고의 피자”를 구매하려고 한다. 최고의 피자란, 피자 가게에서 주문할 수 있는 피자 중 1원당 열량이 가장 높은 피자를 말한다. 최고의 피자는 여러 종류가 있을 수도 있다.</p>
+<p>큰 방에 N개의 풍선이 떠있다. 풍선들은 왼쪽부터 오른쪽까지 일렬로 있다. 진솔이는 화살 가지고 노는 것과 사냥 연습하는 것을 좋아한다. 진솔이는 화살을 왼쪽에서 오른쪽으로 쏜다. 높이는 임의로 선택한다. 화살은 선택된 높이 H에서 풍선을 마주칠 때까지 왼쪽에서 오른쪽으로 이동한다. 화살이 풍선을 마주치는 순간, 풍선은 터지고 사라진다. 화살은 계속해서 가던길을 가는데 높이는 1 줄어든다. 그러므로 만약 화살이 높이 H에서 이동 중이었다면 풍선을 터트린 후에는 높이가 H-1이 된다.</p>
 
-<p>이 피자 가게는 토핑 N개에서 여러 종류를 선택해서 주문할 수 있다. 같은 종류의 토핑을 2개 이상 선택할 수는 없다. 또, 토핑을 전혀 선택하지 않을 수도 있다.</p>
-
-<p>선택한 토핑은 도우 위에 올라간다. 도우의 가격은 A원이고, 토핑의 가격은 모두 B원이다. 피자의 가격은 도우와 토핑의 가격의 합계가 된다. 즉, 토핑을 k종류 (0 ≤ k ≤ N) 선택했다면, 피자의 가격은 A + B * k원이 된다. 피자의 열량은 도우와 토핑의 열량의 합이다.</p>
-
-<p>도우의 가격, 토핑의 가격, 그리고 도우와 각 토핑의 열량 값이 주어졌을 때, 최고의 피자의 1원 당 열량을 구하는 프로그램을 작성하시오.</p>
+<p>우리의 목표는 모든 풍선을 터트리되 가능한한 적은 화살을 사용하는 것이다.</p>
 
 <h3 id="입력">입력</h3>
-<p>첫째 줄에 토핑의 종류의 수 N(1 ≤ N ≤ 100)이 주어진다. 둘째 줄에는 도우의 가격 A와 토핑의 가격 B가 주어진다. (1 ≤ A, B ≤ 1000) 셋째 줄에는 도우의 열량 C가 주어진다. (1 ≤ C ≤ 10000) 다음 줄부터 N개 줄에는 각 토핑의 열량 Di가 한 줄에 하나씩 주어진다. (1 ≤ Di ≤ 10000)</p>
+<p>첫 번째 줄에는 정수 N(1 ≤ N ≤ 1 000 000)이 들어온다.</p>
+
+<p>두 번째 줄에는 배열 Hi가 N개 들어온다.</p>
+
+<p>각각의 Hi(1 ≤ Hi ≤ 1 000 000)는 i번째 풍선의 높이에 해당하며 왼쪽에서 오른쪽으로 나열되는 순서이다.</p>
 
 <h3 id="출력">출력</h3>
-<p><strong><u>첫째 줄에 최고의 피자의 1원 당 열량을 출력한다. 소수점 이하는 버리고 정수 값으로 출력한다.</u></strong></p>
+<p><strong><u>첫 번째 줄 한줄에 최소한 필요한 화살의 개수를 출력한다.</u></strong></p>
 
 <h3 id="문제풀이">문제풀이</h3>
-<p>토핑들의 칼로리를 내림차순으로 정렬한다.</p>
+<ol>
+  <li>풍선의 제한수인 100만의 크기를 가지는 visited 배열을 만든다.
+    <ul>
+      <li>+1을 해주는 이유는 풍선의 높이는 0이 없기 때문이다.</li>
+    </ul>
+  </li>
+  <li>그리고 화살의 위치를 visited 배열에 저장한다.</li>
+  <li>다음은 알고리즘 설명이다.</li>
+</ol>
+
+<p>예를 들어서 [2,1,5,4,3]인 경우의 설명이다.</p>
 
 <ol>
-  <li>토핑들의 개수만큼 반복을 돌리는데, 칼로리에 C + sum(D[0:i]) 더해주고, 가격에는 A + (B * i)를 해준다.</li>
-  <li>칼로리 / 가격의 값이 이전에 저장한 값보다 크다면 값을 바꿔준다.
+  <li>첫 풍선을 보니 위치 2에 있고 해당 위치에 화살이 있는지 확인한다.
     <ul>
-      <li>값이 만약 떨어진다면 종료시킨다. 내림차순이기 때문에 값이 떨어지면 다음부터는 볼 필요가 없다.</li>
+      <li>2의 위치에 화살이 없으므로 2를 맞추고, 1을 뺀 1의 위치에 있는걸 기록한다.<br />
+ =&gt; [0, 1, 0, 0, 0, 0], answer: 1</li>
+    </ul>
+  </li>
+  <li>두번째 풍선은 1의 위치에 있고, 해당 위치에 화살이 있는지 확인한다.
+    <ul>
+      <li>1의 위치에 화살이 있으므로 해당 위치의 풍선을 터뜨리고 1을 뺀 0의 위치로 화살을 옮긴다.<br />
+ =&gt; [1, 0, 0, 0, 0, 0], answer: 1</li>
+    </ul>
+  </li>
+  <li>세번째 풍선은 5의 위치에 있고, 해당 위치에 화살이 있는지 확인한다.
+    <ul>
+      <li>5의 위치에 화살이 없으므로 5를 맞추고, 1을 뺀 4의 위치에 있는걸 기록한다.<br />
+ =&gt; [1, 0, 0, 0, 1, 0], answer: 2</li>
+    </ul>
+  </li>
+  <li>네번째 풍선은 4의 위치에 있고, 해당 위치에 화살이 있는지 확인한다.
+    <ul>
+      <li>4의 위치에 화살이 있으므로 4를 터뜨리고, 1을 뺀 3의 위치로 화살을 옮긴다.<br />
+ =&gt; [1, 0, 0, 1, 0, 0], answer: 2</li>
+    </ul>
+  </li>
+  <li>마지막 풍선은 3의 위치에 있고, 해당 위치에 화살이 있는지 확인한다.
+    <ul>
+      <li>3의 위치에 화살이 있으므로 3를 터뜨리고, 1을 뺀 2의 위치로 화살을 옮긴다.<br />
+ =&gt; [1, 0, 1, 0, 0, 0], answer: 2</li>
     </ul>
   </li>
 </ol>
@@ -175,39 +209,29 @@
 <span class="n">read</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">sys</span><span class="p">.</span><span class="n">stdin</span><span class="p">.</span><span class="n">readline</span><span class="p">().</span><span class="n">rstrip</span><span class="p">()</span>
 
 <span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">read</span><span class="p">())</span>
-<span class="n">A</span><span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">read</span><span class="p">().</span><span class="n">split</span><span class="p">())</span>
-<span class="n">C</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">read</span><span class="p">())</span>
-<span class="n">D</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">H</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">read</span><span class="p">().</span><span class="n">split</span><span class="p">()))</span>
 
-<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
-    <span class="n">D</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">read</span><span class="p">()))</span>
+<span class="n">visited</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">1000001</span>
+<span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span>
 
-<span class="n">D</span><span class="p">.</span><span class="n">sort</span><span class="p">(</span><span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-
-<span class="n">answer</span> <span class="o">=</span> <span class="n">C</span> <span class="o">/</span> <span class="n">A</span>
-
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">D</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
-    <span class="n">calorie</span> <span class="o">=</span> <span class="n">C</span> <span class="o">+</span> <span class="nb">sum</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">i</span><span class="p">])</span>
-    <span class="n">price</span> <span class="o">=</span> <span class="n">A</span> <span class="o">+</span> <span class="p">(</span><span class="n">B</span> <span class="o">*</span> <span class="n">i</span><span class="p">)</span>
-
-    <span class="k">if</span> <span class="n">calorie</span> <span class="o">/</span> <span class="n">price</span> <span class="o">&gt;</span> <span class="n">answer</span><span class="p">:</span>
-        <span class="n">answer</span> <span class="o">=</span> <span class="n">calorie</span> <span class="o">/</span> <span class="n">price</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">H</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">visited</span><span class="p">[</span><span class="n">H</span><span class="p">[</span><span class="n">i</span><span class="p">]]:</span>
+        <span class="n">answer</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">visited</span><span class="p">[</span><span class="n">H</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">break</span>
+        <span class="n">visited</span><span class="p">[</span><span class="n">H</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="n">visited</span><span class="p">[</span><span class="n">H</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
 
-<span class="k">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">answer</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
 </code></pre></div></div>
 
 
         <hr>
         <div class="clearfix">
           
-          <a class="btn btn-primary float-left" href="/algorithm/2021/07/07/happy-kindergarden.html" data-toggle="tooltip" data-placement="top" title="백준 13164번 행복 유치원 (python 파이썬)">&larr; 이전<span class="d-none d-md-inline">
+          <a class="btn btn-primary float-left" href="/algorithm/2021/07/08/best-pizza-store.html" data-toggle="tooltip" data-placement="top" title="백준 5545번 최고의 피자 (python 파이썬)">&larr; 이전<span class="d-none d-md-inline">
               게시물</span></a>
           
-          
-          <a class="btn btn-primary float-right" href="/algorithm/2021/07/09/pop-balloon.html" data-toggle="tooltip" data-placement="top" title="백준 11509번 풍선 맞추기 (python 파이썬)">다음<span class="d-none d-md-inline">
-              게시물</span> &rarr;</a>
           
         </div>
 		
