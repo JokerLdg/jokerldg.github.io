@@ -8,11 +8,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <title>
-    백준 11726번 2xn 타일링 (python 파이썬) - Tech
+    백준 1149번 RGB거리 (python 파이썬) - Tech
     
   </title>
 
-  <meta name="description" content="백준 11726번 2xn 타일링 문제를 Python으로 해결한 문제이다.">
+  <meta name="description" content="백준 1149번 RGB거리 문제를 Python으로 해결한 문제이다.">
   <!-- google 웹마스터 -->
   <meta name="google-site-verification" content="1M5pUHiID88fUVGyUOZvd5xyyGEcU37L6sdv7fkh8xg" />
   <!-- //google 웹마스터 -->
@@ -25,7 +25,7 @@
   <link rel="stylesheet" href="/assets/vendor/fontawesome-free/css/all.min.css">
 
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="canonical" href="http://localhost:4000/algorithm/2021/07/16/2xn-tiling.html">
+  <link rel="canonical" href="http://localhost:4000/algorithm/2021/07/17/rgb-distance.html">
   <link rel="alternate" type="application/rss+xml" title="Tech" href="/feed.xml">
   <link rel="stylesheet" href="/assets/css/syntax.css">
   <link rel="stylesheet" href="/assets/css/custom.css">
@@ -122,9 +122,9 @@
       <div class="row">
         <div class="col-lg-10 col-md-10 mx-auto">
           <div class="post-heading" style="padding:80px 0; color:#000 !important;">
-            <h1 style="font-size:40px !important;">백준 11726번 2xn 타일링 (python 파이썬)</h1>
+            <h1 style="font-size:40px !important;">백준 1149번 RGB거리 (python 파이썬)</h1>
             <h2 class="subheading" style="font-size:22px !important; color:#868e96 !important;">
-				July 16, 2021
+				July 17, 2021
 			</h2>
           </div>
         </div>
@@ -136,66 +136,65 @@
     <div class="row">
       <div class="col-lg-10 col-md-10 mx-auto">
 
-        <p>백준 11726번 2xn 타일링 문제를 Python으로 해결한 문제이다.</p>
+        <p>백준 1149번 RGB거리 문제를 Python으로 해결한 문제이다.</p>
 
 <ul>
-  <li><a href="https://www.acmicpc.net/problem/11726" target="_blank">백준 11726번 2xn 타일링 문제 링크</a></li>
+  <li><a href="https://www.acmicpc.net/problem/1149" target="_blank">백준 1149번 RGB거리 문제 링크</a></li>
 </ul>
 
 <h3 id="문제">문제</h3>
-<p>2×n 크기의 직사각형을 1×2, 2×1 타일로 채우는 방법의 수를 구하는 프로그램을 작성하시오.</p>
+<p>RGB거리에는 집이 N개 있다. 거리는 선분으로 나타낼 수 있고, 1번 집부터 N번 집이 순서대로 있다.</p>
 
-<p>아래 그림은 2×5 크기의 직사각형을 채운 한 가지 방법의 예이다.</p>
-<p align="center"><img src="/img/algorithm/tilling.PNG" /></p>
+<p>집은 빨강, 초록, 파랑 중 하나의 색으로 칠해야 한다. 각각의 집을 빨강, 초록, 파랑으로 칠하는 비용이 주어졌을 때, 아래 규칙을 만족하면서 모든 집을 칠하는 비용의 최솟값을 구해보자.</p>
+
+<ul>
+  <li>1번 집의 색은 2번 집의 색과 같지 않아야 한다.</li>
+  <li>N번 집의 색은 N-1번 집의 색과 같지 않아야 한다.</li>
+  <li>i(2 ≤ i ≤ N-1)번 집의 색은 i-1번, i+1번 집의 색과 같지 않아야 한다.</li>
+</ul>
 
 <h3 id="입력">입력</h3>
-<p>첫째 줄에 n이 주어진다. (1 ≤ n ≤ 1,000)</p>
+<p>첫째 줄에 집의 수 N(2 ≤ N ≤ 1,000)이 주어진다. 둘째 줄부터 N개의 줄에는 각 집을 빨강, 초록, 파랑으로 칠하는 비용이 1번 집부터 한 줄에 하나씩 주어진다. 집을 칠하는 비용은 1,000보다 작거나 같은 자연수이다.</p>
 
 <h3 id="출력">출력</h3>
-<p><strong><u>첫째 줄에 2×n 크기의 직사각형을 채우는 방법의 수를 10,007로 나눈 나머지를 출력한다.</u></strong></p>
+<p><strong><u>첫째 줄에 모든 집을 칠하는 비용의 최솟값을 출력한다.</u></strong></p>
 
 <h3 id="문제풀이">문제풀이</h3>
-<p>타일을 채우는 경우의 수를 따져보면 
-2x1 직사각형 : l     (1 가지)<br />
-2x2 직사각형 : ll, = (2 가지)<br />
-2x3 직사각형 : lll, =l, l= (3 가지)<br />
-2x4 직사각형 : llll, =ll, l=l, ll=, == (5 가지)<br />
-2x5 직사각형 : lllll, =lll, l=ll, ll=l, ==l, lll=, =l=, l== (8 가지)</p>
+<p>빨간집, 초록집, 파란집인 경우를 계산하는데 그 이전의 값들 중에서 같은 색을 제외하고 최솟값을 더해주는걸 반복한다.</p>
 
-<p>자세히 보면 피보나치 수열과 동일한 규칙을 찾을 수 있다. <br />
-그래서 3부터 n까지의 값을 피보나치 수열 공식을 이용해 dp 배열에 넣어준후에,<br />
-dp[n] % 10007을 이용하여 출력하면 된다.</p>
+<p>빨강, 초록, 파랑 집을 선택한 모든 경우에 대해 최솟값만이 더해져서 나오게 되며 이중에 최소 값을 선택하면 된다.</p>
 
 <h3 id="코드">코드</h3>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">sys</span>
 
 <span class="n">read</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">sys</span><span class="p">.</span><span class="n">stdin</span><span class="p">.</span><span class="n">readline</span><span class="p">().</span><span class="n">rstrip</span><span class="p">()</span>
 
-<span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">read</span><span class="p">())</span>
-<span class="n">dp</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+<span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">read</span><span class="p">())</span>
+<span class="n">RGB</span> <span class="o">=</span> <span class="p">[]</span>
 
-<span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">3</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="n">dp</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="n">dp</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">RGB</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">read</span><span class="p">().</span><span class="n">split</span><span class="p">())))</span>
 
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
-        <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+    <span class="c1"># 빨간집
+</span>    <span class="n">RGB</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">RGB</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">RGB</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span> <span class="o">+</span> <span class="n">RGB</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
 
-    <span class="k">print</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">%</span> <span class="mi">10007</span><span class="p">)</span>
+    <span class="c1"># 초록집
+</span>    <span class="n">RGB</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">RGB</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">RGB</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span> <span class="o">+</span> <span class="n">RGB</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="c1"># 파란집
+</span>    <span class="n">RGB</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">RGB</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">RGB</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="n">RGB</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">RGB</span><span class="p">[</span><span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]))</span>
 </code></pre></div></div>
 
 
         <hr>
         <div class="clearfix">
           
-          <a class="btn btn-primary float-left" href="/algorithm/2021/07/15/fibonacci.html" data-toggle="tooltip" data-placement="top" title="백준 1003번 피보나치 함수 (python 파이썬)">&larr; 이전<span class="d-none d-md-inline">
+          <a class="btn btn-primary float-left" href="/algorithm/2021/07/16/2xn-tiling.html" data-toggle="tooltip" data-placement="top" title="백준 11726번 2xn 타일링 (python 파이썬)">&larr; 이전<span class="d-none d-md-inline">
               게시물</span></a>
           
-          
-          <a class="btn btn-primary float-right" href="/algorithm/2021/07/17/rgb-distance.html" data-toggle="tooltip" data-placement="top" title="백준 1149번 RGB거리 (python 파이썬)">다음<span class="d-none d-md-inline">
-              게시물</span> &rarr;</a>
           
         </div>
 		
