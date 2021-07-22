@@ -8,11 +8,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <title>
-    백준 11053번 가장 긴 증가하는 부분 수열 (python 파이썬) - Tech
+    백준 2748번 피보나치 수 2 (python 파이썬) - Tech
     
   </title>
 
-  <meta name="description" content="백준 11053번 가장 긴 증가하는 부분 수열 문제를 Python으로 해결한 문제이다.">
+  <meta name="description" content="백준 2748번 피보나치 수 2 문제를 Python으로 해결한 문제이다.">
   <!-- google 웹마스터 -->
   <meta name="google-site-verification" content="1M5pUHiID88fUVGyUOZvd5xyyGEcU37L6sdv7fkh8xg" />
   <!-- //google 웹마스터 -->
@@ -25,7 +25,7 @@
   <link rel="stylesheet" href="/assets/vendor/fontawesome-free/css/all.min.css">
 
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="canonical" href="http://localhost:4000/algorithm/2021/07/21/longest-matrix.html">
+  <link rel="canonical" href="http://localhost:4000/algorithm/2021/07/22/fibonacci2.html">
   <link rel="alternate" type="application/rss+xml" title="Tech" href="/feed.xml">
   <link rel="stylesheet" href="/assets/css/syntax.css">
   <link rel="stylesheet" href="/assets/css/custom.css">
@@ -122,9 +122,9 @@
       <div class="row">
         <div class="col-lg-10 col-md-10 mx-auto">
           <div class="post-heading" style="padding:80px 0; color:#000 !important;">
-            <h1 style="font-size:40px !important;">백준 11053번 가장 긴 증가하는 부분 수열 (python 파이썬)</h1>
+            <h1 style="font-size:40px !important;">백준 2748번 피보나치 수 2 (python 파이썬)</h1>
             <h2 class="subheading" style="font-size:22px !important; color:#868e96 !important;">
-				July 21, 2021
+				July 22, 2021
 			</h2>
           </div>
         </div>
@@ -136,75 +136,55 @@
     <div class="row">
       <div class="col-lg-10 col-md-10 mx-auto">
 
-        <p>백준 11053번 가장 긴 증가하는 부분 수열 문제를 Python으로 해결한 문제이다.</p>
+        <p>백준 2748번 피보나치 수 2 문제를 Python으로 해결한 문제이다.</p>
 
 <ul>
-  <li><a href="https://www.acmicpc.net/problem/11053" target="_blank">백준 11053번 가장 긴 증가하는 부분 수열 문제 링크</a></li>
+  <li><a href="https://www.acmicpc.net/problem/2748" target="_blank">백준 2748번 피보나치 수 2 문제 링크</a></li>
 </ul>
 
 <h3 id="문제">문제</h3>
-<p>수열 A가 주어졌을 때, 가장 긴 증가하는 부분 수열을 구하는 프로그램을 작성하시오.</p>
+<p>피보나치 수는 0과 1로 시작한다. 0번째 피보나치 수는 0이고, 1번째 피보나치 수는 1이다. 그 다음 2번째 부터는 바로 앞 두 피보나치 수의 합이 된다.</p>
 
-<p>예를 들어, 수열 A = {10, 20, 10, 30, 20, 50} 인 경우에 가장 긴 증가하는 부분 수열은 A = {<strong>10</strong>, <strong>20</strong>, 10, <strong>30</strong>, 20, <strong>50</strong>} 이고, 길이는 4이다.</p>
+<p>이를 식으로 써보면 Fn = Fn-1 + Fn-2 (n ≥ 2)가 된다.</p>
+
+<p>n=17일때 까지 피보나치 수를 써보면 다음과 같다.</p>
+
+<p>0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597</p>
+
+<p>n이 주어졌을 때, n번째 피보나치 수를 구하는 프로그램을 작성하시오.</p>
 
 <h3 id="입력">입력</h3>
-<p>첫째 줄에 수열 A의 크기 N (1 ≤ N ≤ 1,000)이 주어진다.</p>
-
-<p>둘째 줄에는 수열 A를 이루고 있는 Ai가 주어진다. (1 ≤ Ai ≤ 1,000)</p>
+<p>첫째 줄에 n이 주어진다. n은 90보다 작거나 같은 자연수이다.</p>
 
 <h3 id="출력">출력</h3>
-<p><strong><u>첫째 줄에 수열 A의 가장 긴 증가하는 부분 수열의 길이를 출력한다.</u></strong></p>
+<p><strong><u>첫째 줄에 n번째 피보나치 수를 출력한다.</u></strong></p>
 
 <h3 id="문제풀이">문제풀이</h3>
-<p>DP로 풀어도 풀리지만 N^2의 시간복잡도를 가지기 때문에 더 빠른 이진 탐색(n log n) 풀이로 풀어보았다.</p>
+<p>문제에 n의 값이 90보다 작거나 같은경우라고 주어졌으니 피보나치 배열을 91개를 미리 만들어 놓는다.</p>
 
-<ol>
-  <li>dp를 A[0]으로 초기화한다.</li>
-  <li>현재 위치(i)가 이전 위치의 원소들보다 크면 dp에 추가한다.</li>
-  <li>현재 위치(i)가 이전 위치의 원소보다 작거나 같으면,
-    <ul>
-      <li>bisect.bisect_left로 이전 위치의 원소 중 가장 큰 원소의 index값을 구한다.</li>
-      <li>dp의 index 원소를 arr[i]로 바꿔준다.</li>
-    </ul>
-  </li>
-  <li>dp의 길이를 출력한다.
-    <ul>
-      <li><strong>정답은 4가 된다.</strong></li>
-    </ul>
-  </li>
-</ol>
+<p>그리고 피보나치배열에서 n값에 해당하는 값을 출력하면 된다.</p>
 
 <h3 id="코드">코드</h3>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">bisect</span>
 
 <span class="n">read</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">sys</span><span class="p">.</span><span class="n">stdin</span><span class="p">.</span><span class="n">readline</span><span class="p">().</span><span class="n">rstrip</span><span class="p">()</span>
 
-<span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">read</span><span class="p">())</span>
-<span class="n">A</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">read</span><span class="p">().</span><span class="n">split</span><span class="p">()))</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">read</span><span class="p">())</span>
+<span class="n">fibonacci</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
 
-<span class="n">dp</span> <span class="o">=</span> <span class="p">[</span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">91</span><span class="p">):</span>
+    <span class="n">fibonacci</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">fibonacci</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">fibonacci</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">dp</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
-        <span class="n">dp</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">idx</span> <span class="o">=</span> <span class="n">bisect</span><span class="p">.</span><span class="n">bisect_left</span><span class="p">(</span><span class="n">dp</span><span class="p">,</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-        <span class="n">dp</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-
-<span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dp</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">fibonacci</span><span class="p">[</span><span class="n">n</span><span class="p">])</span>
 </code></pre></div></div>
 
 
         <hr>
         <div class="clearfix">
           
-          <a class="btn btn-primary float-left" href="/algorithm/2021/07/20/integer-triangle.html" data-toggle="tooltip" data-placement="top" title="백준 1932번 정수 삼각형 (python 파이썬)">&larr; 이전<span class="d-none d-md-inline">
+          <a class="btn btn-primary float-left" href="/algorithm/2021/07/21/longest-matrix.html" data-toggle="tooltip" data-placement="top" title="백준 11053번 가장 긴 증가하는 부분 수열 (python 파이썬)">&larr; 이전<span class="d-none d-md-inline">
               게시물</span></a>
           
-          
-          <a class="btn btn-primary float-right" href="/algorithm/2021/07/22/fibonacci2.html" data-toggle="tooltip" data-placement="top" title="백준 2748번 피보나치 수 2 (python 파이썬)">다음<span class="d-none d-md-inline">
-              게시물</span> &rarr;</a>
           
         </div>
 		
