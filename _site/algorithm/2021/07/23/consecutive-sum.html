@@ -8,11 +8,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <title>
-    백준 2748번 피보나치 수 2 (python 파이썬) - Tech
+    백준 1912번 연속합 (python 파이썬) - Tech
     
   </title>
 
-  <meta name="description" content="백준 2748번 피보나치 수 2 문제를 Python으로 해결한 문제이다.">
+  <meta name="description" content="백준 1912번 연속합 문제를 Python으로 해결한 문제이다.">
   <!-- google 웹마스터 -->
   <meta name="google-site-verification" content="1M5pUHiID88fUVGyUOZvd5xyyGEcU37L6sdv7fkh8xg" />
   <!-- //google 웹마스터 -->
@@ -25,7 +25,7 @@
   <link rel="stylesheet" href="/assets/vendor/fontawesome-free/css/all.min.css">
 
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="canonical" href="http://localhost:4000/algorithm/2021/07/22/fibonacci2.html">
+  <link rel="canonical" href="http://localhost:4000/algorithm/2021/07/23/consecutive-sum.html">
   <link rel="alternate" type="application/rss+xml" title="Tech" href="/feed.xml">
   <link rel="stylesheet" href="/assets/css/syntax.css">
   <link rel="stylesheet" href="/assets/css/custom.css">
@@ -122,9 +122,9 @@
       <div class="row">
         <div class="col-lg-10 col-md-10 mx-auto">
           <div class="post-heading" style="padding:80px 0; color:#000 !important;">
-            <h1 style="font-size:40px !important;">백준 2748번 피보나치 수 2 (python 파이썬)</h1>
+            <h1 style="font-size:40px !important;">백준 1912번 연속합 (python 파이썬)</h1>
             <h2 class="subheading" style="font-size:22px !important; color:#868e96 !important;">
-				July 22, 2021
+				July 23, 2021
 			</h2>
           </div>
         </div>
@@ -136,33 +136,77 @@
     <div class="row">
       <div class="col-lg-10 col-md-10 mx-auto">
 
-        <p>백준 2748번 피보나치 수 2 문제를 Python으로 해결한 문제이다.</p>
+        <p>백준 1912번 연속합 문제를 Python으로 해결한 문제이다.</p>
 
 <ul>
-  <li><a href="https://www.acmicpc.net/problem/2748" target="_blank">백준 2748번 피보나치 수 2 문제 링크</a></li>
+  <li><a href="https://www.acmicpc.net/problem/1912" target="_blank">백준 1912번 연속합 문제 링크</a></li>
 </ul>
 
 <h3 id="문제">문제</h3>
-<p>피보나치 수는 0과 1로 시작한다. 0번째 피보나치 수는 0이고, 1번째 피보나치 수는 1이다. 그 다음 2번째 부터는 바로 앞 두 피보나치 수의 합이 된다.</p>
+<p>n개의 정수로 이루어진 임의의 수열이 주어진다. 우리는 이 중 연속된 몇 개의 수를 선택해서 구할 수 있는 합 중 가장 큰 합을 구하려고 한다. 단, 수는 한 개 이상 선택해야 한다.</p>
 
-<p>이를 식으로 써보면 Fn = Fn-1 + Fn-2 (n ≥ 2)가 된다.</p>
-
-<p>n=17일때 까지 피보나치 수를 써보면 다음과 같다.</p>
-
-<p>0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597</p>
-
-<p>n이 주어졌을 때, n번째 피보나치 수를 구하는 프로그램을 작성하시오.</p>
+<p>예를 들어서 10, -4, 3, 1, 5, 6, -35, 12, 21, -1 이라는 수열이 주어졌다고 하자. 여기서 정답은 12+21인 33이 정답이 된다.</p>
 
 <h3 id="입력">입력</h3>
-<p>첫째 줄에 n이 주어진다. n은 90보다 작거나 같은 자연수이다.</p>
+<p>첫째 줄에 정수 n(1 ≤ n ≤ 100,000)이 주어지고 둘째 줄에는 n개의 정수로 이루어진 수열이 주어진다. 수는 -1,000보다 크거나 같고, 1,000보다 작거나 같은 정수이다.</p>
 
 <h3 id="출력">출력</h3>
-<p><strong><u>첫째 줄에 n번째 피보나치 수를 출력한다.</u></strong></p>
+<p><strong><u>첫째 줄에 답을 출력한다.</u></strong></p>
 
 <h3 id="문제풀이">문제풀이</h3>
-<p>문제에 n의 값이 90보다 작거나 같은경우라고 주어졌으니 피보나치 배열을 91개를 미리 만들어 놓는다.</p>
+<p>조건식은 0부터 반복을 돌리는데, max(dp[i] + sequence[i+1], sequence[i+1]) 이다.</p>
 
-<p>그리고 피보나치배열에서 n값에 해당하는 값을 출력하면 된다.</p>
+<p>수열이 10 -4 3 1 5 6 -35 12 21 -1과 같다고 친다면,</p>
+<ol>
+  <li>dp = [10]</li>
+  <li>dp = [10, 6]
+    <ul>
+      <li>max(10+-4, -4) 인경우 6, -4 이므로 6이 들어간다.</li>
+    </ul>
+  </li>
+  <li>dp = [10, 6, 9]
+    <ul>
+      <li>max(6+3, 3) 인경우 9, 3 이므로 9가 들어간다.</li>
+    </ul>
+  </li>
+  <li>dp = [10, 6, 9, 10]
+    <ul>
+      <li>max(9+1, 1) 인경우 10, 1 이므로 10이 들어간다.</li>
+    </ul>
+  </li>
+  <li>dp = [10, 6, 9, 10, 15]
+    <ul>
+      <li>max(10+5, 5) 인경우 15, 5 이므로 15가 들어간다.</li>
+    </ul>
+  </li>
+  <li>dp = [10, 6, 9, 10, 15, 21]
+    <ul>
+      <li>max(15+6, 6) 인경우 21, 6 이므로 21이 들어간다.</li>
+    </ul>
+  </li>
+  <li>dp = [10, 6, 9, 10, 15, 21, -14]
+    <ul>
+      <li>max(21+-35, -35) 인경우 -14, -35 이므로 -14가 들어간다.</li>
+    </ul>
+  </li>
+  <li>dp = [10, 6, 9, 10, 15, 21, -14, 12]
+    <ul>
+      <li>max(-14+12, 12) 인경우 -2, 12 이므로 12가 들어간다.</li>
+    </ul>
+  </li>
+  <li>dp = [10, 6, 9, 10, 15, 21, -14, 12, 33]
+    <ul>
+      <li>max(12+21, 21) 인경우 33, 21 이므로 33이 들어간다.</li>
+    </ul>
+  </li>
+  <li>dp = [10, 6, 9, 10, 15, 21, -14, 12, 33, 32]
+    <ul>
+      <li>max(33+-1, -1) 인경우 32, -1 이므로 32가 들어간다.</li>
+    </ul>
+  </li>
+</ol>
+
+<p>마지막으로 dp의 배열중에 가장 큰값을 출력하면 된다.</p>
 
 <h3 id="코드">코드</h3>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">sys</span>
@@ -170,24 +214,22 @@
 <span class="n">read</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">sys</span><span class="p">.</span><span class="n">stdin</span><span class="p">.</span><span class="n">readline</span><span class="p">().</span><span class="n">rstrip</span><span class="p">()</span>
 
 <span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">read</span><span class="p">())</span>
-<span class="n">fibonacci</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">sequence</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">read</span><span class="p">().</span><span class="n">split</span><span class="p">()))</span>
 
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">91</span><span class="p">):</span>
-    <span class="n">fibonacci</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">fibonacci</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">fibonacci</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">dp</span> <span class="o">=</span> <span class="p">[</span><span class="n">sequence</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
 
-<span class="k">print</span><span class="p">(</span><span class="n">fibonacci</span><span class="p">[</span><span class="n">n</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sequence</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="n">dp</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">sequence</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="n">sequence</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]))</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">dp</span><span class="p">))</span>
 </code></pre></div></div>
 
 
         <hr>
         <div class="clearfix">
           
-          <a class="btn btn-primary float-left" href="/algorithm/2021/07/21/longest-matrix.html" data-toggle="tooltip" data-placement="top" title="백준 11053번 가장 긴 증가하는 부분 수열 (python 파이썬)">&larr; 이전<span class="d-none d-md-inline">
+          <a class="btn btn-primary float-left" href="/algorithm/2021/07/22/fibonacci2.html" data-toggle="tooltip" data-placement="top" title="백준 2748번 피보나치 수 2 (python 파이썬)">&larr; 이전<span class="d-none d-md-inline">
               게시물</span></a>
           
-          
-          <a class="btn btn-primary float-right" href="/algorithm/2021/07/23/consecutive-sum.html" data-toggle="tooltip" data-placement="top" title="백준 1912번 연속합 (python 파이썬)">다음<span class="d-none d-md-inline">
-              게시물</span> &rarr;</a>
           
         </div>
 		
